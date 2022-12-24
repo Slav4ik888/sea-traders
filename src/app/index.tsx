@@ -1,15 +1,24 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { screenResizeListener, useUI } from 'features/ui';
+import { AppRouter } from './providers/routes';
+import { useMouse } from 'shared/lib';
 
 
-interface Props {
-}
+export const App: FC = () => {
+  const
+    { setDisplaySize } = useUI();
+  
+  useMouse();
+  
+  useEffect(() => {
+    screenResizeListener(setDisplaySize);
+  }, []);
 
-
-export const App: FC<Props> = ({  }) => {
-
+  
+  console.log('Wellcome to the game: "The Sea Traders!"');
   return (
     <>
-      Hello sea trader!
+      <AppRouter />
     </>
   )
 };

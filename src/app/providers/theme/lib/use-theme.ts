@@ -1,0 +1,37 @@
+import { useContext } from 'react';
+import { Theme, ThemeContext } from './context';
+import { LS } from 'shared/lib';
+
+
+interface UseTheme {
+  toggleTheme : () => void;
+  theme       : Theme;
+}
+
+export const useTheme = (): UseTheme => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    let newTheme: Theme;
+
+    switch (theme) {
+      case Theme.DARK:
+        newTheme = Theme.LIGHT;
+        break;
+      case Theme.LIGHT:
+        newTheme = Theme.DARK;
+        break;
+
+      default: newTheme = Theme.DARK;
+    }
+
+    LS.setTheme(newTheme);
+    setTheme?.(newTheme);
+    document.body.className = newTheme;
+  };
+
+  return {
+    theme: theme || Theme.LIGHT,
+    toggleTheme
+  }
+};

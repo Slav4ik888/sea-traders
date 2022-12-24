@@ -15,7 +15,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   
 
   const imagesLoader = {
-    test : /\.(png|jpe?g|gif)$/i,
+    test : /\.(png|jpe?g|gif|webp)$/i,
     type : 'asset/resource'
   };
 
@@ -31,7 +31,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 
   const svgLoader = {
     test : /\.svg$/i,
-    use  : ['@svgr/webpack', 'url-loader']
+    use  : ['@svgr/webpack']
   };
 
 

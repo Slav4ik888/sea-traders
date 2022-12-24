@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
+.btn {
+  margin: 16px 0;
+}

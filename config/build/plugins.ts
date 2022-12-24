@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { HotModuleReplacementPlugin } from 'webpack';
+import { DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BuildOptions } from "./types";
 
@@ -15,6 +15,9 @@ export const buildPlugins = ({ paths: { html, favicon }, isDev }: BuildOptions) 
       title: 'The Sea Traders!',
       template: html,
       favicon: favicon
+    }),
+    new DefinePlugin({
+      __IS_DEV__  : JSON.stringify(isDev),
     })
   ];
 

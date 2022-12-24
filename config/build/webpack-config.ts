@@ -20,7 +20,8 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
       path                : paths.build,
       filename            : '[name].[contenthash].js',
       assetModuleFilename : 'images/[hash][ext][query]',
-      clean               : true
+      clean               : true,
+      publicPath          : '/'
     },
     plugins   : buildPlugins(options),
     resolve   : buildResolvers(options),

@@ -1,0 +1,12 @@
+.root {
+  position: absolute;
+  transition: background 0.3s;
+
+  &:hover {
+    background: yellow;
+  }
+}
+
+.icon {
+  width: var(--town-icon-size);
+}

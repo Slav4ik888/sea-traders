@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--navbar-bg-color);
+  padding: 20px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
+.btn {
+  margin: 16px 0;
+}
