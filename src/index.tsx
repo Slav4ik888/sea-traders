@@ -19,4 +19,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "start project" && git push origin main
+// git add . && git commit -m "start add types: goods, towns" && git push -u origin main
