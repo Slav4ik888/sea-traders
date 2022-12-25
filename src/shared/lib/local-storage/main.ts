@@ -18,7 +18,7 @@ const checkError = (data: unknown, fieldName: string) => {
 };
 
 
-const PREFIX = 'UlibiProd-';
+const PREFIX = 'SeaTraders-';
 
 const getStorage = (storageName: string) => PREFIX + storageName;
 

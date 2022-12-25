@@ -1,0 +1,6 @@
+export const VARIABLES = {
+  MAIN_MAP_WIDTH     : 1440,
+  MAIN_MAP_HEIGHT    : 1017,
+  MAIN_MAP_CELL_SIZE : 5,
+
+}

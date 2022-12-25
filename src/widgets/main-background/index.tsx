@@ -1,3 +1,4 @@
+import { MapGrid } from 'entities/map';
 import { TOWNS } from 'entities/town';
 import { FC } from 'react';
 import Image from 'react-image-webp';
@@ -15,6 +16,7 @@ export const MainBackground: FC = () => {
         alt='Background main map'
         className={s.mainMap}
       />
+      <MapGrid />
       {
         TOWNS.map(town => <MapTown key={town.title} town={town} />)
       }
