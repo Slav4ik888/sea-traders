@@ -1,8 +1,9 @@
-import { Map, MapCellType } from '../types/map';
+import { MapType, MapCellType } from '../types/map';
 
-export const MAP: Map = {
-  A1: {
-    id: 'A1',
-    type: MapCellType.LAND
+/** Полная карта, для отрисовки */
+export const MAP: MapType = {
+  '1_1': {
+    id: '1_1',
+    type: MapCellType.SEA
   }
 }

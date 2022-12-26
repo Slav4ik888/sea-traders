@@ -1,8 +1,9 @@
-import { FC, useMemo } from 'react';
+import { FC, useEffect, useMemo } from 'react';
 import { Row } from './row';
 import { VARIABLES } from 'app/config';
+import { getStartMap } from './utils/get-start-map';
 import s from './index.module.scss';
-import { getStartMap } from './utils';
+import { useMap } from 'entities/map';
 
 
 const { MAIN_MAP_CELL_SIZE, MAIN_MAP_WIDTH, MAIN_MAP_HEIGHT } = VARIABLES;
@@ -13,23 +14,28 @@ interface Props {
 
 export const MapGrid: FC<Props> = ({  }) => {
   const
+    { map, setMap } = useMap(),
     colAmount = useMemo(() => Math.floor(MAIN_MAP_WIDTH / MAIN_MAP_CELL_SIZE), []),
     rowAmount = useMemo(() => Math.floor(MAIN_MAP_HEIGHT / MAIN_MAP_CELL_SIZE), []),
-    startMap  = getStartMap(rowAmount, colAmount);
-    
-  console.log('colAmount: ', colAmount);
-  console.log('rowAmount: ', rowAmount);
+    startMap  = useMemo(() => getStartMap(rowAmount, colAmount), []);
+  
+  useEffect(() => { setMap(startMap) }, [startMap]);
+  
+  // console.log('colAmount: ', colAmount); // 288
+  // console.log('rowAmount: ', rowAmount); // 203
+
   if (!rowAmount) return null;
+
 
 
   return (
     <div className={s.root}>
       {
-        [...new Array(rowAmount)].map((r, i) => (
+        [...new Array(rowAmount)].map((_, i) => (
           <Row
-            key      = {`${i}`}
-            rowIdx   = {i}
-            colAmount   = {colAmount}
+            key       = {`${i}`}
+            colAmount = {colAmount}
+            rowIdx    = {i}
           />
         ))
       }

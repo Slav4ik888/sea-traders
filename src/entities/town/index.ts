@@ -1,5 +1,5 @@
 export {
   Town,
   TownName,
-  TOWNS
 } from './model/types'
+export { TOWNS } from './model/data'

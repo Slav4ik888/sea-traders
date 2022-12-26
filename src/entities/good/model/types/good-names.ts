@@ -1,25 +1,25 @@
 
 export enum GoodName {
-  Wood = 'Древесина',
-  Bricks = 'Кирпичи',
-  Sugar = 'Сахар',
+  Wood     = 'Древесина',
+  Bricks   = 'Кирпичи',
+  Sugar    = 'Сахар',
   Textiles = 'Текстиль',
-  Wheat = 'Пшеница',
-  Corn = 'Кукуруза',
-  Fruits = 'Фрукты',
-  Metal = 'Металл',
-  Hemp = 'Конопля',
-  Cotton = 'Хлопок',
-  Dyes = 'Красители',
-  Tools = 'Инструменты',
-  Coffee = 'Кофе',
-  Cacao = 'Какао',
-  Tobacco = 'Табак',
-  Meat = 'Мясо',
+  Wheat    = 'Пшеница',
+  Corn     = 'Кукуруза',
+  Fruits   = 'Фрукты',
+  Metal    = 'Металл',
+  Hemp     = 'Конопля',
+  Cotton   = 'Хлопок',
+  Dyes     = 'Красители',
+  Tools    = 'Инструменты',
+  Coffee   = 'Кофе',
+  Cacao    = 'Какао',
+  Tobacco  = 'Табак',
+  Meat     = 'Мясо',
   Clothing = 'Одежда',
-  Bread = 'Хлеб',
-  Ropes = 'Веревки',
-  Rum = 'Ром'
+  Bread    = 'Хлеб',
+  Ropes    = 'Веревки',
+  Rum      = 'Ром'
 }
 
 // Wood	33

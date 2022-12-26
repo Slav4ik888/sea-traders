@@ -6,9 +6,13 @@ import { getPosition } from './get-position';
 import CopyIcon from 'shared/assets/icons/copy.svg';
 import s from './index.module.scss';
 import { Position } from 'features/ui';
+import { Select, Text } from 'shared/ui';
 
 
-
+/** 
+ * Возможность выбирать точку на карту и помещать туда TowmIcon
+ * & get code Town with coords
+ */
 export const CoordsMaker: FC = () => {
   const
     { point, clearPoint } = useMouse(),
@@ -55,19 +59,12 @@ export const CoordsMaker: FC = () => {
 
       {
         isTooltip && <div className={s.tooltip} style={position}>
-          <div>Выберите название города</div>
-          <form>
-            <select value={selectedTown} onChange={handlerSelect}>
-              {
-                Object.entries(TownName).map(townName => <option
-                  key={townName[0]}
-                  value={townName[0]}
-                >
-                  {townName[1]}
-                </option>)
-              }
-            </select>
-          </form>
+          <Text title='Выберите название города' />
+          <Select
+            selectedValue = {selectedTown}
+            options       = {Object.values(TownName)}
+            onChange      = {handlerSelect}
+          />
           <pre className={s.pre}>
             <code>
               {code}

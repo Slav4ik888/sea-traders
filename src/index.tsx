@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "start map with cell" && git push -u origin main
+// git add . && git commit -m "started goods development" && git push -u origin main

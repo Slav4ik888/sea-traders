@@ -3,6 +3,7 @@ import { NavigateOptions, To } from 'react-router-dom'
 import { uiSlice } from 'features/ui';
 import { StateSchema } from './state';
 import { createReducerManager } from './reducer-manager';
+import { mapSlice } from 'entities/map';
 // import { api } from 'shared/api';
 
 
@@ -15,6 +16,7 @@ export function createReduxStore(
     rootReducers: ReducersMapObject<StateSchema> = {
       ...asyncReducers,
       ui      : uiSlice.reducer,
+      map     : mapSlice.reducer
     },
     reducerManager = createReducerManager(rootReducers),
     extraArg = {

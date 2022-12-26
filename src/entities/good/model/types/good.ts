@@ -1,7 +1,10 @@
-import { Prise } from 'entities/prise';
+import { PriceItem } from 'entities/price';
+import { GoodName } from './good-names';
 
 
-export interface Good {
-  title  : string
-  prises : Prise
+export interface Goods {
+  id              : string
+  title           : GoodName
+  filename        : string    // Название файла иконки
+  productionPrice : PriceItem // Стоимость производства
 }

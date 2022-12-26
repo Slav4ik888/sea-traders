@@ -1,2 +1,6 @@
 export { Loader } from './loader'
 export { Tooltip } from './tooltip'
+export { Text } from './text'
+export { Select } from './select'
+export { Portal } from './portal'
+export { Modal } from './modal'

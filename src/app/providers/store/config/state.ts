@@ -1,11 +1,12 @@
 import { NavigateOptions, To } from 'react-router-dom';
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchemaUI } from 'features/ui';
+import { StateSchemaMap } from 'entities/map';
 
 
 export interface StateSchema {
   ui      : StateSchemaUI
-
+  map     : StateSchemaMap
   // Async reducer
 };
 

@@ -10,4 +10,4 @@ export interface MapCell {
   type : MapCellType
 }
 
-export type Map = Record<string, MapCell>;
+export type MapType = Record<string, MapCell>;
