@@ -4,19 +4,25 @@ import { Portal } from 'shared/ui';
 import s from './index.module.scss';
 
 
+export interface ModalStyles {
+  root?    : string
+  overlay? : string
+  content? : string
+}
+
 
 interface Props {
-  className? : string
-  isOpen     : boolean
-  children   : ReactNode
-  lazy?      : boolean
-  onClose?   : () => void
+  styles?  : ModalStyles
+  isOpen   : boolean
+  children : ReactNode
+  lazy?    : boolean
+  onClose? : () => void
 }
 
 const ANIMATION_DELAY = 300;
 
 
-export const Modal: FC<Props> = ({ className, lazy, isOpen, children, onClose }) => {
+export const Modal: FC<Props> = ({ styles, lazy, isOpen, children, onClose }) => {
   const
     [isClosing, setIsClosing] = useState(false),
     [isMounted, setIsMounted] = useState(false),
@@ -69,18 +75,18 @@ export const Modal: FC<Props> = ({ className, lazy, isOpen, children, onClose })
 
   return (
     <Portal>
-      <div className={cn(s.root, mods, [className])}>
+      <div className={cn(s.root, mods, [styles?.root])}>
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
         <div
-          className = {s.overlay}
+          className = {cn(s.overlay, {}, [styles?.overlay])}
           role      = 'button'
           tabIndex  = {0}
           onClick   = {handlerClose}
         >
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
           <div
-            className = {s.content}
-            role      = 'button'
+            className = {cn(s.content, {}, [styles?.content])}
+            // role      = 'button'
             tabIndex  = {0}
             onClick   = {handlerContentClick}
           >

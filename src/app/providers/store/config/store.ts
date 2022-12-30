@@ -4,6 +4,7 @@ import { uiSlice } from 'features/ui';
 import { StateSchema } from './state';
 import { createReducerManager } from './reducer-manager';
 import { mapSlice } from 'entities/map';
+import { townsSlice } from 'entities/towns';
 // import { api } from 'shared/api';
 
 
@@ -16,7 +17,8 @@ export function createReduxStore(
     rootReducers: ReducersMapObject<StateSchema> = {
       ...asyncReducers,
       ui      : uiSlice.reducer,
-      map     : mapSlice.reducer
+      map     : mapSlice.reducer,
+      towns   : townsSlice.reducer
     },
     reducerManager = createReducerManager(rootReducers),
     extraArg = {

@@ -4,6 +4,8 @@ export interface Point {
 }
 
 export interface Position {
-  top: string
-  left: string
+  top?    : string
+  left?   : string
+  right?  : string
+  bottom? : string
 }

@@ -1,1 +1,0 @@
-export { GoodsListBtn } from './ui'

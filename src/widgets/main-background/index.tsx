@@ -1,7 +1,7 @@
-// import { MapGrid } from 'entities/map';
-import { GoodsListBtn } from 'entities/good/ui/goods-list-btn';
-import { TOWNS } from 'entities/town';
 import { FC } from 'react';
+// import { MapGrid } from 'entities/map';
+import { TradeWithTown } from 'entities/good/ui';
+import { TOWNS } from 'entities/towns';
 import Image from 'react-image-webp';
 // import { CoordsMaker } from 'widgets/dev/coords-maker';
 import { MapTown } from 'widgets/map-town';
@@ -20,7 +20,7 @@ export const MainBackground: FC = () => {
       {
         TOWNS.map(town => <MapTown key={town.title} town={town} />)
       }
-      <GoodsListBtn />
+      <TradeWithTown />
       {/* <MapGrid /> */}
       {/* <CoordsMaker /> */}
     </div>

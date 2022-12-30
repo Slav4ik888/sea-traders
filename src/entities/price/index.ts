@@ -1,4 +1,6 @@
 export {
   PriceType,
-  PriceItem
+  PriceItem,
+  FinOperationType,
+  FinHistory
 } from './model/types'

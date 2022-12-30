@@ -1,4 +1,4 @@
-import { Town, TownName } from 'entities/town';
+import { Town, TownName } from 'entities/towns';
 import { FC, useCallback, useMemo, useState } from 'react';
 import { useMouse } from 'shared/lib';
 import { MapTown } from 'widgets/map-town';

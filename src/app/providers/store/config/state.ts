@@ -2,11 +2,13 @@ import { NavigateOptions, To } from 'react-router-dom';
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchemaUI } from 'features/ui';
 import { StateSchemaMap } from 'entities/map';
+import { StateSchemaTowns } from 'entities/towns';
 
 
 export interface StateSchema {
   ui      : StateSchemaUI
   map     : StateSchemaMap
+  towns   : StateSchemaTowns
   // Async reducer
 };
 

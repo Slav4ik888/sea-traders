@@ -1,1 +1,4 @@
-export { GoodName } from './model/types'
+export {
+  GoodName,
+  Goods
+} from './model/types'
