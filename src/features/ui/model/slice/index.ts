@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { DisplaySize, StateSchemaUI } from '../types';
+import { DisplaySize, GameLevel, StateSchemaUI } from '../types';
 
 
 const initialState: StateSchemaUI = {
-  displaySize     : undefined, // Сurrent screen length
+  gameLevel   : GameLevel.NORMAL,
+  displaySize : undefined, // Сurrent screen length
 };
 
 
@@ -11,6 +12,9 @@ export const slice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
+    setGameLavel: (state, { payload }: PayloadAction<GameLevel>) => {
+      state.gameLevel = payload;
+    },
     setDisplaySize: (state, { payload }: PayloadAction<DisplaySize>) => {
       state.displaySize = payload;
     }

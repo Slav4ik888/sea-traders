@@ -48,7 +48,9 @@ export const Tooltip = memo((props: Props) => {
         left   = '-' + (coords?.width / 2 - 14) + 'px'; // 14 - half of icon
 
       setPosition({ top, left });
+      // document.addEventListener('click', handlerClose);
     }
+    // return (() => document.removeEventListener('click', handlerClose))
   }, [open]);
 
 

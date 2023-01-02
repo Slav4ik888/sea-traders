@@ -1,10 +1,13 @@
-import { Goods } from 'entities/good';
+import { ProductId } from 'entities/products';
+import { PriceItem } from './price';
+
 
 
 export interface FinHistory {
   type      : FinOperationType
-  goods     : Goods
+  productId : ProductId
   amount    : number
+  price     : PriceItem
   createdAt : string
   
 }

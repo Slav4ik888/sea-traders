@@ -1,11 +1,8 @@
 
 
-
-
-
-export interface PriceItem {
-  sell     : number
-  purchase : number
+export interface PriceItem extends Array<number> {
+  0: number // sell
+  1: number // purchase
 }
 
 

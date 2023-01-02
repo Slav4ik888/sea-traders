@@ -1,9 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateSchemaTowns, Town } from '../types';
+import { StateSchemaTowns, Town, TownsMarkets } from '../types';
+
+
 
 
 const initialState: StateSchemaTowns = {
-  selectedTownForTrade: null
+  entities             : {},
+  selectedTownForTrade : null,
+  markets              : {} as TownsMarkets
 };
 
 
@@ -11,6 +15,17 @@ export const slice = createSlice({
   name: 'towns',
   initialState,
   reducers: {
+    setTowns: (state, { payload }: PayloadAction<Town[]>) => {
+      state.entities = {
+        ...payload.reduce((acc, town) => {
+          acc[town.title] = { ...town };
+          return acc
+        }, {})
+      };
+    },
+    setTownsMarkets: (state, { payload }: PayloadAction<TownsMarkets>) => {
+      state.markets = { ...payload };
+    },
     setSelectedTownForTrade: (state, { payload }: PayloadAction<Town>) => {
       state.selectedTownForTrade = payload;
     }

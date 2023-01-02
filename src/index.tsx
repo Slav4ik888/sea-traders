@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "trade-with-town" && git push -u origin main
+// git add . && git commit -m "add desing for Card & start fill towns" && git push -u origin main

@@ -28,6 +28,23 @@ export const Modal: FC<Props> = ({ styles, lazy, isOpen, children, onClose }) =>
     [isMounted, setIsMounted] = useState(false),
     timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
+  
+  useEffect(() => {
+    // When the modal is shown, we want a fixed body
+    if (isOpen) {
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+    }
+    // When the modal is hidden, we want to remain at the top of the scroll position
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [isOpen]);
+
+
   const handlerContentClick = (e: React.MouseEvent) => e.stopPropagation();
 
   const handlerClose = useCallback(() => {

@@ -1,5 +1,14 @@
 import { Town } from './town';
+import { TownsMarkets } from './towns-markets';
+
+
+export interface TownsEntities {
+  [townName: string]: Town
+}
+
 
 export interface StateSchemaTowns {
-  selectedTownForTrade: Town
+  entities             : TownsEntities
+  selectedTownForTrade : Town
+  markets              : TownsMarkets
 }

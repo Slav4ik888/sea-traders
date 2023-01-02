@@ -46,14 +46,14 @@ export const MapTown: FC<Props> = ({ town }) => {
     >
       <TootipTownName title={town.title}>
         <img
-          src       = {require('shared/assets/towns/town-icon.png')}
+          src       = {require('shared/assets/towns/icons/town-icon.png')}
           alt       = 'town-icon'
           className = {s.icon}
         />
-        {
-          hover && <TradeTownBtn town={town} />
-        }
       </TootipTownName>
+      {
+        hover && <TradeTownBtn town={town} />
+      }
     </div>
   )
 };

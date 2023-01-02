@@ -20,13 +20,19 @@ export enum TextSize {
   L = 'size_large'
 }
 
+interface TextStyles {
+  root?  : string
+  title? : string
+  text?  : string
+}
+
 interface Props {
-  title?     : string
-  text?      : string
-  className? : string
-  theme?     : TextTheme
-  align?     : TextAlign
-  size?      : TextSize
+  title?  : string
+  text?   : string
+  styles? : TextStyles
+  theme?  : TextTheme
+  align?  : TextAlign
+  size?   : TextSize
 }
 
 
@@ -37,17 +43,17 @@ export const Text: FC<Props> = memo((props) => {
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
     size  = TextSize.M,
-    className
+    styles
   } = props;
 
 
   return (
-    <div className={cn(s.root, {}, [s[theme], s[align],  s[size], className])}>
+    <div className={cn(s.root, {}, [s[theme], s[align],  s[size], styles.root])}>
       {
-        title && <p className={s.title}>{title}</p>
+        title && <p className={cn(s.title, {}, [styles.title])}>{title}</p>
       }
       {
-        text && <p className={s.text}>{text}</p>
+        text && <p className={cn(s.text, {}, [styles.text])}>{text}</p>
       }
     </div>
   )

@@ -1,24 +1,35 @@
 :root {
-  --bg-color                 : #918271;
-  --inverted-bg-color        : #394f5b;
+  --bg-color                  : #918271;
+  --inverted-bg-color         : #394f5b;
 
-  --primary-color            : #1d1c3c;
-  --secondary-color          : #6f9a9b;
-  --error-color-light        : red;
-  --error-color-dark         : #ac0606;
+  --primary-color             : #1d1c3c;
+  --secondary-color           : #6f9a9b;
+  --error-color-light         : red;
+  --error-color-dark          : #ac0606;
 
-  --inverted-primary-color   : #b6c9d8;
-  --inverted-secondary-color : #c0bfc7;
+  --inverted-primary-color    : #b6c9d8;
+  --inverted-secondary-color  : #c0bfc7;
 
-  --red-color                : red;
+  --red-color                 : red;
 
   // Navbar
-  --navbar-bg-color          : #213441;
+  --navbar-bg-color           : #213441;
 
   // Skeleton
-  --skeleton-shadow          : rgb(220, 220, 220);
-  --skeleton-color           : #c7c7c7;
+  --skeleton-shadow           : rgb(220, 220, 220);
+  --skeleton-color            : #c7c7c7;
 
   // Tooltip
-  --tooltip-bg-color         : #baaa98;
+  --tooltip-bg-color          : #baaa98;
+
+  // Value
+  --bg-color-default          : #899fa8;
+
+  // Card
+  // --card-bg-color-hover      : #827665;
+  --card-title-color          : #d1c5ac;
+  --card-header-shadow        : #351d14;
+  --card-content-shadow       : #574a37;
+  --card-values-border-color  : #6e614e;
+  --card-values-bg-color      : rgba(155, 141, 121, 0.6);
 }

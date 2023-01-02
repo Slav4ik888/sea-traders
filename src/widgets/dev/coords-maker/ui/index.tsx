@@ -1,4 +1,4 @@
-import { Town, TownName } from 'entities/towns';
+import { Town, TownMarket, TownName } from 'entities/towns';
 import { FC, useCallback, useMemo, useState } from 'react';
 import { useMouse } from 'shared/lib';
 import { MapTown } from 'widgets/map-town';
@@ -28,7 +28,8 @@ export const CoordsMaker: FC = () => {
         title: TownName.Havana,
         point,
         produces: [],
-        highDemand: []
+        highDemand: [],
+        market: {} as TownMarket
       }
     }, [point]);
   
