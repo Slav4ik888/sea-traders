@@ -1,5 +1,5 @@
-import { ProductName } from './product-names';
-import { ProductId, Product, ProductType } from './product';
+import { ProductName } from '../types/product-names';
+import { ProductId, Product, ProductType } from '../types/product';
 
 
 export const PRODUCTS: Record<ProductId, Product> = {

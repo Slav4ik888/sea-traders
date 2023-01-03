@@ -1,4 +1,4 @@
-import { Product, ProductType } from 'entities/products';
+import { Product, ProductType } from '../../../../products';
 
 
 export const getMultyProducts = (products: Product[]): Product[] => {

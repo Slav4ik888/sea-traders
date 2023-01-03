@@ -3,4 +3,5 @@ export const VARIABLES = {
   MAIN_MAP_HEIGHT    : 1017,
   MAIN_MAP_CELL_SIZE : 5,
 
+  MAX_MULTY_PRODUCT_IN_TOWN : 2,
 }

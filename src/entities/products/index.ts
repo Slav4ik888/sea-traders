@@ -1,8 +1,9 @@
 export {
   ProductName,
-  PRODUCTS,
   ProductId,
   Product,
   ProductType,
   LeftOvers
 } from './model/types'
+
+export { PRODUCTS } from './model/data'
