@@ -1,4 +1,4 @@
-import { Town } from '../../../types'
+import { Town } from '../../../../types'
 
 interface MockItem {
   description : string

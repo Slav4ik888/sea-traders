@@ -1,5 +1,5 @@
-import { PRODUCTS, ProductType } from '../../../../products';
-import { Town } from '../../types';
+import { PRODUCTS, ProductType } from '../../../../../products';
+import { Town } from '../../../types';
 
 /** Сколько в городе производств, выбранного типа */
 export const matchTypesProducesInTown = (town: Town, type: ProductType) => {

@@ -15,10 +15,9 @@ export const App: FC = () => {
   
   useEffect(() => {
     screenResizeListener(setDisplaySize);
+    
     setTownsMarkets(gameLevel); // Заполнение Towns Markets initial data
-    // Распределяем производства Multy продуктов
-    // Распределяем производства Complex продуктов
-    // Распределяем производства обычных продуктов
+    
     // На основе сложных продуктов в городе:
     //  - определить спрос на обычные продукты
     //  - изменить цены на обычные

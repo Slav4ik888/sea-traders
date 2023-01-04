@@ -1,5 +1,5 @@
-import { ProductName, ProductType } from '../../../../../products';
-import { Town, TownName } from '../../../types';
+import { ProductName, ProductType } from '../../../../../../products';
+import { Town, TownName } from '../../../../types';
 import { matchTypesProducesInTown } from '..';
 
 const town = {

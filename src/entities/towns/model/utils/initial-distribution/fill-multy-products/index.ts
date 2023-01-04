@@ -1,10 +1,9 @@
 import { getMixedArray } from 'shared/utils';
-import { PRODUCES_IN_TOWNS } from '../../data';
-import { Town, TownName, TownsEntities } from '../../types';
+import { PRODUCES_IN_TOWNS } from '../../../data';
+import { TownName, TownsEntities } from '../../../types';
 import { VARIABLES } from 'app/config';
-import { matchMultyTypesProducesInTown } from '../match-multy-types-produces-in-town';
-import { getInitialTowns } from '../get-initial-towns';
-import { getAllMultyProducts } from '../get-all-multy-products';
+import { matchMultyTypesProducesInTown } from './match-multy-types-produces-in-town';
+import { getAllMultyProducts } from './get-all-multy-products';
 
 
 const { MAX_MULTY_PRODUCT_IN_TOWN } = VARIABLES;
@@ -13,10 +12,9 @@ const { MAX_MULTY_PRODUCT_IN_TOWN } = VARIABLES;
 /** 
  * Распределяем производства Multy продуктов 
  */
-export const getFilledMultyProducts = (): Town[] => {
+export const fillMultyProducts = (entities: TownsEntities): void => {
   const
     towns                   = Object.values(TownName),
-    entities: TownsEntities = getInitialTowns(),
     allMultyProductName     = getAllMultyProducts();
   
   
@@ -39,6 +37,4 @@ export const getFilledMultyProducts = (): Town[] => {
       }
     })
   }
-
-  return Object.values(entities)
 }
