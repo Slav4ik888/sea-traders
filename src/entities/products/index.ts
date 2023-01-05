@@ -6,4 +6,4 @@ export {
   LeftOvers
 } from './model/types'
 
-export { PRODUCTS } from './model/data'
+export { PRODUCTS, PRODUCTS_LINES } from './model/data'

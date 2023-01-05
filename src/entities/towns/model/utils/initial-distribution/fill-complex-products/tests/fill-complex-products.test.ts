@@ -1,4 +1,4 @@
-import { ProductName, ProductType } from '../../../../../../products';
+import { ProductName } from '../../../../../../products';
 import { fillMultyProducts } from '../../fill-multy-products';
 import { TownsEntities } from '../../../../types';
 import { getInitialTowns } from '../../../get-initial-towns';
@@ -7,6 +7,8 @@ import { fillComplexProducts } from '..';
 import { matchComplexTypesProducesInTown } from '../match-complex-types-produces-in-town';
 import { getSumProductName } from '../../get-sum-product-name';
 import { matchComplexAndMultyTypesProducesInTown } from '../match-complex-and-multy-types-produces-in-town';
+import { matchCrossProductLine } from '../../match-cross-product-line';
+import { getAllComplexProducts } from '../get-all-complex-products';
 
 
 
@@ -19,12 +21,11 @@ describe('fillComplexProducts', () => {
   const towns = Object.values(entities);
 
   it('Amount of Complex Product in towns', () => {
-    expect(getSumProductName(towns, ProductName.Textiles)).toEqual(PRODUCES_IN_TOWNS[ProductName.Textiles]);
-    expect(getSumProductName(towns, ProductName.Metal)).toEqual(PRODUCES_IN_TOWNS[ProductName.Metal]);
-    expect(getSumProductName(towns, ProductName.Meat)).toEqual(PRODUCES_IN_TOWNS[ProductName.Meat]);
-    expect(getSumProductName(towns, ProductName.Bread)).toEqual(PRODUCES_IN_TOWNS[ProductName.Bread]);
-    expect(getSumProductName(towns, ProductName.Ropes)).toEqual(PRODUCES_IN_TOWNS[ProductName.Ropes]);
-    expect(getSumProductName(towns, ProductName.Rum)).toEqual(PRODUCES_IN_TOWNS[ProductName.Rum]);
+    const products = getAllComplexProducts();
+    
+    products.forEach(productName =>
+      expect(getSumProductName(towns, productName)).toEqual(PRODUCES_IN_TOWNS[productName])
+    );
   });
 
 
@@ -60,11 +61,16 @@ describe('fillComplexProducts', () => {
     }, 0)).toEqual(0);
   });
 
-  it('Complex & Multy must not cross', () => {
-    const notCrossProducts = towns.filter((town) => matchCrossComplexWithMultyProduces(town));
-    console.log('notCrossProducts: ', notCrossProducts);
+  it('Must not an intersection with product-line', () => {
+    let crossProductLine = false;
 
-    expect(notCrossProducts).toEqual([])
+    towns.forEach(town => {
+      town.produces.forEach((productName) => {
+        if (matchCrossProductLine(town.produces, productName)) crossProductLine = true;
+      })
+    });
+    
+    expect(crossProductLine).toBe(false)
   });
 });
 

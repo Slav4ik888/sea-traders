@@ -2,6 +2,7 @@ import { ProductName } from './product-names';
 
 
 export enum ProductType {
+  LONELY   = 'lonely',
   SIMPLE   = 'simple',
   COMPLEX  = 'complex',
   MULTIPLE = 'multiple'

@@ -11,7 +11,7 @@ export const PRODUCTS: Record<ProductId, Product> = {
   },
   [ProductName.Bricks]: {
     id           : ProductName.Bricks,
-    type         : ProductType.SIMPLE,
+    type         : ProductType.LONELY,
     order        : 200,
     iconFilename : 'bricks.png'
   },
@@ -23,7 +23,7 @@ export const PRODUCTS: Record<ProductId, Product> = {
   },
   [ProductName.Fruits]: {
     id           : ProductName.Fruits,
-    type         : ProductType.SIMPLE,
+    type         : ProductType.LONELY,
     order        : 400,
     iconFilename : 'fruits.png'
   },
@@ -89,7 +89,7 @@ export const PRODUCTS: Record<ProductId, Product> = {
   },
   [ProductName.Tobacco]: {
     id           : ProductName.Tobacco,
-    type         : ProductType.SIMPLE,
+    type         : ProductType.LONELY,
     order        : 1500,
     iconFilename : 'tobacco.png'
   },

@@ -1,7 +1,1 @@
-// export * from './get-amount-product-by-type'
-// export * from './get-complex-products'
-// export * from './get-filled-multy-products'
-// export * from './get-initial-markets'
-// export * from './get-multy-products'
-// export * from './get-simple-products'
-// export * from './match-types-produces-in-town'
+export { initialDistributionProduction } from './initial-distribution'

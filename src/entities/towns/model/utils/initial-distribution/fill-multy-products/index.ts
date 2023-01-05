@@ -4,6 +4,7 @@ import { TownName, TownsEntities } from '../../../types';
 import { VARIABLES } from 'app/config';
 import { matchMultyTypesProducesInTown } from './match-multy-types-produces-in-town';
 import { getAllMultyProducts } from './get-all-multy-products';
+import { matchCrossProductLine } from '../match-cross-product-line';
 
 
 const { MAX_MULTY_PRODUCT_IN_TOWN } = VARIABLES;
@@ -27,9 +28,9 @@ export const fillMultyProducts = (entities: TownsEntities): void => {
     let amountProduces = 0; // Кол-во расставленных производств
 
     townsShuffled.forEach((townName) => {
-      // Add produces if in town MULTIPLE < MAX_MULTY_PRODUCT_IN_TOWN
       if (
         matchMultyTypesProducesInTown(entities[townName]) < MAX_MULTY_PRODUCT_IN_TOWN &&
+        !matchCrossProductLine(entities[townName].produces, currentProductName) &&
         amountProduces < PRODUCES_IN_TOWNS[currentProductName]
       ) {
         entities[townName].produces.push(currentProductName)
