@@ -1,58 +1,39 @@
-import { Town } from 'entities/towns';
-import { FC, useState } from 'react';
-import { TradeTownBtn } from 'widgets/trade';
-import { TootipTownName } from './tool-town-name';
-import s from './styles.module.scss';
+import { FC, useEffect, useState } from 'react';
+import { Town, TownName, useTowns } from 'entities/towns';
+import { TooltipTownInfo } from './tooltip-town-info';
+import { useHover } from 'shared/lib';
+import s from './index.module.scss';
+
 
 
 interface Props {
   town: Town
 }
 
-
+/** Town on map */
 export const MapTown: FC<Props> = ({ town }) => {
   const
-    [_, setTimer] = useState<number>(0),
-    [hover, setHover] = useState(false),
+    { showAllTowns } = useTowns(),
+    [ isHover, bindHover ] = useHover({ enterDelay: 500 }),
     left = `${town.point.X}px`,
     top  = `${town.point.Y}px`;
 
+  const opens = town.title === TownName.FloridaKeys ? true : false;
   
-  const
-    handlerHover = () => {
-      setTimer(new Date().getTime());
-      setTimeout(() => {
-        setTimer(prev => {
-          prev && setHover(true);
-          return 0
-        });
-      }, 500);
-    },
-
-    handlerHoverOff = () => {
-      setTimer(0);
-      setTimeout(() => {
-        setHover(false);
-      }, 1000);
-    };
-
-
   return (
     <div
-      className    = {s.root}
-      style        = {{ top, left }}
-      onMouseEnter = {handlerHover}
-      onMouseLeave = {handlerHoverOff}
+      {...bindHover}
+      className = {s.root}
+      style     = {{ top, left }}
     >
-      <TootipTownName title={town.title}>
-        <img
-          src       = {require('shared/assets/towns/icons/town-icon.png')}
-          alt       = 'town-icon'
-          className = {s.icon}
-        />
-      </TootipTownName>
+      <img
+        id        = 'tooltip-town-info'
+        src       = {require('shared/assets/towns/icons/town-icon.png')}
+        alt       = 'town-icon'
+        className = {s.icon}
+      />
       {
-        hover && <TradeTownBtn town={town} />
+        (isHover || showAllTowns) && <TooltipTownInfo town={town} />
       }
     </div>
   )

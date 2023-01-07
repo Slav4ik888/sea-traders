@@ -1,5 +1,4 @@
 export * from './display'
-export * from './game-level'
 export * from './messages'
 export * from './point'
 export * from './screen-formats'

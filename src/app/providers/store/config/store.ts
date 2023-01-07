@@ -5,6 +5,7 @@ import { StateSchema } from './state';
 import { createReducerManager } from './reducer-manager';
 import { mapSlice } from 'entities/map';
 import { townsSlice } from 'entities/towns';
+import { gameSlice } from 'entities/game';
 // import { api } from 'shared/api';
 
 
@@ -17,6 +18,7 @@ export function createReduxStore(
     rootReducers: ReducersMapObject<StateSchema> = {
       ...asyncReducers,
       ui      : uiSlice.reducer,
+      game    : gameSlice.reducer,
       map     : mapSlice.reducer,
       towns   : townsSlice.reducer
     },

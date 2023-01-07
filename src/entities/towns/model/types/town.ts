@@ -7,6 +7,7 @@ import { TownName } from './towns-names';
 export interface Town {
   title      : TownName
   point      : Point
+  dwellers   : number        // Жители
   produces   : ProductName[]
   highDemand : ProductName[] // High Demand
 

@@ -4,6 +4,11 @@ import { cn } from 'shared/lib';
 import s from './index.module.scss';
 
 
+export enum TooltipTheme {
+  DEFAULT      = 'default',
+  DARK_OPACITY = 'dark-opacity'
+}
+
 interface TooltipStyles {
   tooltip? : string
   title?   : string
@@ -19,6 +24,7 @@ interface Props {
   height?     : number // px
   enterDelay? : number
   children    : ReactNode
+  theme?      : TooltipTheme
 }
 
 
@@ -26,10 +32,11 @@ export const Tooltip = memo((props: Props) => {
   const {
     title,
     text,
-    styles,
+    styles = {},
     width,
     height,
     enterDelay = 0,
+    theme = TooltipTheme.DEFAULT,
     children
   } = props;
   
@@ -44,13 +51,11 @@ export const Tooltip = memo((props: Props) => {
 
       const
         coords = document.getElementById('tooltip-message')?.getBoundingClientRect(),
-        top    = '-' + (coords?.height + 8) + 'px',
-        left   = '-' + (coords?.width / 2 - 14) + 'px'; // 14 - half of icon
+        top    = `-${coords?.height + 5}px`,
+        left   = `-${coords?.width / 2 - 14}px`;
 
       setPosition({ top, left });
-      // document.addEventListener('click', handlerClose);
     }
-    // return (() => document.removeEventListener('click', handlerClose))
   }, [open]);
 
 
@@ -83,18 +88,18 @@ export const Tooltip = memo((props: Props) => {
       {
         open && <div
           id        = 'tooltip-message'
-          className = {cn(s.tooltip, {}, [styles.tooltip])}
+          className = {cn(s.tooltip, {}, [s[theme], styles.tooltip])}
           style     = {position}
         >
           {
-            title && <p className={cn(s.title, {}, [styles.title])}>{title}</p>
+            title && <p className={cn(s.title, {}, [s[theme], styles.title])}>{title}</p>
           }
           {
-            text && <p className={cn(s.text, {}, [styles.text])}>{text}</p>
+            text && <p className={cn(s.text, {}, [s[theme], styles.text])}>{text}</p>
           }
         </div>
       }
-      <div data-tooltip='tooltip'>
+      <div data-tooltip='tooltip' className={s.children}>
         {
           children
         }

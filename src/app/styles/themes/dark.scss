@@ -20,8 +20,12 @@
   --skeleton-color           : #364458;
 
   // Tooltip
-  --tooltip-bg-dark          : #baaa98;
-  --tooltip-bg-light         : #ddcbb6;
+  // Theme default
+  --tooltip-bg-color              : #baaa98;
+
+  // Theme dark-opacity
+  --tooltip-color-dark-opacity    : #e0d7b6;
+  --tooltip-bg-color-dark-opacity : #181818;
 
   // Value
   --bg-color-default          : #7c94bb;

@@ -3,10 +3,12 @@ import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } f
 import { StateSchemaUI } from 'features/ui';
 import { StateSchemaMap } from 'entities/map';
 import { StateSchemaTowns } from 'entities/towns';
+import { StateSchemaGame } from 'entities/game';
 
 
 export interface StateSchema {
   ui      : StateSchemaUI
+  game    : StateSchemaGame
   map     : StateSchemaMap
   towns   : StateSchemaTowns
   // Async reducer

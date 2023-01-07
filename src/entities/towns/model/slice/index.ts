@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateSchemaTowns, Town, TownsMarkets } from '../types';
-import { initialDistributionProduction } from '../utils';
+import { GameLevel } from 'entities/game';
+import { StateSchemaTowns, TownName, TownsMarkets } from '../types';
+import { getInitialMarkets, initialDistribution } from '../utils';
 
 
 
 
 const initialState: StateSchemaTowns = {
-  entities             : initialDistributionProduction(),
-  selectedTownForTrade : null,
-  markets              : {} as TownsMarkets
+  entities         : initialDistribution(),
+  selectedTownName : null,
+  markets          : getInitialMarkets(GameLevel.NORMAL),
+  showAllTowns     : false
 };
 
 
@@ -16,19 +18,14 @@ export const slice = createSlice({
   name: 'towns',
   initialState,
   reducers: {
-    // setTowns: (state, { payload }: PayloadAction<Town[]>) => {
-    //   state.entities = {
-    //     ...payload.reduce((acc, town) => {
-    //       acc[town.title] = { ...town };
-    //       return acc
-    //     }, {})
-    //   };
-    // },
     setTownsMarkets: (state, { payload }: PayloadAction<TownsMarkets>) => {
       state.markets = { ...payload };
     },
-    setSelectedTownForTrade: (state, { payload }: PayloadAction<Town>) => {
-      state.selectedTownForTrade = payload;
+    setSelectedTownName: (state, { payload }: PayloadAction<TownName>) => {
+      state.selectedTownName = payload;
+    },
+    setShowAllTowns: (state, { payload }: PayloadAction<boolean>) => {
+      state.showAllTowns = payload;
     }
   }
 })

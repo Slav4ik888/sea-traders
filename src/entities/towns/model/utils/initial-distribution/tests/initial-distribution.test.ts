@@ -1,16 +1,27 @@
 import { PRODUCES_IN_TOWNS } from '../../../data';
-import { initialDistributionProduction } from '..';
+import { initialDistribution } from '..';
 import { getSumProductName } from '../get-sum-product-name';
 import { matchCrossProductLine } from '../match-cross-product-line';
 import { PRODUCTS } from '../../../../../products';
 
 
 
-describe('initialDistributionProduction', () => {
+describe('initialDistribution', () => {
   const
-    entities = initialDistributionProduction(),
+    entities = initialDistribution(),
     towns = Object.values(entities);
   
+
+  it('Dwellers in Town must be > 0', () =>
+    expect(
+      towns.reduce((acc, { dwellers }) => {
+        if (!dwellers || dwellers < 0) acc += 1
+        return acc
+      }, 0)
+    )
+      .toBe(0)
+  );
+
 
   it('Amount of Product in towns', () => {
     Object

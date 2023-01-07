@@ -1,15 +1,15 @@
-import { FC } from 'react';
-// import { MapGrid } from 'entities/map';
+import { FC, memo } from 'react';
 import { TradeCard } from 'entities/products/ui';
-import { TOWNS } from 'entities/towns';
-import Image from 'react-image-webp';
-// import { CoordsMaker } from 'widgets/dev/coords-maker';
+import { useTowns } from 'entities/towns';
 import { MapTown } from 'widgets/map-town';
+import { MainHelpers } from 'widgets';
+import Image from 'react-image-webp';
 import s from './index.module.scss';
 
 
-export const MainBackground: FC = () => {
-  
+export const MainBackground: FC = memo(() => {
+  const { towns } = useTowns();
+
   return (
     <div className={s.root} id='main'>
       <Image
@@ -18,11 +18,12 @@ export const MainBackground: FC = () => {
         className = {s.mainMap}
       />
       {
-        TOWNS.map(town => <MapTown key={town.title} town={town} />)
+        towns.map(town => <MapTown key={town.title} town={town} />)
       }
+      <MainHelpers />
       <TradeCard />
       {/* <MapGrid /> */}
       {/* <CoordsMaker /> */}
     </div>
   )
-};
+});

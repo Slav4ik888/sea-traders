@@ -15,8 +15,8 @@ const { MAX_MULTY_PRODUCT_IN_TOWN } = VARIABLES;
  */
 export const fillMultyProducts = (entities: TownsEntities): void => {
   const
-    towns                   = Object.values(TownName),
-    allMultyProductName     = getAllMultyProducts();
+    towns               = Object.values(TownName),
+    allMultyProductName = getAllMultyProducts();
   
   
   // Делаем столько кругов сколько amountMultyProduct

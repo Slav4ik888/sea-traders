@@ -1,1 +1,2 @@
-export { initialDistributionProduction } from './initial-distribution'
+export { initialDistribution } from './initial-distribution'
+export { getInitialMarkets } from './get-initial-markets'

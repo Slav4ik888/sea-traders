@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    // background: var(--card-bg-color-hover);
+    opacity: 0.9;
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+
+.values {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--card-values-border-color);
+  background: var(--card-values-bg-color);
+  height: 32px;
+  margin-left: -3px;
+  padding-left: 4px;  
+}
+
+.value {
+  margin: 0 4px;
+}

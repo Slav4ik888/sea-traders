@@ -1,10 +1,10 @@
+import { GameLevel } from 'entities/game';
 import { BASE_PRODUCTS_PRISE } from 'entities/price';
 import { PRODUCTS } from 'entities/products';
-import { GameLevel } from 'features/ui';
 import { TownMarket, TownName, TownsMarkets } from '../../types';
 
 
-export const getInitialMarkets = (gameLevel: GameLevel) => {
+export const getInitialMarkets = (gameLevel: GameLevel): TownsMarkets => {
   const priceIdx = gameLevel === GameLevel.NORMAL ? 0 : 1;
 
   return Object

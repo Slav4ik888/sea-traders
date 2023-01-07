@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  align-items: center;
+  color: var(--tooltip-color-dark-opacity);
+  border-radius: 3px;
+  font: var(--font-s);
+  margin: 0;
+  margin-left: 4px;
+  opacity: 0.8;
+  width: max-content;
+}
+
+.icon {
+  width: 20px;
+}
+
+.dwellers {
+  background: var(--tooltip-bg-color-dark-opacity);
+  margin-left: 4px;
+}

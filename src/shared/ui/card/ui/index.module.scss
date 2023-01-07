@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 500px;
+}
+
+.header {
+  background: repeat top left/100% url('shared/assets/backgrounds/holst-dark6.jpg');
+  box-shadow: inset 0px 0px 10px 7px var(--card-header-shadow);
+  border-start-start-radius: var(--card-border-radius);
+  border-start-end-radius: var(--card-border-radius);
+}
+
+.title {
+  text-align: center;
+  color: var(--card-title-color) !important;
+  text-shadow: 2px 2px 2px #2e1b11;
+}
+
+.content {
+  background: repeat top left/60% url('shared/assets/backgrounds/holst8.png');
+  box-shadow: inset 0px -4px 22px 7px var(--card-content-shadow);
+  // margin-top: var(--card-header-height);
+  padding: 16px;
+  border-end-start-radius: var(--card-border-radius);
+  border-end-end-radius: var(--card-border-radius);
+  overflow-y: scroll;
+}

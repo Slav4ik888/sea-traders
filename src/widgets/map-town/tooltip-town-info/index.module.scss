@@ -1,0 +1,22 @@
+.root {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  z-index: 10;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  color: var(--tooltip-color-dark-opacity);
+  background: var(--tooltip-bg-color-dark-opacity);
+  border-radius: 3px;
+  margin: 0;
+  margin-bottom: 4px;
+  padding: 2px 24px;
+  opacity: 0.8;
+  width: max-content;
+}

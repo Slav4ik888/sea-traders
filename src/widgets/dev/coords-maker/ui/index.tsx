@@ -4,9 +4,10 @@ import { useMouse } from 'shared/lib';
 import { MapTown } from 'widgets/map-town';
 import { getPosition } from './get-position';
 import CopyIcon from 'shared/assets/icons/copy.svg';
-import s from './index.module.scss';
 import { Position } from 'features/ui';
 import { Select, Text } from 'shared/ui';
+import s from './index.module.scss';
+
 
 
 /** 
@@ -27,6 +28,7 @@ export const CoordsMaker: FC = () => {
       return {
         title: TownName.Havana,
         point,
+        dwellers: 1000,
         produces: [],
         highDemand: [],
         market: {} as TownMarket
