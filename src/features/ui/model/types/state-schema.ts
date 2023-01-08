@@ -1,6 +1,7 @@
-import { DisplaySize } from './display';
+import { DisplaySize, DisplayMapVisible } from './display';
 
 
 export interface StateSchemaUI {
-  displaySize : DisplaySize
+  displaySize       : DisplaySize
+  displayMapVisible : DisplayMapVisible
 }

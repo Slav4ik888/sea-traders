@@ -9,8 +9,7 @@ import { getInitialMarkets, initialDistribution } from '../utils';
 const initialState: StateSchemaTowns = {
   entities         : initialDistribution(),
   selectedTownName : null,
-  markets          : getInitialMarkets(GameLevel.NORMAL),
-  showAllTowns     : false
+  markets          : getInitialMarkets(GameLevel.NORMAL)
 };
 
 
@@ -23,9 +22,6 @@ export const slice = createSlice({
     },
     setSelectedTownName: (state, { payload }: PayloadAction<TownName>) => {
       state.selectedTownName = payload;
-    },
-    setShowAllTowns: (state, { payload }: PayloadAction<boolean>) => {
-      state.showAllTowns = payload;
     }
   }
 })

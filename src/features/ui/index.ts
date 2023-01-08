@@ -3,7 +3,8 @@ export {
   StateSchemaUI,
   Point,
   Position,
-  MessageType
+  MessageType,
+  DisplayMapVisible
 } from './model/types'
 export { slice as uiSlice, actions as uiActions } from './model/slice'
 export { useUI } from './model/hooks'

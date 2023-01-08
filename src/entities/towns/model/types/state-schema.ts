@@ -12,6 +12,4 @@ export interface StateSchemaTowns {
   entities         : TownsEntities
   selectedTownName : TownName
   markets          : TownsMarkets
-
-  showAllTowns     : boolean
 }

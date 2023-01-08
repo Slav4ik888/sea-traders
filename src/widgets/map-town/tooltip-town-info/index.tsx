@@ -1,22 +1,23 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Town } from 'entities/towns';
-import { Position } from 'features/ui';
+import { Position, useUI } from 'features/ui';
 import { TownProductions } from './town-productions';
 import s from './index.module.scss';
 import { TownDwellers } from './town-dwellers';
+import { getTownPosition } from './utils';
 
 
 
 interface Props {
+  open: boolean
   town: Town
 }
 
 
-export const TooltipTownInfo: FC<Props> = ({ town }) => {
-  const position: Position = {
-    top  : '-25px',
-    left : `-${100 - 14}px` // 100 - half of TooltipTownInfo, 14 - half of icon
-  };
+export const TooltipTownInfo: FC<Props> = memo(({ open, town }) => {
+  const
+    { displayMapVisible, displayMapVisibleTownsNames, displayMapVisibleDwellers, displayMapVisibleProducts } = useUI(),
+    position = getTownPosition(displayMapVisible);
 
   return (
     <div
@@ -24,12 +25,20 @@ export const TooltipTownInfo: FC<Props> = ({ town }) => {
       className = {s.root}
       style     = {position}
     >
-      <div className={s.title}>
-        {town.title}
-        <TownDwellers town={town} />
-      </div>
-
-      <TownProductions town={town} />
+      {
+        (open || displayMapVisibleTownsNames || displayMapVisibleDwellers) &&
+          <div className={s.title}>
+            {
+              (open || displayMapVisibleTownsNames) && town.title
+            }
+            {
+              (open || displayMapVisibleDwellers) && <TownDwellers town={town} />
+            }
+          </div>
+      }
+      {
+        (open || displayMapVisibleProducts) && <TownProductions town={town} />
+      }
     </div>
   )
-};
+});

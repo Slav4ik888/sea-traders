@@ -20,10 +20,7 @@ export const useTowns = () => {
     setSelectedTownName = (townname: TownName) => dispatch(actions.setSelectedTownName(townname)),
   
     markets             = useSelector(s.selectMarkets),
-    setTownsMarkets     = () => dispatch(actions.setTownsMarkets(getInitialMarkets(useSelector(selectGameLevel)))),
-    
-    showAllTowns        = useSelector(s.selectShowAllTowns),
-    setShowAllTowns     = (flag: boolean) => dispatch(actions.setShowAllTowns(flag));
+    setTownsMarkets     = () => dispatch(actions.setTownsMarkets(getInitialMarkets(useSelector(selectGameLevel))));
 
 
   return {
@@ -34,7 +31,5 @@ export const useTowns = () => {
     setSelectedTownName,
     markets,
     setTownsMarkets,
-    showAllTowns,
-    setShowAllTowns
   }
 };

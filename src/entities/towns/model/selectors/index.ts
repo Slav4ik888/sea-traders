@@ -6,4 +6,3 @@ export const selectSelectedTownName = (state: StateSchema) => selectModule(state
 export const selectSelectedTown = (state: StateSchema) => selectEntities(state)[selectSelectedTownName(state)];
 
 export const selectMarkets = (state: StateSchema) => selectModule(state).markets;
-export const selectShowAllTowns = (state: StateSchema) => selectModule(state).showAllTowns;

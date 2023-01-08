@@ -1,9 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { DisplaySize, StateSchemaUI } from '../types';
+import { DisplayMapVisible, DisplaySize, StateSchemaUI } from '../types';
 
 
 const initialState: StateSchemaUI = {
   displaySize : undefined, // Сurrent screen length
+  displayMapVisible: {
+    townsNames : false,
+    dwellers   : false,
+    products   : false
+  }
 };
 
 
@@ -13,6 +18,12 @@ export const slice = createSlice({
   reducers: {
     setDisplaySize: (state, { payload }: PayloadAction<DisplaySize>) => {
       state.displaySize = payload;
+    },
+    setDisplayMapVisible: (state, { payload }: PayloadAction<DisplayMapVisible>) => {
+      state.displayMapVisible = {
+        ...state.displayMapVisible,
+        ...payload
+      }
     }
   }
 })

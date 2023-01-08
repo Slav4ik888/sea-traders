@@ -1,4 +1,5 @@
 export { Card } from './card'
+export { Checkbox } from './checkbox'
 export { Loader } from './loader'
 export { Modal } from './modal'
 export { Portal } from './portal'

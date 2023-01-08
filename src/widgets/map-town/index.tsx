@@ -1,8 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, memo } from 'react';
 import { Town, TownName, useTowns } from 'entities/towns';
 import { TooltipTownInfo } from './tooltip-town-info';
 import { useHover } from 'shared/lib';
 import s from './index.module.scss';
+import { useUI } from 'features/ui';
 
 
 
@@ -11,14 +12,14 @@ interface Props {
 }
 
 /** Town on map */
-export const MapTown: FC<Props> = ({ town }) => {
+export const MapTown: FC<Props> = memo(({ town }) => {
   const
-    { showAllTowns } = useTowns(),
+    { displayMapVisibleTownsNames, displayMapVisibleDwellers, displayMapVisibleProducts } = useUI(),
     [ isHover, bindHover ] = useHover({ enterDelay: 500 }),
     left = `${town.point.X}px`,
     top  = `${town.point.Y}px`;
 
-  const opens = town.title === TownName.FloridaKeys ? true : false;
+  // const opens = town.title === TownName.FloridaKeys ? true : false;
   
   return (
     <div
@@ -33,8 +34,16 @@ export const MapTown: FC<Props> = ({ town }) => {
         className = {s.icon}
       />
       {
-        (isHover || showAllTowns) && <TooltipTownInfo town={town} />
+        (
+          isHover ||
+          displayMapVisibleTownsNames ||
+          displayMapVisibleDwellers ||
+          displayMapVisibleProducts
+        ) && <TooltipTownInfo
+          open = {isHover}
+          town = {town}
+        />
       }
     </div>
   )
-};
+});
