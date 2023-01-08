@@ -5,6 +5,6 @@ export {
   TownMarket,
   TownsMarkets
 } from './model/types'
-export { TOWNS, PRODUCES_IN_TOWNS } from './model/data'
+export { TOWNS } from './model/data'
 export { slice as townsSlice } from './model/slice'
 export { useTowns } from './model/hooks'

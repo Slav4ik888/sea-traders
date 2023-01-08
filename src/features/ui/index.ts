@@ -4,7 +4,8 @@ export {
   Point,
   Position,
   MessageType,
-  DisplayMapVisible
+  DisplayMapVisible,
+  Event
 } from './model/types'
 export { slice as uiSlice, actions as uiActions } from './model/slice'
 export { useUI } from './model/hooks'

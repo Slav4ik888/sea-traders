@@ -1,4 +1,4 @@
-import { ProductName } from '../../../products';
+import { ProductName } from '../..';
 
 /** Сколько должно быть производств каждого Product */
 export const PRODUCES_IN_TOWNS: Record<ProductName, number > = {

@@ -1,0 +1,18 @@
+export enum ShipModel {
+  PINNACE           = 'Pinnace',
+  SLOOP             = 'Sloop',
+  BRIG              = 'Brig',
+  BARC              = 'Barc',
+  PIRATE_BARC       = 'Pirate Barc',
+  FLUYT             = 'Fluyt',
+  TRADE_FLUYT       = 'Trade Fluyt',
+  CORVETTE          = 'Corvette',
+  FRIGATE           = 'Frigate',
+  MILITARY_CORVETTE = 'Military Corvette',
+  MILITARY_FRIGATE  = 'Military Frigate',
+  GALLEON           = 'Galleon',
+  CARRACK           = 'Carrack',
+  CARAVEL           = 'Caravel',
+  WAR_GALLEON       = 'War Galleon',
+  LINER             = 'Liner',
+}

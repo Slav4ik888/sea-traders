@@ -14,7 +14,9 @@ export const App: FC = () => {
   useEffect(() => {
     screenResizeListener(setDisplaySize);
     
-    // Button on Map - show all TownsProducts
+    // User
+    // User wealth money
+
     // Доп иконка на иконке с товаром в городе - высокий спрос
     
 
