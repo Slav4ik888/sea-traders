@@ -1,4 +1,5 @@
 export * from './arrays'
+export * from './get-current-time'
 export * from './objects'
 export * from './random'
 export * from './strings'

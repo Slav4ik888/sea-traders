@@ -6,6 +6,7 @@ import { createReducerManager } from './reducer-manager';
 import { mapSlice } from 'entities/map';
 import { townsSlice } from 'entities/towns';
 import { gameSlice } from 'entities/game';
+import { playerSlice } from 'entities/player';
 // import { api } from 'shared/api';
 
 
@@ -19,6 +20,7 @@ export function createReduxStore(
       ...asyncReducers,
       ui      : uiSlice.reducer,
       game    : gameSlice.reducer,
+      player  : playerSlice.reducer,
       map     : mapSlice.reducer,
       towns   : townsSlice.reducer
     },

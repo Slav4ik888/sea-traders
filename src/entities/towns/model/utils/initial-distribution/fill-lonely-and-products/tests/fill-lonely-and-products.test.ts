@@ -1,7 +1,6 @@
 import { fillMultyProducts } from '../../fill-multy-products';
 import { TownsEntities } from '../../../../types';
 import { getInitialTowns } from '../../../get-initial-towns';
-import { PRODUCES_IN_TOWNS } from '../../../../data';
 import { fillLonelyAndSimpleProducts } from '..';
 import { getSumProductName } from '../../get-sum-product-name';
 import { matchCrossProductLine } from '../../match-cross-product-line';
@@ -10,6 +9,7 @@ import { getAllSimpleProducts } from '../get-all-simple-products';
 import { matchSimpleTypesProducesInTown } from '../match-simple-types-produces-in-town';
 import { matchLonelyTypesProducesInTown } from '../match-lonely-types-produces-in-town';
 import { getAllLonelyProducts } from '../get-all-lonely-products';
+import { PRODUCES_IN_TOWNS } from '../../../../../../products';
 
 
 

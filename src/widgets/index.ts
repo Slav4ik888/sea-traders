@@ -1,4 +1,6 @@
 export { MainBackground } from './main-background'
 export { MainHelpers } from './main-helpers'
+export { MainPlayerPanel } from './main-player-panel'
+export { MapTown } from './map-town'
 export { PageLoader } from './page-loader'
 export { PageError } from './page-error'

@@ -14,8 +14,7 @@ export const App: FC = () => {
   useEffect(() => {
     screenResizeListener(setDisplaySize);
     
-    // User
-    // User wealth money
+    // Buy ship
 
     // Доп иконка на иконке с товаром в городе - высокий спрос
     

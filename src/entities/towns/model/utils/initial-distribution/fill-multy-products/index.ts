@@ -1,10 +1,10 @@
 import { getMixedArray } from 'shared/utils';
-import { PRODUCES_IN_TOWNS } from '../../../data';
 import { TownName, TownsEntities } from '../../../types';
 import { VARIABLES } from 'app/config';
 import { matchMultyTypesProducesInTown } from './match-multy-types-produces-in-town';
 import { getAllMultyProducts } from './get-all-multy-products';
 import { matchCrossProductLine } from '../match-cross-product-line';
+import { PRODUCES_IN_TOWNS } from '../../../../../products';
 
 
 const { MAX_MULTY_PRODUCT_IN_TOWN } = VARIABLES;

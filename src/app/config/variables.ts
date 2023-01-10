@@ -1,3 +1,5 @@
+import { ShipModel } from 'entities/ships';
+import { TownName } from 'entities/towns';
 import { Position } from 'features/ui';
 
 
@@ -11,7 +13,11 @@ export const VARIABLES = {
     left : `-${100 - 14}px` // 100 - half of TooltipTownInfo, 14 - half of icon
   } as Position,
 
-  // Products in Town
+  // START VALUES
+  START_TOWN       : TownName.PortRoyale,
+  START_SHIP_MODEL : ShipModel.PINNACE,
+  
+  // PRODUCTS IN TOWN
   MAX_MULTY_PRODUCT_IN_TOWN     : 2,
   MAX_COMPLEX_PRODUCT_IN_TOWN   : 3,
   MAX_COMPLEX_AND_MULTY_IN_TOWN : 4,

@@ -1,8 +1,7 @@
 import { FC, memo } from 'react';
-import { TradeCard } from 'entities/products/ui';
+import { TradeCard } from 'entities/products';
 import { useTowns } from 'entities/towns';
-import { MapTown } from 'widgets/map-town';
-import { MainHelpers } from 'widgets';
+import { MainHelpers, MainPlayerPanel, MapTown } from 'widgets';
 import Image from 'react-image-webp';
 import s from './index.module.scss';
 
@@ -21,6 +20,7 @@ export const MainBackground: FC = memo(() => {
         towns.map(town => <MapTown key={town.title} town={town} />)
       }
       <MainHelpers />
+      <MainPlayerPanel />
       <TradeCard />
       {/* <MapGrid /> */}
       {/* <CoordsMaker /> */}

@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "Start Ship entity" && git push -u origin main
+// git add . && git commit -m "Create getStartShip" && git push -u origin main

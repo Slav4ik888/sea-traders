@@ -1,12 +1,11 @@
-import { ProductName } from '../../../../../../products';
 import { fillMultyProducts } from '..';
 import { TownsEntities } from '../../../../types';
 import { getInitialTowns } from '../../../get-initial-towns';
 import { matchMultyTypesProducesInTown } from '../match-multy-types-produces-in-town';
-import { PRODUCES_IN_TOWNS } from '../../../../data';
 import { getSumProductName } from '../../get-sum-product-name';
 import { matchCrossProductLine } from '../../match-cross-product-line';
 import { getAllMultyProducts } from '../get-all-multy-products';
+import { PRODUCES_IN_TOWNS } from '../../../../../../products';
 
 
 

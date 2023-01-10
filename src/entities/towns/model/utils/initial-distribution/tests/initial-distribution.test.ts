@@ -1,8 +1,7 @@
-import { PRODUCES_IN_TOWNS } from '../../../data';
 import { initialDistribution } from '..';
 import { getSumProductName } from '../get-sum-product-name';
 import { matchCrossProductLine } from '../match-cross-product-line';
-import { PRODUCTS } from '../../../../../products';
+import { PRODUCES_IN_TOWNS, PRODUCTS } from '../../../../../products';
 
 
 

@@ -1,0 +1,1 @@
+export { MainPlayerPanel } from './ui'

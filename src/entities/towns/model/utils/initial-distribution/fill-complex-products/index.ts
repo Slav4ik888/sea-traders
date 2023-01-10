@@ -1,11 +1,11 @@
 import { getMixedArray } from 'shared/utils';
-import { PRODUCES_IN_TOWNS } from '../../../data';
 import { TownName, TownsEntities } from '../../../types';
 import { VARIABLES } from 'app/config';
 import { getAllComplexProducts } from './get-all-complex-products';
 import { matchComplexTypesProducesInTown } from './match-complex-types-produces-in-town';
 import { matchComplexAndMultyTypesProducesInTown } from './match-complex-and-multy-types-produces-in-town';
 import { matchCrossProductLine } from '../match-cross-product-line';
+import { PRODUCES_IN_TOWNS } from '../../../../../products';
 
 
 const { MAX_COMPLEX_PRODUCT_IN_TOWN, MAX_COMPLEX_AND_MULTY_IN_TOWN } = VARIABLES;

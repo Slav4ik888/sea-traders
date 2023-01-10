@@ -1,11 +1,10 @@
-import { PRODUCES_IN_TOWNS } from '../../../data';
-import { TownName, TownsEntities } from '../../../types';
+import { TownsEntities } from '../../../types';
 import { VARIABLES } from 'app/config';
 import { getAllSimpleProducts } from './get-all-simple-products';
 import { matchCrossProductLine } from '../match-cross-product-line';
 import { sortTownsForLonelyAndSimpleProduct } from './sort-towns-for-lonely-and-simple-product';
 import { getAllLonelyProducts } from './get-all-lonely-products';
-import { ProductName } from '../../../../../products';
+import { PRODUCES_IN_TOWNS, ProductName } from '../../../../../products';
 
 
 const { MAX_PRODUCTS_IN_TOWN } = VARIABLES;
