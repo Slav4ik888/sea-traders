@@ -2,21 +2,22 @@ import * as s from '../../selectors';
 import { actions } from '../../slice';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
-import { GameLevel } from '../../types';
 
 
 
-export const useGame = () => {
+export const usePlayer = () => {
   const
     dispatch       = useAppDispatch(),
 
-    gameLevel      = useSelector(s.selectGameLevel),
+    money      = useSelector(s.selectMoney),
+    ships      = useSelector(s.selectShip),
     
-    setGameLavel   = (level: GameLevel) => dispatch(actions.setGameLavel(level));
+    addMoney   = (money: number) => dispatch(actions.addMoney(money));
 
 
   return {
-    gameLevel,
-    setGameLavel
+    money,
+    ships,
+    addMoney
   }
 };

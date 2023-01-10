@@ -7,10 +7,10 @@ import { getAllLonelyProducts } from './get-all-lonely-products';
 import { PRODUCES_IN_TOWNS, ProductName } from '../../../../../products';
 
 
-const { MAX_PRODUCTS_IN_TOWN } = VARIABLES;
-
 // Делаем столько кругов сколько amountProduct
 const fillProducts = (entities: TownsEntities, allProductName: ProductName[]) => {
+  const { MAX_PRODUCTS_IN_TOWN } = VARIABLES;
+  
   for (let i = 0;i < allProductName.length;i++) {
     const
       townsShuffled = sortTownsForLonelyAndSimpleProduct(Object.values(entities)),

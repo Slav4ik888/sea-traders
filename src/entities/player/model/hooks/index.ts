@@ -1,1 +1,1 @@
-export { useGame } from './ui';
+export { usePlayer } from './ui';

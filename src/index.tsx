@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "Create getStartShip" && git push -u origin main
+// git add . && git commit -m "<Money /> with gold icon" && git push -u origin main

@@ -1,16 +1,18 @@
 import { FC, memo } from 'react';
 import { Card } from 'shared/ui';
+import { usePlayer } from 'entities/player';
 import s from './index.module.scss';
+import { Money } from 'shared/ui';
 
 
 
 export const MainPlayerPanel: FC = memo(() => {
-  const { } = usePlayer();
+  const { money } = usePlayer();
   
   return (
     <Card
-      title  = 'Player'
-      styles = {{ root: s.root}}
+      childrenTitle = {<Money value={money} classname={s.money} />}
+      styles        = {{ root: s.root}}
     >
       PlayerCard
     </Card>

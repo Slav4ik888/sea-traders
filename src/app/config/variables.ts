@@ -12,10 +12,6 @@ export const VARIABLES = {
     top  : '-25px',
     left : `-${100 - 14}px` // 100 - half of TooltipTownInfo, 14 - half of icon
   } as Position,
-
-  // START VALUES
-  START_TOWN       : TownName.PortRoyale,
-  START_SHIP_MODEL : ShipModel.PINNACE,
   
   // PRODUCTS IN TOWN
   MAX_MULTY_PRODUCT_IN_TOWN     : 2,

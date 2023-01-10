@@ -1,10 +1,11 @@
-import { VARIABLES } from 'app/config';
 import { getTownByTownName, TownName } from 'entities/towns';
 import { SHIPS } from '../../data';
+import { ShipModel } from '../../types';
 import { createShip } from '../ship-creator';
 
 const
-  { START_TOWN, START_SHIP_MODEL } = VARIABLES,
+  START_TOWN       = TownName.PortRoyale,
+  START_SHIP_MODEL = ShipModel.PINNACE,
   START_SHIP = SHIPS[START_SHIP_MODEL];
 
 /**

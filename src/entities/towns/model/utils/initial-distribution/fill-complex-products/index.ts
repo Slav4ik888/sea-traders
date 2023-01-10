@@ -8,14 +8,12 @@ import { matchCrossProductLine } from '../match-cross-product-line';
 import { PRODUCES_IN_TOWNS } from '../../../../../products';
 
 
-const { MAX_COMPLEX_PRODUCT_IN_TOWN, MAX_COMPLEX_AND_MULTY_IN_TOWN } = VARIABLES;
-
-
 /** 
  * Распределяем производства Complex продуктов 
  */
 export const fillComplexProducts = (entities: TownsEntities): void => {
   const
+    { MAX_COMPLEX_PRODUCT_IN_TOWN, MAX_COMPLEX_AND_MULTY_IN_TOWN } = VARIABLES,
     towns                 = Object.values(TownName),
     allComplexProductName = getAllComplexProducts();
   
