@@ -1,3 +1,4 @@
+export { Button, ButtonTheme } from './button'
 export { Card } from './card'
 export { Checkbox } from './checkbox'
 export { Loader } from './loader'

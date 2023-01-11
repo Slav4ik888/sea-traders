@@ -1,0 +1,16 @@
+.root {
+  width: max-content;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.board {
+  color: #e0c57f;
+  text-shadow: 1px 1px #131313;
+  background: repeat top left/100% url('shared/assets/backgrounds/holst-dark6.jpg');
+  border-radius: 4px;
+}
