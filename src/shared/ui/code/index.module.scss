@@ -1,0 +1,17 @@
+.root {
+  position: relative;
+  text-align: left;
+  margin-top: 8px;
+}
+
+.copyBtn {
+  position: absolute;
+  top: 16px;
+  right: 0px;
+  padding: 4px;
+} 
+
+.copy-icon {
+  stroke: var(--primary-color);
+  fill: none;
+}

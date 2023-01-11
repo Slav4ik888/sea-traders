@@ -1,4 +1,5 @@
 export * from './arrays'
+export * from './copy-to-clipboard'
 export * from './get-current-time'
 export * from './numbers'
 export * from './objects'

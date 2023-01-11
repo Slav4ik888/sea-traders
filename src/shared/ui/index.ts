@@ -1,6 +1,7 @@
 export { Button, ButtonTheme } from './button'
 export { Card } from './card'
 export { Checkbox } from './checkbox'
+export { Code } from './code'
 export { Loader } from './loader'
 export { Modal } from './modal'
 export { Money } from './money'
