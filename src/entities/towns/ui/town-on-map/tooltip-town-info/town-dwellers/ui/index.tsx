@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { Town } from 'entities/towns';
+import { Town } from '../../../../../model';
 import s from './index.module.scss';
 
 

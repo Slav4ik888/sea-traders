@@ -1,8 +1,8 @@
 import { FC, memo } from 'react';
 import { ProductIcon } from 'shared/ui';
 import { ProductName, PRODUCTS } from 'entities/products';
+import { Town, useTowns } from '../../../../../model';
 import s from './index.module.scss';
-import { Town, useTowns } from 'entities/towns';
 
 
 interface Props {

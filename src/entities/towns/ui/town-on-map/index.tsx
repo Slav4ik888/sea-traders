@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import { Town, TownName, useTowns } from 'entities/towns';
+import { Town, TownName, useTowns } from '../../model';
 import { TooltipTownInfo } from './tooltip-town-info';
 import { useHover } from 'shared/lib';
-import s from './index.module.scss';
 import { useUI } from 'features/ui';
+import s from './index.module.scss';
 
 
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 /** Town on map */
-export const MapTown: FC<Props> = memo(({ town }) => {
+export const TownOnMap: FC<Props> = memo(({ town }) => {
   const
     { displayMapVisibleTownsNames, displayMapVisibleDwellers, displayMapVisibleProducts } = useUI(),
     [ isHover, bindHover ] = useHover({ enterDelay: 500 }),

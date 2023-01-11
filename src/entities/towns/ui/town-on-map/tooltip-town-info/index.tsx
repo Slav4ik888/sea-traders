@@ -1,10 +1,10 @@
 import { FC, memo } from 'react';
-import { Town } from 'entities/towns';
+import { Town } from '../../../model';
 import { Position, useUI } from 'features/ui';
 import { TownProductions } from './town-productions';
-import s from './index.module.scss';
 import { TownDwellers } from './town-dwellers';
 import { getTownPosition } from './utils';
+import s from './index.module.scss';
 
 
 

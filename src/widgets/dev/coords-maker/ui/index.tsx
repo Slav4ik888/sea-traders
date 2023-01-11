@@ -1,7 +1,7 @@
 import { Town, TownMarket, TownName } from 'entities/towns';
 import { FC, useCallback, useMemo, useState } from 'react';
 import { useMouse } from 'shared/lib';
-import { MapTown } from 'widgets/map-town';
+import { MapTown } from 'entities/towns/ui/town-on-map';
 import { getPosition } from './get-position';
 import CopyIcon from 'shared/assets/icons/copy.svg';
 import { Position } from 'features/ui';
