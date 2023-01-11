@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "<Button /> in <MainHelpers /> with gold icon" && git push -u origin main
+// git add . && git commit -m "Add ship & add Ships & ShipOnMap" && git push -u origin main

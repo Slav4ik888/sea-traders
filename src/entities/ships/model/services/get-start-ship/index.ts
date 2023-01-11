@@ -1,6 +1,6 @@
 import { getTownByTownName, TownName } from 'entities/towns';
 import { SHIPS } from '../../data';
-import { ShipModel } from '../../types';
+import { ShipModel, ShipsEntities } from '../../types';
 import { createShip } from '../ship-creator';
 
 const
@@ -11,7 +11,13 @@ const
 /**
  * Returns start ship when start game
  */
-export const getStartShip = (townName?: TownName) => createShip({
+export const getStartShip = (
+  entities  : ShipsEntities,
+  playerId  : string,
+  townName? : TownName
+) => createShip({
+  entities,
+  playerId,
   model: START_SHIP_MODEL,
   location: {
     point: getTownByTownName(townName || START_TOWN).point

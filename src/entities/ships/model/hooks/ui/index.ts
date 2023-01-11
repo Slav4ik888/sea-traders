@@ -2,35 +2,31 @@ import * as s from '../../selectors';
 import { actions } from '../../slice';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
+import { Ship, ShipsEntities } from '../../types';
 import { StateSchema } from 'app/providers/store';
-import { Ship } from 'entities/ships';
 
 
 export interface Config {
   id?: string
 }
 
-export const usePlayer = (config: Config = {}) => {
+export const useShips = (config: Config = {}) => {
   const
     { id }   = config,
     dispatch = useAppDispatch(),
 
-    playerId = useSelector(s.selectPlayerId),
     entities = useSelector(s.selectEntities),
+    ships    = Object.values(entities),
+    
     ship     = useSelector((state: StateSchema) => s.selectShipById(state, id)),
     addShip  = (ship: Ship) => dispatch(actions.addShip(ship)),
-    
-    money    = useSelector(s.selectMoney),
-    addMoney = (money: number) => dispatch(actions.addMoney(money));
-
+    addShips = (entities: ShipsEntities) => dispatch(actions.addShips(entities));
 
   return {
-    playerId,
     entities,
+    ships,
     ship,
     addShip,
-    
-    money,
-    addMoney
+    addShips
   }
 };

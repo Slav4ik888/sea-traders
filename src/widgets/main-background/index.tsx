@@ -3,6 +3,7 @@ import { TradeCard } from 'entities/products';
 import { useTowns } from 'entities/towns';
 import { MainHelpers, MainPlayerPanel, MapTown } from 'widgets';
 import Image from 'react-image-webp';
+import { ShipsOnMap } from 'entities/ships';
 import s from './index.module.scss';
 
 
@@ -21,6 +22,7 @@ export const MainBackground: FC = memo(() => {
       }
       <MainHelpers />
       <MainPlayerPanel />
+      <ShipsOnMap />
       <TradeCard />
       {/* <MapGrid /> */}
       {/* <CoordsMaker /> */}

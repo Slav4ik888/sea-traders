@@ -5,10 +5,12 @@ import { StateSchemaMap } from 'entities/map';
 import { StateSchemaTowns } from 'entities/towns';
 import { StateSchemaGame } from 'entities/game';
 import { StateSchemaPlayer } from 'entities/player/model/types/state-schema';
+import { StateSchemaShips } from 'entities/ships';
 
 
 export interface StateSchema {
   ui      : StateSchemaUI
+  ships   : StateSchemaShips
   game    : StateSchemaGame
   player  : StateSchemaPlayer
   map     : StateSchemaMap

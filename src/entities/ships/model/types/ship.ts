@@ -16,6 +16,7 @@ export interface ShipCondition {
 
 export interface Ship {
   id        : string
+  playerId  : string
   model     : ShipModel
   action    : ShipAction
   location  : ShipLocation // Где сейчас корабль

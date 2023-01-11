@@ -1,10 +1,12 @@
 import { getCurrentTime } from 'shared/utils';
-import { Ship, ShipAction, ShipCondition, ShipLocation, ShipModel } from '../../types';
+import { Ship, ShipAction, ShipCondition, ShipLocation, ShipModel, ShipsEntities } from '../../types';
 import { createShipId } from './create-ship-id';
 
 
 
 export interface CreateShipConfig {
+  entities  : ShipsEntities
+  playerId  : string
   model     : ShipModel
   location  : ShipLocation
   condition : ShipCondition
@@ -12,10 +14,11 @@ export interface CreateShipConfig {
 
 
 export const createShip = (config: CreateShipConfig): Ship => {
-  const { model, location, condition } = config;
+  const { entities, playerId, model, location, condition } = config;
 
   return {
-    id        : createShipId(),
+    id        : createShipId(entities),
+    playerId,
     model,
     action    : ShipAction.IN_TOWN,
     location,

@@ -2,19 +2,35 @@ import { FC, useEffect } from 'react';
 import { screenResizeListener, useUI } from 'features/ui';
 import { AppRouter } from './providers/routes';
 import { useMouse } from 'shared/lib';
-
+import { useShips } from 'entities/ships/model/hooks';
+import { usePlayer } from 'entities/player';
+import * as LS from 'shared/lib/local-storage';
+import { getStartShip } from 'entities/ships';
 
 
 export const App: FC = () => {
   const
-    { setDisplaySize } = useUI();
+    { setDisplaySize } = useUI(),
+    { entities, addShip, addShips } = useShips(),
+    { playerId, addShip: addPlayerShip } = usePlayer();
   
   useMouse();
   
   useEffect(() => {
     screenResizeListener(setDisplaySize);
+
+    // Initialize
+    const playerSaved = LS.getStateSchemaPlayer();
     
-    // Buy ship
+    if (playerSaved) {
+      addShips(playerSaved.entities);
+    }
+    else {
+      const startShip = getStartShip(entities, playerId);
+      addPlayerShip(startShip);
+      addShip(startShip);
+    }
+
 
     // Доп иконка на иконке с товаром в городе - высокий спрос
     

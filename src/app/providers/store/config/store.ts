@@ -7,6 +7,7 @@ import { mapSlice } from 'entities/map';
 import { townsSlice } from 'entities/towns';
 import { gameSlice } from 'entities/game';
 import { playerSlice } from 'entities/player';
+import { shipsSlice } from 'entities/ships';
 // import { api } from 'shared/api';
 
 
@@ -19,6 +20,7 @@ export function createReduxStore(
     rootReducers: ReducersMapObject<StateSchema> = {
       ...asyncReducers,
       ui      : uiSlice.reducer,
+      ships   : shipsSlice.reducer,
       game    : gameSlice.reducer,
       player  : playerSlice.reducer,
       map     : mapSlice.reducer,
