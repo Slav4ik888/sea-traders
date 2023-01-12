@@ -1,8 +1,7 @@
 .root {
   position: absolute;
-  cursor: pointer;
 }
 
 .icon {
-  width: 30px;
+  width: var(--town-icon-size);
 }

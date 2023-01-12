@@ -1,7 +1,7 @@
 import { getTownByTownName, TownName } from 'entities/towns';
 import { SHIPS } from '../../data';
 import { ShipModel, ShipsEntities } from '../../types';
-import { createShip } from '../ship-creator';
+import { createShip } from '../create-ship';
 
 const
   START_TOWN       = TownName.PortRoyale,

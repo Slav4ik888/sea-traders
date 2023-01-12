@@ -12,10 +12,10 @@ interface Props {
 
 export const TooltipTownInfoContainer: FC<Props> = memo(({ isHover, town }) => {
   const {
-    displayMapVisibleTownsNames, displayMapVisibleDwellers, displayMapVisibleProducts, devChangeTownsPoint
+    displayMapVisibleTownsNames, displayMapVisibleDwellers, displayMapVisibleProducts //, devChangeTownsPoint
   } = useUI();
   
-  if (devChangeTownsPoint) return null;
+  // if (devChangeTownsPoint) return null;
 
   return (
     <>

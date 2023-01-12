@@ -1,2 +1,2 @@
 export * from './get-start-ship'
-export * from './ship-creator'
+export * from './create-ship'

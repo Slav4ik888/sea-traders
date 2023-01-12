@@ -4,22 +4,24 @@ import { Ship } from '../../model/types';
 import s from './index.module.scss';
 
 
+const
+  shipIcon = require('shared/assets/icons/ship3.png');
 
 interface Props {
   ship: Ship
 }
 
-
 export const ShipOnMap: FC<Props> = memo(({ ship }) => {
+  const
+    top = ship.location.point.Y - 30,  // bottom ship
+    left = ship.location.point.X - 15; // Center ship
 
   return (
     <div
       className = {cn(s.root, {}, [])}
-      style     = {{ top: ship.location.point.Y, left: ship.location.point.X }}
+      style     = {{ top, left }}
     >
-      {
-        ship.id
-      }
+      <img src={shipIcon} className={s.icon} />
     </div>
   )
 });

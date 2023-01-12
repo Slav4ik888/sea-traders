@@ -12,7 +12,7 @@ interface Config {
 }
 
 
-export const useHover = (config?: Config): UseHover => {
+export const useHover = (config: Config = {}): UseHover => {
   const
     { enterDelay = 0 } = config,
     [timer, setTimer] = useState(0),

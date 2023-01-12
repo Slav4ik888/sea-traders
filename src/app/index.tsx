@@ -14,7 +14,6 @@ export const App: FC = () => {
     { entities, addShip, addShips } = useShips(),
     { playerId, addShip: addPlayerShip } = usePlayer();
   
-  useMouse();
   
   useEffect(() => {
     screenResizeListener(setDisplaySize);
