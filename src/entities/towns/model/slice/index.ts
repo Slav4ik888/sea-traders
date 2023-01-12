@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GameLevel } from 'entities/game';
-import { StateSchemaTowns, TownName, TownsMarkets } from '../types';
+import { StateSchemaTowns, Town, TownName, TownsMarkets } from '../types';
 import { getInitialMarkets, initialDistribution } from '../utils';
 
 
@@ -20,9 +20,15 @@ export const slice = createSlice({
     setTownsMarkets: (state, { payload }: PayloadAction<TownsMarkets>) => {
       state.markets = { ...payload };
     },
-    setSelectedTownName: (state, { payload }: PayloadAction<TownName>) => {
+    selectTownName: (state, { payload }: PayloadAction<TownName>) => {
       state.selectedTownName = payload;
-    }
+    },
+    updateTown: (state, { payload }: PayloadAction<Partial<Town>>) => {
+      state.entities[payload.title] = {
+        ...state.entities[payload.title],
+        ...payload
+      }
+    },
   }
 })
 

@@ -1,10 +1,8 @@
+import { FC, memo } from 'react';
 import { TradeCard } from 'entities/products';
 import { ShipsOnMap } from 'entities/ships';
 import { TownsOnMap } from 'entities/towns';
-import { FC, memo } from 'react';
 import { MainBackground, MainHelpers, MainPlayerPanel } from 'widgets';
-import { CoordsMaker } from 'widgets/dev/coords-maker';
-// import { ChangeMapCellType } from 'widgets/dev/change-map-cell-type';
 import s from './index.module.scss';
 
 
@@ -19,9 +17,6 @@ export const RootPage: FC = memo(() => {
       <MainPlayerPanel />
       <ShipsOnMap />
       <TradeCard />
-      <CoordsMaker />
-      {/* <ChangeMapCellType /> */}
-      {/* <MapGrid /> */}
     </div>
   );
 });

@@ -7,3 +7,4 @@ export const selectDisplayMapVisible = (state: StateSchema) => selectModule(stat
 export const selectDisplayMapVisibleTownsNames = (state: StateSchema) => selectDisplayMapVisible(state).townsNames;
 export const selectDisplayMapVisibleDwellers   = (state: StateSchema) => selectDisplayMapVisible(state).dwellers;
 export const selectDisplayMapVisibleProducts   = (state: StateSchema) => selectDisplayMapVisible(state).products;
+export const selectDevChangeTownsPoint = (state: StateSchema) => selectModule(state).devChangeTownsPoint;

@@ -10,7 +10,10 @@ export const TownsOnMap: FC = memo(() => {
   return (
     <>
       {
-        towns.map(town => <TownOnMap key={town.title} town={town} />)
+        towns.map(town => <TownOnMap
+          key  = {town.title}
+          town = {town}
+        />)
       }
     </>
   )

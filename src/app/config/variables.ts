@@ -1,5 +1,3 @@
-import { ShipModel } from 'entities/ships';
-import { TownName } from 'entities/towns';
 import { Position } from 'features/ui';
 
 
@@ -17,5 +15,7 @@ export const VARIABLES = {
   MAX_MULTY_PRODUCT_IN_TOWN     : 2,
   MAX_COMPLEX_PRODUCT_IN_TOWN   : 3,
   MAX_COMPLEX_AND_MULTY_IN_TOWN : 4,
-  MAX_PRODUCTS_IN_TOWN          : 5
+  MAX_PRODUCTS_IN_TOWN          : 5,
+
+  DEV_CHANGE_TOWNS_POINTS : true
 }

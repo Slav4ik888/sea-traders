@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { ProductIcon } from 'shared/ui';
-import { ProductName, PRODUCTS } from 'entities/products';
+import { PRODUCTS } from 'entities/products';
 import { Town, useTowns } from '../../../../../model';
 import s from './index.module.scss';
 
@@ -12,8 +12,8 @@ interface Props {
 
 export const TownProductions: FC<Props> = memo(({ town }) => {
   const
-    { setSelectedTownName } = useTowns(),
-    handlerSetTown = () => setSelectedTownName(town.title);
+    { selectTownName } = useTowns(),
+    handlerSetTown = () => selectTownName(town.title);
   
 
   if (!town.produces) return null

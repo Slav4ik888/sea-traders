@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "Refact CoordsMaker -> SelectTownPoint" && git push -u origin main
+// git add . && git commit -m "Add devChangeTownsPoint" && git push -u origin main

@@ -17,8 +17,9 @@ export const useUI = () => {
     displayMapVisibleTownsNames = useSelector(s.selectDisplayMapVisibleTownsNames),
     displayMapVisibleDwellers   = useSelector(s.selectDisplayMapVisibleDwellers),
     displayMapVisibleProducts   = useSelector(s.selectDisplayMapVisibleProducts),
-    setDisplayMapVisible = (visibles: DisplayMapVisible) => dispatch(actions.setDisplayMapVisible(visibles));
+    setDisplayMapVisible        = (visibles: DisplayMapVisible) => dispatch(actions.setDisplayMapVisible(visibles)),
 
+    devChangeTownsPoint = useSelector(s.selectDevChangeTownsPoint);
 
   return {
     displaySize,
@@ -28,6 +29,8 @@ export const useUI = () => {
     displayMapVisibleTownsNames,
     displayMapVisibleDwellers,
     displayMapVisibleProducts,
-    setDisplayMapVisible
+    setDisplayMapVisible,
+
+    devChangeTownsPoint
   }
 };

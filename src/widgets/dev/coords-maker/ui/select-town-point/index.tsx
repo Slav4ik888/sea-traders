@@ -5,8 +5,9 @@ import { getPosition, getTownCode } from '../../utils';
 import { Position } from 'features/ui';
 import { Select, Text } from 'shared/ui';
 import { TownOnMap } from 'entities/towns';
-import s from './index.module.scss';
 import { Code } from 'shared/ui/code';
+import s from './index.module.scss';
+
 
 
 /** 

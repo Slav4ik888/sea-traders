@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { VARIABLES } from 'app/config';
 import { DisplayMapVisible, DisplaySize, StateSchemaUI } from '../types';
 
 
@@ -8,7 +9,8 @@ const initialState: StateSchemaUI = {
     townsNames : false,
     dwellers   : false,
     products   : false
-  }
+  },
+  devChangeTownsPoint : VARIABLES.DEV_CHANGE_TOWNS_POINTS
 };
 
 
