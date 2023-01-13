@@ -14,8 +14,8 @@ interface Props {
 export const TownOnMap: FC<Props> = memo(({ town }) => {
   const
     [isHover, bindHover] = useHover({ enterDelay: 500 }),
-    left = `${town.point.X}px`,
-    top  = `${town.point.Y}px`;
+    left = `${town.points.town.X}px`,
+    top  = `${town.points.town.Y}px`;
 
 
   // const opens = town.title === TownName.FloridaKeys ? true : false;
@@ -23,7 +23,6 @@ export const TownOnMap: FC<Props> = memo(({ town }) => {
   return (
     <div
       {...bindHover}
-      draggable
       className = {s.root}
       style     = {{ top, left }}
     >

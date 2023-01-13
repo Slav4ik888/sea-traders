@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "Add useTownChanges" && git push -u origin main
+// git add . && git commit -m "TownsPointsMaker" && git push -u origin main

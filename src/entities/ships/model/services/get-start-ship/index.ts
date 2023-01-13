@@ -20,7 +20,7 @@ export const getStartShip = (
   playerId,
   model: START_SHIP_MODEL,
   location: {
-    point: getTownByTownName(townName || START_TOWN).point
+    point: getTownByTownName(townName || START_TOWN).points.port[0]
   },
   condition: {
     cargo    : [],

@@ -1,16 +1,20 @@
 import { FC, memo } from 'react';
-import { Town } from '../../../../../model';
+import { useUI } from 'features/ui';
 import s from './index.module.scss';
 
 
 interface Props {
-  town: Town
+  open     : boolean
+  dwellers : number
 }
 
 
-export const TownDwellers: FC<Props> = memo(({ town }) => {
+export const TooltipTownDwellers: FC<Props> = memo(({ open, dwellers }) => {
+  const { displayMapVisibleDwellers } = useUI();
   
-  
+  if (!open && !displayMapVisibleDwellers) return null;
+
+
   return (
     <div className={s.root}>
       <img
@@ -20,7 +24,7 @@ export const TownDwellers: FC<Props> = memo(({ town }) => {
       />
       <div className={s.dwellers}>
         {
-          town.dwellers
+          dwellers
         }
       </div>
     </div>

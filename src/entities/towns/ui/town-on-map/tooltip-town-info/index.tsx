@@ -1,44 +1,44 @@
 import { FC, memo } from 'react';
 import { Town } from '../../../model';
-import { Position, useUI } from 'features/ui';
+import { useUI } from 'features/ui';
 import { TownProductions } from './town-productions';
-import { TownDwellers } from './town-dwellers';
 import { getTownPosition } from './utils';
 import s from './index.module.scss';
+import { TooltipTownTitle } from './town-title';
 
 
 
 interface Props {
-  open: boolean
-  town: Town
+  openTitle?       : boolean
+  openDwellers?    : boolean
+  openProductions? : boolean
+  town             : Town
 }
 
 
-export const TooltipTownInfo: FC<Props> = memo(({ open, town }) => {
+export const TooltipTownInfo: FC<Props> = memo(({ openTitle, openDwellers, openProductions, town }) => {
   const
-    { displayMapVisible, displayMapVisibleTownsNames, displayMapVisibleDwellers, displayMapVisibleProducts } = useUI(),
+    { displayMapVisible } = useUI(),
     position = getTownPosition(displayMapVisible);
 
   return (
     <div
-      id        = 'tooltip-town-title'
+      // id        = 'tooltip-town-title'
       className = {s.root}
       style     = {position}
     >
-      {
-        (open || displayMapVisibleTownsNames || displayMapVisibleDwellers) &&
-          <div className={s.title}>
-            {
-              (open || displayMapVisibleTownsNames) && town.title
-            }
-            {
-              (open || displayMapVisibleDwellers) && <TownDwellers town={town} />
-            }
-          </div>
-      }
-      {
-        (open || displayMapVisibleProducts) && <TownProductions town={town} />
-      }
+      <TooltipTownTitle
+        openTitle    = {openTitle}
+        title        = {town.title}
+        openDwellers = {openDwellers}
+        dwellers     = {town.dwellers}
+      />
+      
+      <TownProductions
+        open     = {openProductions}  
+        townName = {town.title}
+        produces = {town.produces}
+      />
     </div>
   )
 });

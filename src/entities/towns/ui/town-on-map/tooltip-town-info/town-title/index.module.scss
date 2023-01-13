@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  align-items: center;
+  background: var(--tooltip-bg-color-dark-opacity);
+  border-radius: 3px;
+  margin: 0;
+  margin-bottom: 4px;
+  padding: 2px 24px;
+  opacity: 0.8;
+  width: max-content;
+}

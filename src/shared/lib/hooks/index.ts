@@ -1,6 +1,6 @@
 export { useAppDispatch } from './use-app-dispatch'
 export { useKeys } from './use-keys'
 export { useMouse } from './use-mouse'
-export { useTownChanges } from './use-town-changes'
-export { useValue } from './use-value'
+export { useTownChanges, UseTownChangesType } from './use-town-changes'
+export { useValue, UseValue } from './use-value'
 export { useHover } from './use-hover'

@@ -1,41 +1,46 @@
-import { Town } from 'entities/towns';
+import { useTowns } from 'entities/towns';
 import { Point } from 'features/ui';
 import { useKeys } from '../use-keys';
+import { changePositionByKey } from './change-position-by-key';
 
 
-export const useTownChanges = (
-  town       : Town,
-  updateTown : (town: Town) => void
-) => {
 
+export enum UseTownChangesType {
+  TOWN_POINT = 'town_point',
+  PORT_POINT = 'port_point'
+}
+
+
+export const useTownChanges = (type: UseTownChangesType) => {
+  const { selectedTown, updateTown } = useTowns();
   useKeys(handlerKey);
 
   function handlerKey(e) {
-    const point = town?.point;
-
-    switch (e.keyCode) {
-      case 52: moveTo({ X: point.X - 1, Y: point.Y });     break;
-      case 56: moveTo({ X: point.X,     Y: point.Y - 1 }); break;
-      case 54: moveTo({ X: point.X + 1, Y: point.Y });     break;
-      case 50: moveTo({ X: point.X,     Y: point.Y + 1 }); break;
-
-      default: return
-    }
+    changePositionByKey(
+      e.keyCode,
+      type === UseTownChangesType.TOWN_POINT
+        ? selectedTown?.points?.town
+        : selectedTown?.points?.port[0],
+      handlerMove
+    );
   };
 
   /** Change Town point in useKeys */
-  const moveTo = (point: Point) => {
-    const updatedTown: Town = {
-      ...town,
+  const handlerMove = (point: Point) => {
+    const townType = type === UseTownChangesType.TOWN_POINT;
+
+    updateTown({
+      ...selectedTown,
       ...{
-        point: {
-          X: point.X,
-          Y: point.Y
-        }
+        points: {
+          town: townType
+            ? { X: point.X, Y: point.Y }
+            : { ...selectedTown.points.town },
+          port: townType
+            ? { ...selectedTown.points.port }
+            : [{ X: point.X, Y: point.Y }]
+        },
       }
-    };
-
-    updateTown(updatedTown);
+    });
   };
-
 }

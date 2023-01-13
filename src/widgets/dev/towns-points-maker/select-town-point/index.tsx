@@ -17,16 +17,16 @@ import s from './index.module.scss';
 export const SelectTownPoint: FC = memo(() => {
   const
     { point, clearPoint } = useMouse(),
-    [selectedTown, setSelectedTown] = useState(''),
+    [selectedTown, setSelectedTown] = useState<TownName>(),
     [isTooltip, setIsTooltip] = useState(false),
     position: Position = getPosition(point);
   
   const pointTown: Town = useMemo(() => {
       point && setIsTooltip(true);
-      return { title: TownName.Havana, point } as Town
+      return { title: TownName.Havana, points: { town: point }  } as Town
     }, [point]);
   
-  const code = useMemo(() => getTownCode(selectedTown, point), [selectedTown, point]);
+  const code = useMemo(() => getTownCode(selectedTown, point, undefined), [selectedTown, point]);
 
   const handlerCopy = useCallback(() => {
     setIsTooltip(false);

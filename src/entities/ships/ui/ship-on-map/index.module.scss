@@ -3,6 +3,15 @@
   cursor: pointer;
 }
 
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  background-color: red;
+  z-index: 10;
+}
+
 .icon {
   width: 30px;
 }

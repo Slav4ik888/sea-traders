@@ -4,9 +4,14 @@ import { TownMarket } from './towns-markets';
 import { TownName } from './towns-names';
 
 
+export interface TownPoints {
+  town: Point
+  port: Point[]
+}
+
 export interface Town {
   title      : TownName
-  point      : Point
+  points     : TownPoints
   dwellers   : number        // Жители
   produces   : ProductName[]
   highDemand : ProductName[] // High Demand
