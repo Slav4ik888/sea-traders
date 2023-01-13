@@ -51,6 +51,7 @@ export const TownPointMaker: FC<Props> = memo(({ town, onClick }) => {
           onClick   = {handlerTownClick}
         />
       </div>
+      {/* Select place for port point */}
       {
         selectedCurrentTown && <ShipOnMap ship={ship} />
       }

@@ -9,10 +9,10 @@ import { TooltipTownTitle } from './town-title';
 
 
 interface Props {
+  town             : Town
   openTitle?       : boolean
   openDwellers?    : boolean
   openProductions? : boolean
-  town             : Town
 }
 
 

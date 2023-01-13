@@ -21,12 +21,12 @@ export const useTownChanges = (type: UseTownChangesType) => {
       type === UseTownChangesType.TOWN_POINT
         ? selectedTown?.points?.town
         : selectedTown?.points?.port[0],
-      handlerMove
+      changePointTo
     );
   };
 
   /** Change Town point in useKeys */
-  const handlerMove = (point: Point) => {
+  const changePointTo = (point: Point) => {
     const townType = type === UseTownChangesType.TOWN_POINT;
 
     updateTown({
@@ -35,12 +35,16 @@ export const useTownChanges = (type: UseTownChangesType) => {
         points: {
           town: townType
             ? { X: point.X, Y: point.Y }
-            : { ...selectedTown.points.town },
+            : { ...selectedTown?.points.town },
           port: townType
-            ? { ...selectedTown.points.port }
+            ? { ...selectedTown?.points.port }
             : [{ X: point.X, Y: point.Y }]
         },
       }
     });
   };
+
+  return {
+    changePointTo
+  }
 }

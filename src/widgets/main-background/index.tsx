@@ -6,6 +6,7 @@ import s from './index.module.scss';
 export const MainBackground: FC = memo(() => (
   <Image
     webp      = {require('shared/assets/maps/main-map.webp')}
+    id        = 'backgroun-main-map'
     alt       = 'Background main map'
     className = {s.root}
   />

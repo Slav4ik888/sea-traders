@@ -15,18 +15,17 @@ export const ShipOnMap: FC<Props> = memo(({ ship }) => {
   const
     Y = ship.location.point.Y,
     X = ship.location.point.X,
-    top = Y,  // - 28,  // bottom ship
-    left = X, // - 15, // Center ship
-    dotTop = Y - 2,
-    dotLeft = X - 2; // 2 half past from dot width
+    top     = Y - 30, // bottom ship
+    left    = X - 13, // center ship
+    dotTop  = Y - 2,
+    dotLeft = X - 2;  // 2 half past from dot width
 
-  console.log('Y:', Y, 'X:', X);
-  console.log('dY:', dotTop, 'dX:', dotLeft);
-
+  // console.log('Y:', Y, 'X:', X);
 
   return (
     <>
       <div
+        id        = {`ship-${ship.id}`}
         className = {cn(s.root, {}, [])}
         style     = {{ top, left }}
       >

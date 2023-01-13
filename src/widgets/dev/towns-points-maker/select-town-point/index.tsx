@@ -16,7 +16,7 @@ import s from './index.module.scss';
  */
 export const SelectTownPoint: FC = memo(() => {
   const
-    { point, clearPoint } = useMouse(),
+    { point, clearPoint } = useMouse({ id: 'backgroun-main-map' }),
     [selectedTown, setSelectedTown] = useState<TownName>(),
     [isTooltip, setIsTooltip] = useState(false),
     position: Position = getPosition(point);

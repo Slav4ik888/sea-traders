@@ -19,7 +19,7 @@ export const TooltipTownInfoContainer: FC<Props> = memo(({ isHover, town }) => {
 
   return (
     <TooltipTownInfo
-      town = {town}
+      town            = {town}
       openTitle       = {isHover}
       openDwellers    = {isHover}
       openProductions = {isHover}

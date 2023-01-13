@@ -12,11 +12,10 @@ interface Props {
 
 export const TradeCard: FC<Props> = memo(() => {
   const
-    { devChangeTownsPoint } = useUI(),
     { markets, selectedTown, selectTownName } = useTowns(),
     handlerClose = () => selectTownName(null);
 
-  if (!selectedTown || devChangeTownsPoint) return null;
+  if (!selectedTown) return null;
   console.log('selectedTown: ', selectedTown);
 
   return (
