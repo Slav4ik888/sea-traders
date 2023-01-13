@@ -6,28 +6,38 @@ import { useShips } from 'entities/ships/model/hooks';
 import { usePlayer } from 'entities/player';
 import * as LS from 'shared/lib/local-storage';
 import { getStartShip } from 'entities/ships';
+import { TOWNS } from 'entities/towns';
+import { getRandomNumber } from 'shared/utils';
 
 
 export const App: FC = () => {
   const
     { setDisplaySize } = useUI(),
     { entities, addShip, addShips } = useShips(),
-    { playerId, addShip: addPlayerShip } = usePlayer();
+    { playerId } = usePlayer();
   
   
   useEffect(() => {
     screenResizeListener(setDisplaySize);
 
     // Initialize
-    const playerSaved = LS.getStateSchemaPlayer();
+    const shipsSaved = LS.getStateSchemaShips();
     
-    if (playerSaved) {
-      addShips(playerSaved.entities);
+    if (shipsSaved) {
+      addShips(shipsSaved.entities);
     }
     else {
-      const startShip = getStartShip(entities, playerId);
-      addPlayerShip(startShip);
-      addShip(startShip);
+      const
+        startShip1 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title),
+        startShip2 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title),
+        startShip3 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title);
+
+      addShips({
+        [startShip1.id]: startShip1,
+        [startShip2.id]: startShip2,
+        [startShip3.id]: startShip3,
+      })
+      // addShip(startShip);
     }
 
 

@@ -5,5 +5,6 @@ export interface ShipsEntities {
 }
 
 export interface StateSchemaShips {
-  entities: ShipsEntities
+  entities     : ShipsEntities
+  activeShipId : string
 }

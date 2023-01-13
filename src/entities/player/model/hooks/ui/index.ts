@@ -16,9 +16,6 @@ export const usePlayer = (config: Config = {}) => {
     dispatch = useAppDispatch(),
 
     playerId = useSelector(s.selectPlayerId),
-    entities = useSelector(s.selectEntities),
-    ship     = useSelector((state: StateSchema) => s.selectShipById(state, id)),
-    addShip  = (ship: Ship) => dispatch(actions.addShip(ship)),
     
     money    = useSelector(s.selectMoney),
     addMoney = (money: number) => dispatch(actions.addMoney(money));
@@ -26,9 +23,6 @@ export const usePlayer = (config: Config = {}) => {
 
   return {
     playerId,
-    entities,
-    ship,
-    addShip,
     
     money,
     addMoney

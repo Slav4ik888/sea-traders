@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { Ship, ShipsEntities } from '../../types';
 import { StateSchema } from 'app/providers/store';
+import { TownName } from 'entities/towns';
 
 
 export interface Config {
@@ -20,13 +21,21 @@ export const useShips = (config: Config = {}) => {
     
     ship     = useSelector((state: StateSchema) => s.selectShipById(state, id)),
     addShip  = (ship: Ship) => dispatch(actions.addShip(ship)),
-    addShips = (entities: ShipsEntities) => dispatch(actions.addShips(entities));
+    addShips = (entities: ShipsEntities) => dispatch(actions.addShips(entities)),
+    
+    activeShipId    = useSelector(s.selectActiveShipId),
+    setActiveShipId = (shipId: string) => dispatch(actions.setActiveShipId(shipId)),
+    relocateShip    = (shipId: string, townName: TownName) => dispatch(actions.relocateShip({ shipId, townName }));
 
   return {
     entities,
     ships,
     ship,
     addShip,
-    addShips
+    addShips,
+
+    activeShipId,
+    setActiveShipId,
+    relocateShip
   }
 };
