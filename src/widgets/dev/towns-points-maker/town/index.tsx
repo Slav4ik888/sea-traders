@@ -3,7 +3,7 @@ import { useHover } from 'shared/lib';
 import { Town, TownName, useTowns } from 'entities/towns';
 import { ShipOnMap } from 'entities/ships/ui/ship-on-map';
 import { Ship } from 'entities/ships';
-import { TooltipTownInfo } from 'entities/towns/ui/town-on-map/tooltip-town-info';
+import { TooltipTownInfo } from 'entities/towns/ui/tooltip-town-info-container/tooltip-town-info';
 import s from './index.module.scss';
 
 

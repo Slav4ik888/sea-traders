@@ -9,7 +9,8 @@ import { getItemFromArrByField } from 'shared/utils';
 
 const initialState: StateSchemaShips = {
   entities     : LS.getStateSchemaShips()?.entities     || {},
-  activeShipId : LS.getStateSchemaShips()?.activeShipId || null
+  activeShipId : LS.getStateSchemaShips()?.activeShipId || null,
+  targetTown   : false
 };
 
 
@@ -26,12 +27,15 @@ export const slice = createSlice({
         ...payload
       };
     },
-    setActiveShipId: (state, { payload }: PayloadAction<string>) => {
+    activateShip: (state, { payload }: PayloadAction<string>) => {
       state.activeShipId = payload;
     },
-    relocateShip: (state, { payload }: PayloadAction<{shipId: string, townName: TownName}>) => {
-      state.entities[payload.shipId] = {
-        ...state.entities[payload.shipId],
+    activateTargetTown: (state, { payload }: PayloadAction<boolean>) => {
+      state.targetTown = payload;
+    },
+    relocateShip: (state, { payload }: PayloadAction<{activeShipId: string, townName: TownName}>) => {
+      state.entities[payload.activeShipId] = {
+        ...state.entities[payload.activeShipId],
         action: ShipAction.IN_TOWN,
         location: {
           point: { ...getItemFromArrByField(TOWNS, 'title', payload.townName).points.port[0] }

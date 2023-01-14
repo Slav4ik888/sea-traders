@@ -7,4 +7,5 @@ export interface ShipsEntities {
 export interface StateSchemaShips {
   entities     : ShipsEntities
   activeShipId : string
+  targetTown   : boolean
 }

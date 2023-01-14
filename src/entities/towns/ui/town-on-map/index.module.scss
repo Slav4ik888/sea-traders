@@ -1,8 +1,13 @@
 .root {
   position: absolute;
+  cursor: pointer;
   z-index: 30;
 }
 
 .icon {
   width: var(--town-icon-size);
+}
+
+.target-town {
+  cursor: grab;
 }

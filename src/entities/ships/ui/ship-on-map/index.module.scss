@@ -8,6 +8,22 @@
   width: 30px;
 }
 
+.icon-activate-target-block {
+  position: relative;
+}
+
+.activate-target-town {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  color: var(--tooltip-color-dark-opacity);
+  background: var(--tooltip-bg-color-dark-opacity);
+  width: max-content;
+  padding: 4px 8px;
+  opacity: 0.8;
+  cursor: pointer; // url(/example/cursor/sniper.cur), grab;
+}
+
 .dot {
   position: absolute;
   border-radius: 50%;

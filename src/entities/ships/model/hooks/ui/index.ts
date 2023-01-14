@@ -23,10 +23,14 @@ export const useShips = (config: Config = {}) => {
     addShip  = (ship: Ship) => dispatch(actions.addShip(ship)),
     addShips = (entities: ShipsEntities) => dispatch(actions.addShips(entities)),
     
-    activeShipId    = useSelector(s.selectActiveShipId),
-    setActiveShipId = (shipId: string) => dispatch(actions.setActiveShipId(shipId)),
-    relocateShip    = (shipId: string, townName: TownName) => dispatch(actions.relocateShip({ shipId, townName }));
+    activeShipId = useSelector(s.selectActiveShipId),
+    activateShip = (shipId: string) => dispatch(actions.activateShip(shipId)),
+    
+    targetTown         = useSelector(s.selectTargetTown),
+    activateTargetTown = (action: boolean) => dispatch(actions.activateTargetTown(action)),
+    relocateShip       = (townName: TownName) => dispatch(actions.relocateShip({ activeShipId, townName }));
 
+  
   return {
     entities,
     ships,
@@ -35,7 +39,10 @@ export const useShips = (config: Config = {}) => {
     addShips,
 
     activeShipId,
-    setActiveShipId,
+    activateShip,
+
+    targetTown,
+    activateTargetTown,
     relocateShip
   }
 };

@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "relocateShip" && git push -u origin main
+// git add . && git commit -m "activateTargetTown & relocateShip" && git push -u origin main

@@ -1,5 +1,5 @@
-import { FC, memo, useMemo } from 'react';
-import { cn } from 'shared/lib';
+import { FC, memo, useEffect, useMemo, useState } from 'react';
+import { cn, useHover } from 'shared/lib';
 import { Ship, useShips } from '../../model';
 import s from './index.module.scss';
 
@@ -14,7 +14,9 @@ interface Props {
 
 export const ShipOnMap: FC<Props> = memo(({ ship, onClick }) => {
   const
-    { activeShipId } = useShips(),
+    [isHover, bindHover] = useHover(),
+    [menuOpen, setMenuOpen] = useState(false),
+    { activeShipId, activateTargetTown } = useShips(),
     shipActive = useMemo(() => activeShipId === ship.id, [activeShipId]),
     Y = ship.location.point.Y,
     X = ship.location.point.X,
@@ -23,17 +25,49 @@ export const ShipOnMap: FC<Props> = memo(({ ship, onClick }) => {
     dotTop  = useMemo(() => shipActive ? Y - 10 : Y - 2, [shipActive, ship.location]),
     dotLeft = useMemo(() => shipActive ? X - 20 : X - 2, [shipActive, ship.location]);  // 2 half past from dot width
 
-  // console.log('Y:', Y, 'X:', X);
-  const handlerClick = () => onClick && onClick(ship.id);
+  useEffect(() => {
+    if (shipActive && isHover && !menuOpen) {
+      setMenuOpen(true);
+      setTimeout(() => {
+        setMenuOpen(false);
+      }, 2000);
+    }
+  }, [isHover, shipActive]);
+
+
+  const handlerClick = () => {
+    onClick && onClick(ship.id);
+    setMenuOpen(false);
+  };
+
+  const handlerActivateTargetTown = (e) => {
+    e.stopPropagation();
+    activateTargetTown(true);
+    setMenuOpen(false);
+  };
+
 
   return (
-    <div onClick={handlerClick}>
+    <div
+      {...bindHover}
+      onClick={handlerClick}
+    >
       <div
         id        = {`ship-${ship.id}`}
         className = {cn(s.iconBlock, {}, [])}
         style     = {{ top, left }}
       >
+        <div className={s.iconActivateTargetBlock}>
         <img src={shipIcon} className={s.icon} />
+          {
+            menuOpen && <div
+              className = {s.activateTargetTown}
+              onClick   = {handlerActivateTargetTown}
+            >
+               Плыть в город
+            </div>
+          }
+        </div>
       </div>
 
       <div

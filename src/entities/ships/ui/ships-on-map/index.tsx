@@ -7,12 +7,10 @@ import { ShipOnMap } from '../ship-on-map';
 
 
 export const ShipsOnMap: FC = memo(() => {
-  const { ships, activeShipId, setActiveShipId, relocateShip } = useShips();
+  const { ships, activeShipId, activateShip } = useShips();
 
   const handlerShipClick = useCallback((id: string) => {
-    console.log('id: ', id);
-    if (activeShipId === id) relocateShip(id, TOWNS[getRandomNumber(0, 59)].title)
-    else setActiveShipId(id);
+    activeShipId === id ? activateShip('') : activateShip(id);
   }, [activeShipId]);
 
 
@@ -25,6 +23,7 @@ export const ShipsOnMap: FC = memo(() => {
           onClick = {handlerShipClick}
         />)
       }
+
     </>
   )
 });

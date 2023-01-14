@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
-import { Town } from '../../../model';
-import { TooltipTownInfo } from '../tooltip-town-info';
+import { Town } from '../../model';
+import { TooltipTownInfo } from './tooltip-town-info';
 import { useUI } from 'features/ui';
 
 
