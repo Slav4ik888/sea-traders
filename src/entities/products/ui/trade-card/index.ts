@@ -1,1 +1,1 @@
-export { TradeCard } from './ui'
+export { TradeCard, CardStyles } from './ui'

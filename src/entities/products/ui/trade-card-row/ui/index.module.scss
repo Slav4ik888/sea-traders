@@ -19,6 +19,7 @@
 .values {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   border-radius: 4px;
   border: 1px solid var(--card-values-border-color);
@@ -26,8 +27,4 @@
   height: 32px;
   margin-left: -3px;
   padding-left: 4px;  
-}
-
-.value {
-  margin: 0 4px;
 }

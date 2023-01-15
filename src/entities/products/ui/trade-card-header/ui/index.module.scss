@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 46px;
+  padding-top: 10px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+}
+
+.root-icon {
+  top: -4px;
+  font-size: 8px;
+  padding: 0 2px;
+}
+
+.root-icon-sell {
+  left: 10px;
+  --sell-color: #1659a8;
+  border-color: var(--sell-color);
+  color: var(--sell-color);
+  background-color: #c5e0f3;
+}
+
+.root-icon-purchase {
+  left: 10px;
+  --purchase-color: rgb(5, 171, 38);
+  border-color: var(--purchase-color);
+  color: var(--purchase-color);
+  background-color: #bdf08e;
+}
+
+.root-icon-ship {
+  right: -8px;
+  --purchase-color: #393939;
+  border-color: var(--purchase-color);
+  color: var(--purchase-color);
+  background-color: #a9a9a9;
+}

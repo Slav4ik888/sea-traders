@@ -1,1 +1,1 @@
-export { Value } from './ui'
+export { Value, ValueTheme } from './ui'

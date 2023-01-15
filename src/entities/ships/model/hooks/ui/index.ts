@@ -23,8 +23,10 @@ export const useShips = (config: Config = {}) => {
     addShip  = (ship: Ship) => dispatch(actions.addShip(ship)),
     addShips = (entities: ShipsEntities) => dispatch(actions.addShips(entities)),
     
-    activeShipId = useSelector(s.selectActiveShipId),
-    activateShip = (shipId: string) => dispatch(actions.activateShip(shipId)),
+    activeShipId    = useSelector(s.selectActiveShipId),
+    activeShip      = useSelector(s.selectActiveShip),
+    activeShipCargo = activeShip?.condition?.cargo,
+    activateShip    = (shipId: string) => dispatch(actions.activateShip(shipId)),
     
     targetTown         = useSelector(s.selectTargetTown),
     activateTargetTown = (action: boolean) => dispatch(actions.activateTargetTown(action)),
@@ -39,6 +41,8 @@ export const useShips = (config: Config = {}) => {
     addShips,
 
     activeShipId,
+    activeShip,
+    activeShipCargo,
     activateShip,
 
     targetTown,

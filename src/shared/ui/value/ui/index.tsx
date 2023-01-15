@@ -3,13 +3,15 @@ import { cn, Mods } from 'shared/lib';
 import s from './index.module.scss';
 
 
-export enum ValueType {
-  DEFAULT = 'default'
+export enum ValueTheme {
+  DEFAULT = 'default',
+  EMPTY   = 'empty',
+  MONEY   = 'money'
 }
 
 
 interface Props {
-  type?      : ValueType
+  theme?     : ValueTheme
   value      : number
   fullwidth? : boolean
   maxWidth?  : number
@@ -20,7 +22,7 @@ interface Props {
 export const Value: FC<Props> = memo((props) => {
   const {
     value,
-    type = ValueType.DEFAULT,
+    theme = ValueTheme.DEFAULT,
     fullwidth,
     maxWidth,
     classname
@@ -33,11 +35,11 @@ export const Value: FC<Props> = memo((props) => {
 
   return (
     <div
-      className = {cn(s.root, mods, [s[type], classname])}
+      className = {cn(s.root, mods, [s[theme], classname])}
       style     = {{ maxWidth }}
     >
       {
-        value
+        value || '-'
       }
     </div>
   )

@@ -2,7 +2,8 @@ export {
   Ship,
   ShipModel,
   StateSchemaShips,
-  ShipsEntities
+  ShipsEntities,
+  Cargo
 } from './model/types'
 export { getStartShip } from './model/services'
 export { slice as shipsSlice, actions as shipsActions } from './model/slice'

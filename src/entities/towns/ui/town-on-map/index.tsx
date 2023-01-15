@@ -32,17 +32,21 @@ export const TownOnMap: FC<Props> = memo(({ town, onClick }) => {
   
   return (
     <div
-      {...bindHover}
-      className = {cn(s.root, {[s.targetTown]: targetTown})}
+        {...bindHover}
+      className = {s.root}
       style     = {{ top, left }}
     >
-      <img
-        id        = 'tooltip-town-info'
-        src       = {activeIcon}
-        alt       = 'town-icon'
-        className = {s.icon}
-        onClick   = {handlerClick}
-      />
+      <div
+        className = {cn(s.iconBox, {[s.targetTown]: targetTown})}
+      >
+        <img
+          id        = 'tooltip-town-info'
+          src       = {activeIcon}
+          alt       = 'town-icon'
+          className = {s.icon}
+          onClick   = {handlerClick}
+        />
+      </div>
       <TooltipTownInfoContainer
         isHover = {isHover && !targetTown}
         town    = {town}

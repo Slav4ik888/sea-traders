@@ -1,9 +1,9 @@
 import { FC, memo } from 'react';
-import { ProductIcon } from 'shared/ui';
-import { ProductName, PRODUCTS } from 'entities/products';
+import { ProductName, PRODUCTS, ProductIconContainer } from 'entities/products';
 import { TownName, useTowns } from '../../../../../model';
 import { useUI } from 'features/ui';
 import s from './index.module.scss';
+
 
 
 interface Props {
@@ -25,7 +25,7 @@ export const TownProductions: FC<Props> = memo(({ open, townName, produces }) =>
   return (
     <div className={s.root} onClick={handlerSetTown}>
       {
-        produces.map(productName => <ProductIcon
+        produces.map(productName => <ProductIconContainer
           key     = {productName}
           product = {PRODUCTS[productName]}
           styles  = {{ root: s.iconRoot, icon: s.iconIcon }}
