@@ -2,29 +2,36 @@ import { FC, memo } from 'react';
 import { Town, TownMarket } from 'entities/towns';
 import { Cargo } from 'entities/ships';
 import { Value, ValueTheme } from 'shared/ui';
-import { ProductIconContainer } from '../../product-icon-container';
-import { Product } from '../../../model/types';
+import { ProductIconContainer } from '../../../../product-icon-container';
+import { Product } from '../../../../../model/types';
 import { TradeCardRowShipValues } from './ship-values';
-import { CardStyles } from '../../trade-card';
+import { CardStyles } from '../../..';
 import s from './index.module.scss';
 import { TradeCardRowMarketValues } from './market-values';
+import { UseValue } from 'shared/lib';
 
 
 
 interface Props {
-  product    : Product
-  market     : TownMarket
-  town       : Town
-  shipCargo? : Cargo[]
-  styles     : CardStyles
+  product        : Product
+  market         : TownMarket
+  town           : Town
+  shipCargo?     : Cargo[]
+  styles         : CardStyles
+  hookTradeRange : UseValue<number>
 }
 
 
-export const TradeCardRow: FC<Props> = memo(({ town, product, market, shipCargo, styles }) => {
+export const TradeCardRow: FC<Props> = memo(({ town, product, market, shipCargo, styles, hookTradeRange }) => {
+  
+  const handlerTradeRangeOpen = () => hookTradeRange.setOpen();
   
 
   return (
-    <div className={s.root}>
+    <div
+      className={s.root}
+      onClick={handlerTradeRangeOpen}
+    >
       <ProductIconContainer
         product      = {product}
         townProduces = {town.produces}

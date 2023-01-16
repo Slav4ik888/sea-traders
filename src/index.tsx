@@ -25,4 +25,4 @@ root.render(
 );
 
 
-// git add . && git commit -m "refact Trade row" && git push -u origin main
+// git add . && git commit -m "refact TradeCard & start TradeRange" && git push -u origin main

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { cn } from 'shared/lib';
 import { Icon, IconLabel } from 'shared/ui';
-import { CardStyles } from '../../trade-card';
+import { CardStyles } from '../../..';
 import s from './index.module.scss';
 
 

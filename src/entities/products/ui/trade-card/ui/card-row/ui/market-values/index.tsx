@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { TownMarket } from 'entities/towns';
 import { Value, ValueTheme } from 'shared/ui';
 import { Product } from 'entities/products';
-import { CardStyles } from '../../../trade-card';
+import { CardStyles } from '../../../..';
 
 
 
