@@ -5,8 +5,10 @@ import { Card } from 'shared/ui';
 import { TradeCardHeader } from '../card-header';
 import { TradeCardRow } from '../card-row';
 import { PRODUCTS } from '../../../../model/data';
-import s from './index.module.scss';
 import { UseValue } from 'shared/lib';
+import { TradeRangeType } from '../trade-range/types';
+import s from './index.module.scss';
+
 
 
 export interface CardStyles {
@@ -18,7 +20,7 @@ export interface CardStyles {
 type Props = {
   town           : Town
   shipCargo      : Cargo[]
-  hookTradeRange : UseValue<number>
+  hookTradeRange : UseValue<TradeRangeType>
 }
 
 export const TradeCardContent: FC<Props> = memo(({ town, shipCargo, hookTradeRange }) => {

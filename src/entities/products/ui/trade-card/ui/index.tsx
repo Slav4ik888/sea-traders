@@ -5,6 +5,7 @@ import { Modal } from 'shared/ui';
 import { TradeRange } from './trade-range';
 import { TradeCardContent } from './card';
 import { useValue } from 'shared/lib';
+import { emptyTradeRange, TradeRangeType } from './trade-range/types';
 
 
 
@@ -19,7 +20,7 @@ export const TradeCard: FC = memo(() => {
   const
     { selectedTown, selectTownName } = useTowns(),
     { activeShip, activeShipCargo } = useShips(),
-    hookTradeRange = useValue<number>(0),
+    hookTradeRange = useValue<TradeRangeType>(emptyTradeRange),
     // activeShipInTown = useMemo(() => isShipInTown(selectedTown, activeShip), [selectedTown, activeShip]),
     handlerClose = () => selectTownName(null);
 
@@ -39,7 +40,7 @@ export const TradeCard: FC = memo(() => {
         shipCargo      = {activeShipCargo}
         hookTradeRange = {hookTradeRange}
       />
-      <TradeRange hookValue={hookTradeRange} />
+      <TradeRange hookTradeRange={hookTradeRange} />
     </Modal>
   )
 });

@@ -3,12 +3,13 @@ import { Town, TownMarket } from 'entities/towns';
 import { Cargo } from 'entities/ships';
 import { Value, ValueTheme } from 'shared/ui';
 import { ProductIconContainer } from '../../../../product-icon-container';
-import { Product } from '../../../../../model/types';
+import { Product, ProductId, ProductName } from '../../../../../model/types';
 import { TradeCardRowShipValues } from './ship-values';
 import { CardStyles } from '../../..';
 import s from './index.module.scss';
 import { TradeCardRowMarketValues } from './market-values';
 import { UseValue } from 'shared/lib';
+import { TradeRangeType } from '../../trade-range/types';
 
 
 
@@ -18,7 +19,7 @@ interface Props {
   town           : Town
   shipCargo?     : Cargo[]
   styles         : CardStyles
-  hookTradeRange : UseValue<number>
+  hookTradeRange : UseValue<TradeRangeType>
 }
 
 

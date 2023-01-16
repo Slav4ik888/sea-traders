@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, memo } from 'react';
-import { cn, UseValue, useValue } from 'shared/lib';
+import { cn, UseValue } from 'shared/lib';
 import s from './index.module.scss';
+import { TradeRangeType } from './types';
 
 
 
@@ -10,31 +11,44 @@ interface Styles {
 
 
 interface Props {
-  hookValue : UseValue<number>
-  styles?   : Styles
+  hookTradeRange : UseValue<TradeRangeType>
+  styles?        : Styles
 }
 
 
-export const TradeRange: FC<Props> = memo(({ hookValue, styles = {} }) => {
-  console.log('hookValue: ', hookValue.value);
+export const TradeRange: FC<Props> = memo(({ hookTradeRange, styles = {} }) => {
+  console.log('hookTradeRange: ', hookTradeRange.value);
 
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log('e: ', e.target.value);
-    hookValue.setValue(Number(e.target.value));
+    const value = Number(e.target.value);
+    console.log('value: ', value);
+    // Calculate
+    // If < 0 Sell to Market => Purchase 
+    // If > 0 Buy from Market => Sell 
+    hookTradeRange.setValue({
+      ...hookTradeRange.value,
+      rangeValue: value
+    });
   };
 
-  if (!hookValue.open) return null
+  if (!hookTradeRange.open) return null
 
   return (
     <div className={cn(s.root, {}, [styles.root])}>
-      <input
-        type     = 'range'
-        min      = '-10'
-        max      = '10'
-        step     = '1'
-        // value    = {hookValue.value}
-        onChange = {handlerChange}
-      />
+      <div className={s.content}>
+        <div className={s.inputBox}>
+          <input
+            type     = 'range'
+            min      = '-50'
+            max      = '50'
+            step     = '1'
+            value    = {hookTradeRange.value.rangeValue}
+            onChange = {handlerChange}
+          />
+          <div className={s.zeroBox} />
+          <div className={s.zeroCircle} />
+        </div>
+      </div>
     </div>
   )
 });
