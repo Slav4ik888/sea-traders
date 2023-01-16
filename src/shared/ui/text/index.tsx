@@ -46,8 +46,6 @@ export const Text: FC<Props> = memo((props) => {
     styles
   } = props;
 
-  console.log('styles: ', styles.title);
-
   return (
     <div className={cn(s.root, {}, [s[theme], s[align],  s[size], styles.root])}>
       {

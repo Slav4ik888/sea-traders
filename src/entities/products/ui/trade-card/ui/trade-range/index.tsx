@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, memo } from 'react';
+import { ChangeEvent, FC, memo, MouseEvent, useEffect, useMemo } from 'react';
 import { cn, UseValue } from 'shared/lib';
 import s from './index.module.scss';
 import { TradeRangeType } from './types';
@@ -17,7 +17,6 @@ interface Props {
 
 
 export const TradeRange: FC<Props> = memo(({ hookTradeRange, styles = {} }) => {
-  console.log('hookTradeRange: ', hookTradeRange.value);
 
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);

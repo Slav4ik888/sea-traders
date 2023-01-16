@@ -1,6 +1,6 @@
 .root {
   position: absolute;
-  top: 100px;
+  top: 200px;
   width: 100%;
   height: 100px;
   padding: 10px;
@@ -69,7 +69,7 @@ input[type=range]::-ms-track {
 
 // ОФОРМЛЕНИЕ ПОЛЗУНКА
 :root {
-  --circle-width: 14px;
+  --circle-width: 20px;
   --border-color: #72551c;
   --circle-border-radius: 50%;
   --circle-background: #f4e0a2;

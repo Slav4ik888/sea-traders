@@ -22,7 +22,11 @@ export const TradeCard: FC = memo(() => {
     { activeShip, activeShipCargo } = useShips(),
     hookTradeRange = useValue<TradeRangeType>(emptyTradeRange),
     // activeShipInTown = useMemo(() => isShipInTown(selectedTown, activeShip), [selectedTown, activeShip]),
-    handlerClose = () => selectTownName(null);
+    handlerClose = () => {
+      selectTownName(null);
+      hookTradeRange.setClose();
+      hookTradeRange.setValue(emptyTradeRange);
+    };
 
   if (!selectedTown) return null;
   console.log('selectedTown: ', selectedTown);

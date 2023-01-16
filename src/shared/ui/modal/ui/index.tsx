@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useRef, useState, useCallback, MutableRefObject } from 'react';
+import { FC, ReactNode, useEffect, useRef, useState, useCallback, MutableRefObject, MouseEvent } from 'react';
 import { cn, Mods } from 'shared/lib';
 import { Portal } from 'shared/ui';
 import s from './index.module.scss';
@@ -45,7 +45,7 @@ export const Modal: FC<Props> = ({ styles, lazy, isOpen, children, onClose }) =>
   }, [isOpen]);
 
 
-  const handlerContentClick = (e: React.MouseEvent) => e.stopPropagation();
+  const handlerContentClick = (e: MouseEvent<HTMLDivElement>) => e.stopPropagation();
 
   const handlerClose = useCallback(() => {
     if (onClose) {
