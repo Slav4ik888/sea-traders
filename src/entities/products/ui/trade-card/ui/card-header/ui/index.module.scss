@@ -1,8 +1,9 @@
 .root {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   padding-left: 46px;
-  padding-top: 10px;
+  width: 370px;
 }
 
 .icon {

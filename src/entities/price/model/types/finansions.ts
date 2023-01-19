@@ -4,7 +4,7 @@ import { PriceItem } from './price';
 
 
 export interface FinHistory {
-  type      : FinOperationType
+  type      : TradeOperationType
   productId : ProductId
   amount    : number
   price     : PriceItem
@@ -12,7 +12,7 @@ export interface FinHistory {
   
 }
 
-export enum FinOperationType {
+export enum TradeOperationType {
   SELL     = 'sell',
   PURCHASE = 'purchase'
 }

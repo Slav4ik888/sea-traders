@@ -5,6 +5,7 @@ import s from './index.module.scss';
 
 export enum ValueTheme {
   DEFAULT = 'default',
+  CLEAR   = 'clear',
   EMPTY   = 'empty',
   MONEY   = 'money'
 }

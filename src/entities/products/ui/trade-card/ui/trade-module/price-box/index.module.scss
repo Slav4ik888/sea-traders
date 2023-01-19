@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.value {
+  margin: 0 4px;
+  width: 50px;
+}
+
+.sell {
+  display: flex;
+  width: 50%;
+}
+
+.purchase {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+// STYLES
+.values-row {
+  margin-left: 2px !important;
+  background-color: var(--trade-module-price-row-bg-color) !important;
+}
+
+.market-values {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.ship-values {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.value {
+  margin: 0 4px;
+  width: 50px;
+}

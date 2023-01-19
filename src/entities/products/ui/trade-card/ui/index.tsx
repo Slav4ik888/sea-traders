@@ -2,14 +2,15 @@ import { FC, memo } from 'react';
 import { useShips } from 'entities/ships';
 import { useTowns } from 'entities/towns';
 import { Modal } from 'shared/ui';
-import { TradeRange } from './trade-range';
+import { TradeModule } from './trade-module';
 import { TradeCardContent } from './card';
 import { useValue } from 'shared/lib';
-import { emptyTradeRange, TradeRangeType } from './trade-range/types';
+import { emptyTradeRange, TradeRangeType } from './trade-module/types';
 
 
 
 export interface CardStyles {
+  valuesRow?   : string // Строка c данными market & shipCargo
   marketValues : string
   shipValues   : string
   value        : string
@@ -44,7 +45,7 @@ export const TradeCard: FC = memo(() => {
         shipCargo      = {activeShipCargo}
         hookTradeRange = {hookTradeRange}
       />
-      <TradeRange hookTradeRange={hookTradeRange} />
+      <TradeModule hookTradeRange={hookTradeRange} />
     </Modal>
   )
 });

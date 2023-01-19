@@ -12,14 +12,13 @@ interface Styles {
 
 
 interface Props {
-  product       : Product
-  townProduces? : ProductName[]
-  styles?       : Styles
+  product     : Product
+  isProduced? : boolean
+  styles?     : Styles
 }
 
 
-export const ProductIconContainer: FC<Props> = memo(({ product, townProduces, styles }) => {
-  const isProduced = useMemo(() => townProduces?.includes(product.id), [townProduces]);
+export const ProductIconContainer: FC<Props> = memo(({ product, isProduced, styles }) => {
 
   return (
     <Icon

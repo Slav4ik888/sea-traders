@@ -1,38 +1,29 @@
-import { FC, memo, useMemo } from 'react';
-import { Cargo } from 'entities/ships';
+import { FC, memo } from 'react';
 import { Value, ValueTheme } from 'shared/ui';
 import { Product } from '../../../../../../model/types';
 import { CardStyles } from '../../../..';
-
+import { useShips } from 'entities/ships';
 
 
 
 interface Props {
-  product    : Product
-  shipCargo? : Cargo[]
-  styles     : CardStyles
+  cargoAmount : number
+  cargoPrice  : number
+  styles      : CardStyles
 }
 
 
-export const TradeCardRowShipValues: FC<Props> = memo(({ product, shipCargo, styles }) => {
-  const { cargoWeight, cargoPrice } = useMemo(() => {
-    if (typeof shipCargo === 'undefined') return {}
+export const TradeCardRowShipValues: FC<Props> = memo(({ cargoAmount, cargoPrice, styles }) => {
+  const { activeShip } = useShips();
 
-    const cargo = shipCargo.find(cargo => cargo.id === product.id);
-    console.log('cargo: ', cargo);
-
-    return { cargoWeight: cargo?.weight, cargoPrice: cargo?.weight && 1 || undefined }
-  }, []);
-  
-
-  if (!shipCargo) return null
+  if (!activeShip) return null;
 
 
   return (
     <div className={styles.shipValues}>
       <Value
-        value     = {cargoWeight}
-        theme     = {!cargoWeight && ValueTheme.EMPTY}
+        value     = {cargoAmount}
+        theme     = {!cargoAmount && ValueTheme.EMPTY}
         classname = {styles.value}
       />
       <Value

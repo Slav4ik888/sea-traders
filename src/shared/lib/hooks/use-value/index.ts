@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { cloneObj, isObj, isUndefined } from 'shared/utils';
 import { UseValue } from './types';
 export { UseValue };
 
@@ -7,7 +8,11 @@ export { UseValue };
  */
 export function useValue<I>(initValue?: I, initOpen?: boolean, initIsChange?: boolean): UseValue<I>  {
   const
-    [value, _setValue] = useState(initValue !== undefined ? initValue : null),
+    [value, _setValue] = useState(() => {
+      if (isUndefined(initValue)) return null
+      if (isObj(initValue)) return cloneObj(initValue)
+      return initValue
+    }),
     setValue = (value: I, open?: boolean) => {
       _setValue(prev => value);
       if (typeof open !== 'undefined') _setOpen(open);

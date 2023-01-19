@@ -11,7 +11,7 @@ export const MainPlayerPanel: FC = memo(() => {
   
   return (
     <Card
-      childrenTitle = {<Money value={money} classname={s.money} />}
+      childrenTitle = {<Money value={money} styles={{ root: s.money }} />}
       styles        = {{ root: s.root}}
     >
       PlayerCard

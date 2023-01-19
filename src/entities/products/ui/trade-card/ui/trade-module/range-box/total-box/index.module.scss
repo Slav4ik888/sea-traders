@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: var(--trade-module-total-color);
+}
+
+.total {
+  display: flex;
+  justify-content: center;
+  color: var(--trade-module-total-color);
+  font: var(--font-l);
+  min-width: 50px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.monet {
+  padding-left: 2px;
+  width: 15px;
+}

@@ -36,9 +36,7 @@ export const TownOnMap: FC<Props> = memo(({ town, onClick }) => {
       className = {s.root}
       style     = {{ top, left }}
     >
-      <div
-        className = {cn(s.iconBox, {[s.targetTown]: targetTown})}
-      >
+      <div className = {cn(s.iconBox, {[s.targetTown]: targetTown})}>
         <img
           id        = 'tooltip-town-info'
           src       = {activeIcon}

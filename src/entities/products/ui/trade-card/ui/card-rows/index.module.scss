@@ -1,0 +1,13 @@
+.wrapper {
+  position: absolute;
+  top: 88px;
+  width: 380px;
+  height: 377px;
+  overflow-y: scroll;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-right: 20px;
+}

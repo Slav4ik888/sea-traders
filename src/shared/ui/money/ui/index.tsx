@@ -4,27 +4,31 @@ import { addCharBetweenThousands } from 'shared/utils';
 import s from './index.module.scss';
 
 
+interface Styles {
+  root?  : string
+  monet? : string
+}
 
 interface Props {
-  value      : number
-  classname? : string
+  value   : number
+  styles? : Styles
 }
 
 
 export const Money: FC<Props> = memo((props) => {
   const {
     value,
-    classname
+    styles
   } = props;
   
 
   return (
-    <div className={cn(s.root, {}, [classname])}>
+    <div className={cn(s.root, {}, [styles.root])}>
       <div className={s.value}>{addCharBetweenThousands(value, { divider: '.' })}</div>
       <img
         src       = {require('shared/assets/icons/gold-monet.png')}
         alt       = 'gold-monet'
-        className = {s.monet}
+        className = {cn(s.monet, {}, [styles.monet])}
       />
     </div>
   )

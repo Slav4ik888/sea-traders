@@ -1,7 +1,7 @@
 export {
   PriceType,
   PriceItem,
-  FinOperationType,
+  TradeOperationType,
   FinHistory
 } from './model/types'
 

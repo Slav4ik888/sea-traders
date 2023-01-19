@@ -4,15 +4,19 @@ import { TownMarket } from 'entities/towns';
 
  
 export interface TradeRangeType {
-  rangeValue : number
+  rangeValue : number      // Input value
   productId  : ProductId
+  isProduced : boolean
   market     : TownMarket
   shipCargo  : Cargo[]
+  total      : number      // Transaction amount
 }
 
-export const emptyTradeRange = {
+export const emptyTradeRange: TradeRangeType = {
   rangeValue : 0,
   productId  : null,
+  isProduced : false,
   market     : {} as TownMarket,
-  shipCargo  : []
+  shipCargo  : [],
+  total      : 0
 }
