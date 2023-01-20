@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { TownMarket } from 'entities/towns';
 import { Cargo } from 'entities/ships';
 import { ProductIconContainer } from '../../../../product-icon-container';
 import { Product } from '../../../../../model/types';
@@ -14,16 +13,17 @@ import s from './index.module.scss';
 interface Props {
   product        : Product
   isProduced     : boolean
-  market         : TownMarket
+  amount         : number
+  priceSell      : number
+  pricePurchase  : number
   cargoAmount    : number
   cargoPrice     : number
   shipCargo?     : Cargo[]
   styles         : CardStyles
-  // hookTradeRange : UseValue<TradeRangeType>
 }
 
 
-export const TradeCardRowComponent: FC<Props> = memo(({ isProduced, product, market, cargoAmount, cargoPrice, styles }) => {
+export const TradeCardRowComponent: FC<Props> = memo(({ isProduced, product, amount, priceSell, pricePurchase, cargoAmount, cargoPrice, styles }) => {
   
   return (
     <>
@@ -34,9 +34,10 @@ export const TradeCardRowComponent: FC<Props> = memo(({ isProduced, product, mar
       
       <div className={cn(s.values, {}, [styles.valuesRow])}>
         <TradeCardRowMarketValues
-          product = { product}
-          market  = { market}
-          styles  = { styles}
+          amount        = {amount}
+          priceSell     = {priceSell}
+          pricePurchase = {pricePurchase}
+          styles        = { styles}
         />
         <TradeCardRowShipValues
           cargoAmount = {cargoAmount}

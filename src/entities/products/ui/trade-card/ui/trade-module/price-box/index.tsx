@@ -32,12 +32,14 @@ export const TradeModulePriceBox: FC<Props> = memo(({ hookTradeRange }) => {
   return (
     <div className={s.root}>
       <TradeCardRowComponent
-        product     = {product}
-        isProduced  = {isProduced}
-        market      = {market}
-        cargoAmount = {cargo?.amount}
-        cargoPrice  = {cargo?.price}
-        styles      = {styles}
+        product       = {product}
+        isProduced    = {isProduced}
+        amount        = {market[product.id].leftOvers.amount - hookTradeRange.value.rangeValue}
+        priceSell     = {market[product.id].price[0]}
+        pricePurchase = {market[product.id].price[1]}
+        cargoAmount   = {cargo?.amount}
+        cargoPrice    = {cargo?.price}
+        styles        = {styles}
       />
       {/* <ProductIconContainer product={getProductById(productId)} />
 

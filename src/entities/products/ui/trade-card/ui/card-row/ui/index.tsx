@@ -62,12 +62,14 @@ export const TradeCardRow: FC<Props> = memo(({ town, product, market, shipCargo,
       onClick   = {handlerTradeRangeOpen}
     >
       <TradeCardRowComponent
-        product     = {product}
-        isProduced  = {isProduced}
-        market      = {market}
-        cargoAmount = {cargoAmount}
-        cargoPrice  = {cargoPrice}
-        styles      = {styles}
+        product       = {product}
+        isProduced    = {isProduced}
+        amount        = {market[product.id].leftOvers.amount}
+        priceSell     = {market[product.id].price[0]}
+        pricePurchase = {market[product.id].price[1]}
+        cargoAmount   = {cargoAmount}
+        cargoPrice    = {cargoPrice}
+        styles        = {styles}
       />
     </div>
   )

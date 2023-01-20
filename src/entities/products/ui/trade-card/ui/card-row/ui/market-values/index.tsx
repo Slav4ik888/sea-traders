@@ -1,34 +1,33 @@
 import { FC, memo } from 'react';
-import { TownMarket } from 'entities/towns';
 import { Value, ValueTheme } from 'shared/ui';
-import { Product } from 'entities/products';
 import { CardStyles } from '../../../..';
 
 
 
 interface Props {
-  product    : Product
-  market     : TownMarket
-  styles     : CardStyles
+  amount        : number
+  priceSell     : number
+  pricePurchase : number
+  styles        : CardStyles
 }
 
 
-export const TradeCardRowMarketValues: FC<Props> = memo(({ product, market, styles }) => {
+export const TradeCardRowMarketValues: FC<Props> = memo(({ amount, priceSell, pricePurchase, styles }) => {
   
 
   return (
     <div className={styles.marketValues}>
       <Value
-        value     = {market[product.id].leftOvers.amount}
+        value     = {amount}
         classname = {styles.value}
       />
       <Value
-        value     = {market[product.id].price[1]}
+        value     = {pricePurchase}
         theme     = {ValueTheme.MONEY}
         classname = {styles.value}
       />
       <Value
-        value     = {market[product.id].price[0]}
+        value     = {priceSell}
         theme     = {ValueTheme.MONEY}
         classname = {styles.value}
       />

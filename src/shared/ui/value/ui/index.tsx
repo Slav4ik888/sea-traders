@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { cn, Mods } from 'shared/lib';
+import { isUndefined } from 'shared/utils';
 import s from './index.module.scss';
 
 
@@ -22,7 +23,7 @@ interface Props {
 
 export const Value: FC<Props> = memo((props) => {
   const {
-    value,
+    value: startValue,
     theme = ValueTheme.DEFAULT,
     fullwidth,
     maxWidth,
@@ -31,7 +32,9 @@ export const Value: FC<Props> = memo((props) => {
   
   const mods: Mods = {
     [s.fullwidth]: fullwidth
-  }
+  };
+
+  const value = isUndefined(startValue) ? '-' : startValue;
 
 
   return (
@@ -40,7 +43,7 @@ export const Value: FC<Props> = memo((props) => {
       style     = {{ maxWidth }}
     >
       {
-        value || '-'
+        value
       }
     </div>
   )
