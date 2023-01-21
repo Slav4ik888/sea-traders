@@ -4,8 +4,10 @@ import s from './index.module.scss';
 
 
 export enum ButtonTheme {
-  BOARD = 'board'
+  BOARD   = 'board',
+  OUTLINE = 'outline'
 }
+
 
 type Props = {
   children   : ReactNode

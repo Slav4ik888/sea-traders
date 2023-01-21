@@ -2,7 +2,7 @@ import * as s from '../../selectors';
 import { actions } from '../../slice';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
-import { Ship, ShipsEntities } from '../../types';
+import { Cargo, Ship, ShipsEntities } from '../../types';
 import { StateSchema } from 'app/providers/store';
 import { TownName } from 'entities/towns';
 
@@ -27,6 +27,7 @@ export const useShips = (config: Config = {}) => {
     activeShip      = useSelector(s.selectActiveShip),
     activeShipCargo = activeShip?.condition?.cargo,
     activateShip    = (shipId: string) => dispatch(actions.activateShip(shipId)),
+    updateShipCargo = (cargo: Cargo) => dispatch(actions.updateShipCargo({ activeShipId, cargo })),
     
     targetTown         = useSelector(s.selectTargetTown),
     activateTargetTown = (action: boolean) => dispatch(actions.activateTargetTown(action)),
@@ -44,6 +45,7 @@ export const useShips = (config: Config = {}) => {
     activeShip,
     activeShipCargo,
     activateShip,
+    updateShipCargo,
 
     targetTown,
     activateTargetTown,

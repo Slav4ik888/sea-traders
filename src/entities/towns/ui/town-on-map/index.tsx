@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useMemo } from 'react';
+import { FC, memo, useCallback, useEffect, useMemo } from 'react';
 import { Town, TownName } from '../../model';
 import { cn, useHover } from 'shared/lib';
 import { TooltipTownInfoContainer } from '../tooltip-town-info-container';
@@ -19,13 +19,17 @@ interface Props {
 /** Town on map */
 export const TownOnMap: FC<Props> = memo(({ town, onClick }) => {
   const
-    [isHover, bindHover] = useHover({ enterDelay: 800 }),
+    [isHover, bindHover, { setDelay }] = useHover({ enterDelay: 800 }),
     { targetTown } = useShips(),
+    { activeShip } = useShips(),
     activeIcon = useMemo(() => isHover ? iconHover : icon, [isHover]),
     left = `${town.points.town.X}px`,
     top  = `${town.points.town.Y}px`;
 
-  
+  useEffect(() => {
+    setDelay(activeShip ? 0 : 800);
+  }, [activeShip]);
+
   const handlerClick = () => onClick(town.title);
 
   // const opens = town.title === TownName.FloridaKeys ? true : false;

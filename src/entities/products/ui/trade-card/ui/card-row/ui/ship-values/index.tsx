@@ -1,6 +1,5 @@
 import { FC, memo } from 'react';
-import { Value, ValueTheme } from 'shared/ui';
-import { Product } from '../../../../../../model/types';
+import { Value } from 'shared/ui';
 import { CardStyles } from '../../../..';
 import { useShips } from 'entities/ships';
 
@@ -14,6 +13,8 @@ interface Props {
 
 
 export const TradeCardRowShipValues: FC<Props> = memo(({ cargoAmount, cargoPrice, styles }) => {
+  console.log('cargoAmount: ', cargoAmount);
+  
   const { activeShip } = useShips();
 
   if (!activeShip) return null;
@@ -23,12 +24,12 @@ export const TradeCardRowShipValues: FC<Props> = memo(({ cargoAmount, cargoPrice
     <div className={styles.shipValues}>
       <Value
         value     = {cargoAmount}
-        theme     = {!cargoAmount && ValueTheme.EMPTY}
+        // theme     = {!Boolean(cargoAmount) && ValueTheme.EMPTY}
         classname = {styles.value}
       />
       <Value
         value     = {cargoPrice}
-        theme     = {!cargoPrice && ValueTheme.EMPTY}
+        // theme     = {!Boolean(cargoPrice) && ValueTheme.EMPTY}
         classname = {styles.value}
       />
     </div>

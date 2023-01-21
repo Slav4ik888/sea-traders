@@ -1,7 +1,23 @@
+import { ProductName } from 'entities/products';
 import { getTownByTownName, TownName } from 'entities/towns';
 import { SHIPS } from '../../data';
-import { ShipModel, ShipsEntities } from '../../types';
+import { Cargo, ShipModel, ShipsEntities } from '../../types';
 import { createShip } from '../create-ship';
+
+
+
+const fillCargo = (): Cargo[] => {
+  const names = Object.values(ProductName);
+
+  return new Array(names.length)
+    .fill(0)
+    .map((_, idx) => ({
+      id: names[idx],
+      amount: 0,
+      price: 0
+    }))
+};
+
 
 const
   START_TOWN       = TownName.PortRoyale,
@@ -23,7 +39,7 @@ export const getStartShip = (
     point: getTownByTownName(townName || START_TOWN).points.port[0]
   },
   condition: {
-    cargo    : [],
+    cargo    : [...fillCargo()],
     crew     : START_SHIP.crew,
     cannons  : START_SHIP.cannons,
     hp       : START_SHIP.hp

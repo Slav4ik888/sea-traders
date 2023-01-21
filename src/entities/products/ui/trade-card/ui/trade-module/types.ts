@@ -1,14 +1,14 @@
 import { ProductId } from '../../../../model';
 import { Cargo } from 'entities/ships';
-import { TownMarket } from 'entities/towns';
+import { TradeOperationType } from 'entities/price';
 
  
 export interface TradeRangeType {
   rangeValue : number      // Input value
   productId  : ProductId
   isProduced : boolean
-  market     : TownMarket
-  shipCargo  : Cargo[]
+  shipCargo  : Cargo
+  type       : TradeOperationType
   total      : number      // Transaction amount
 }
 
@@ -16,7 +16,7 @@ export const emptyTradeRange: TradeRangeType = {
   rangeValue : 0,
   productId  : null,
   isProduced : false,
-  market     : {} as TownMarket,
-  shipCargo  : [],
+  shipCargo  : null,
+  type       : null,
   total      : 0
 }

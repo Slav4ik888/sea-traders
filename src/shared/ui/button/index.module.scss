@@ -14,3 +14,9 @@
   background: repeat top url('shared/assets/backgrounds/holst-dark6.jpg');
   border-radius: 4px;
 }
+
+.outline {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+}

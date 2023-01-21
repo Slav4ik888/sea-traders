@@ -1,5 +1,4 @@
 import { FC, memo } from 'react';
-import { Cargo } from 'entities/ships';
 import { ProductIconContainer } from '../../../../product-icon-container';
 import { Product } from '../../../../../model/types';
 import { TradeCardRowShipValues } from './ship-values';
@@ -18,7 +17,6 @@ interface Props {
   pricePurchase  : number
   cargoAmount    : number
   cargoPrice     : number
-  shipCargo?     : Cargo[]
   styles         : CardStyles
 }
 

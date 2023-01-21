@@ -1,6 +1,6 @@
 import { FC, memo, MouseEvent, useMemo } from 'react';
 import { Town, TownMarket } from 'entities/towns';
-import { Cargo, getCargoById } from 'entities/ships';
+import { Cargo } from 'entities/ships';
 import { Product } from '../../../../../model/types';
 import { CardStyles } from '../../..';
 import { UseValue } from 'shared/lib';
@@ -14,7 +14,7 @@ interface Props {
   product        : Product
   market         : TownMarket
   town           : Town
-  shipCargo?     : Cargo[]
+  shipCargo?     : Cargo
   styles         : CardStyles
   hookTradeRange : UseValue<TradeRangeType>
 }
@@ -28,27 +28,18 @@ export const TradeCardRow: FC<Props> = memo(({ town, product, market, shipCargo,
   const { cargoAmount, cargoPrice } = useMemo(() => {
     if (typeof shipCargo === 'undefined') return {}
 
-    const cargo = getCargoById(shipCargo, product.id);
-    console.log('cargo: ', cargo);
+    return { cargoAmount: shipCargo?.amount, cargoPrice: shipCargo?.price && 1 || undefined }
+  }, [shipCargo.amount]);
 
-    return { cargoAmount: cargo?.amount, cargoPrice: cargo?.price && 1 || undefined }
-  }, []);
-
-  console.log('cargoAmount, cargoPrice: ', cargoAmount, cargoPrice);
 
   const handlerTradeRangeOpen = (e: MouseEvent<HTMLDivElement>) => {
-    
     // @ts-ignore
     const $row = e.target.closest(`#${id}`);
     if ($row) {
-      // const
-      //   coords = document.getElementById(id)?.getBoundingClientRect();
-    
       hookTradeRange.setValue({
         ...hookTradeRange.value,
         productId: product.id,
         isProduced: town.produces?.includes(product.id),
-        market,
         shipCargo
       }, true);
     }

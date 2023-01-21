@@ -1,11 +1,16 @@
-import { useCallback, useMemo, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
+
 
 interface UseHoverBind {
-  onMouseEnter: () => void
-  onMouseLeave: () => void
+  onMouseEnter : () => void
+  onMouseLeave : () => void
 }
 
-type UseHover = [boolean, UseHoverBind]
+interface SetDelay {
+  setDelay: Dispatch<SetStateAction<number>>
+}
+
+type UseHover = [boolean, UseHoverBind, SetDelay]
 
 interface Config {
   enterDelay?: number // Задержка перед открытием в ms
@@ -15,6 +20,7 @@ interface Config {
 export const useHover = (config: Config = {}): UseHover => {
   const
     { enterDelay = 0 } = config,
+    [delay, setDelay] = useState(enterDelay),
     [timer, setTimer] = useState(0),
     [isHover, setIsHover] = useState(false);
 
@@ -25,16 +31,19 @@ export const useHover = (config: Config = {}): UseHover => {
         prev && setIsHover(true);
         return 0
       });
-    }, enterDelay);
-  }, []);
+    }, delay);
+  }, [delay]);
 
   const onMouseLeave = useCallback(() => {
     setIsHover(false);
     setTimer(0);
   }, []);
 
-  return useMemo(() => [isHover, {
-    onMouseEnter,
-    onMouseLeave
-  }], [isHover, onMouseEnter, onMouseLeave])
+   
+
+  return useMemo(() => [
+    isHover,
+    { onMouseEnter, onMouseLeave },
+    { setDelay }
+  ], [isHover, onMouseEnter, onMouseLeave, setDelay])
 }

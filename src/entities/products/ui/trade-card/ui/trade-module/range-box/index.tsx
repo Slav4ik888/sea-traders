@@ -2,14 +2,12 @@ import { ChangeEvent, FC, memo, useMemo } from 'react';
 import { UseValue } from 'shared/lib';
 import { TradeRangeType } from '../types';
 import { Value } from 'shared/ui';
-import { getCargoById } from 'entities/ships';
 import { usePlayer } from 'entities/player';
 import { calcCost } from '../../../../../model';
 import { TradeModuleTotalBox } from './total-box';
-import s from './index.module.scss';
+import { useTowns } from 'entities/towns';
 import { TradeOperationType } from 'entities/price';
-import { TownMarket } from 'entities/towns';
-import { cloneObj } from 'shared/utils';
+import s from './index.module.scss';
 
 
 
@@ -20,24 +18,25 @@ interface Props {
 
 export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
   const
-    { productId, market, shipCargo, rangeValue, total } = useMemo(() => hookTradeRange.value, [hookTradeRange.value]),
+    { productId, shipCargo, rangeValue, total, type } = useMemo(() => hookTradeRange.value, [hookTradeRange.value]),
     { money } = usePlayer(),
-    sellPrice     = useMemo(() => market[productId].price[0], [market[productId].price[0]]),
-    purchasePrice = useMemo(() => market[productId].price[0], [market[productId].price[1]]),
-    max = useMemo(() => String(market[productId].leftOvers.amount || 0), [market[productId].leftOvers.amount]),
+    { selectedMarket } = useTowns(),
+    sellPrice     = useMemo(() => selectedMarket[productId].price[0], [selectedMarket[productId].price[0]]),
+    purchasePrice = useMemo(() => selectedMarket[productId].price[0], [selectedMarket[productId].price[1]]),
+    max = useMemo(() => String(selectedMarket[productId].leftOvers.amount || 0), [selectedMarket[productId].leftOvers.amount]),
     min = useMemo(() => {
-      const amount = getCargoById(shipCargo, productId)?.amount;
-      return amount ? `-${amount}` : '0'
+      // const amount = ?.amount;
+      return shipCargo?.amount ? `-${shipCargo?.amount}` : '0'
     }, [shipCargo, productId]);
   
   console.log('min: ', min, ' max: ', max);
-  console.log('market: ', market);
+  console.log('selectedMarket: ', selectedMarket);
 
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
-    console.log('value: ', value);
 
     let
+      type:  TradeOperationType,
       rangeValue = 0,
       total = 0;
     
@@ -52,6 +51,7 @@ export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
       else {
         rangeValue = value;
         total = calcCost(value, purchasePrice);
+        type = TradeOperationType.SELL;
       }
     }
     // Buy from Market => Sell
@@ -69,6 +69,7 @@ export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
       else {
         total = calcCost(value, sellPrice) * (-1);
         rangeValue = value;
+        type = TradeOperationType.PURCHASE;
       }
     }
     
@@ -76,7 +77,8 @@ export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
     hookTradeRange.setValue({
       ...hookTradeRange.value,
       rangeValue,
-      total
+      total,
+      type
     });
   };
 
@@ -89,9 +91,9 @@ export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
         <div className={s.zeroCircle} /> */}
         <TradeModuleTotalBox
           total = {total}
-          type  = {TradeOperationType.PURCHASE}
+          type  = {type}
         />
-        
+
         <input
           type      = 'range'
           min       = {min}

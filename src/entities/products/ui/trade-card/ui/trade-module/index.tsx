@@ -1,11 +1,10 @@
 import { FC, memo } from 'react';
-import { cn, UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib';
 import { TradeRangeType } from './types';
 import { TradeModuleRangeBox } from './range-box';
 import { TradeModulePriceBox } from './price-box';
+import { TradeModuleSubmit as TradeModuleAction } from './submit';
 import s from './index.module.scss';
-
-
 
 
 
@@ -16,7 +15,6 @@ interface Props {
 
 export const TradeModule: FC<Props> = memo(({ hookTradeRange }) => {
 
-  
   if (!hookTradeRange.open) return null
 
   return (
@@ -24,8 +22,7 @@ export const TradeModule: FC<Props> = memo(({ hookTradeRange }) => {
       <div className={s.content}>
         <TradeModulePriceBox hookTradeRange={hookTradeRange} />
         <TradeModuleRangeBox hookTradeRange={hookTradeRange} />
-
-      {/* <Submit /> */}
+        <TradeModuleAction   hookTradeRange={hookTradeRange} />
       </div>
     </div>
   )

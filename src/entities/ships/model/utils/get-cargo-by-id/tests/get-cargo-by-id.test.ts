@@ -8,6 +8,10 @@ describe('getCargoById', () => {
     expect(getCargoById(MOCK_SHIP_CARGO_EMPTY, ProductName.Bread)).toBe(undefined);
   });
 
+  test('if ship cargo [undefined], must be undefined', () => {
+    expect(getCargoById([undefined], ProductName.Bread)).toBe(undefined);
+  });
+
   test('if cargo is availble in ship cargo, returns correct result', () => {
     expect(getCargoById(MOCK_SHIP_CARGO, ProductName.Bread)).toEqual(MOCK_CARGO_BREAD_10);
   });

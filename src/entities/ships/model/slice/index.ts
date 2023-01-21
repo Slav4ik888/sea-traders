@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Ship, ShipAction } from '../types';
+import { Cargo, Ship, ShipAction } from '../types';
 import { ShipsEntities, StateSchemaShips } from '../types/state-schema';
 import * as LS from 'shared/lib/local-storage';
 import { TownName, TOWNS } from 'entities/towns';
-import { getItemFromArrByField } from 'shared/utils';
+import { getItemFromArrByField, updateArrById } from 'shared/utils';
 
 
 
@@ -41,8 +41,13 @@ export const slice = createSlice({
           point: { ...getItemFromArrByField(TOWNS, 'title', payload.townName).points.port[0] }
         }
       };
+    },
+    updateShipCargo: (state, { payload }: PayloadAction<{ activeShipId: string, cargo: Cargo }>) => {  
+      state.entities[payload.activeShipId].condition.cargo = [...updateArrById(
+        state.entities[payload.activeShipId].condition.cargo,
+        payload.cargo
+      )];
     }
-     
   }
 })
 

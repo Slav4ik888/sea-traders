@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GameLevel } from 'entities/game';
-import { StateSchemaTowns, Town, TownName, TownsMarkets } from '../types';
+import { ProductId } from 'entities/products';
+import { StateSchemaTowns, Town, TownMarket, TownName, TownsMarkets } from '../types';
 import { getInitialMarkets, initialDistribution } from '../utils';
-
 
 
 
@@ -19,6 +19,21 @@ export const slice = createSlice({
   reducers: {
     setTownsMarkets: (state, { payload }: PayloadAction<TownsMarkets>) => {
       state.markets = { ...payload };
+    },
+    updateTownMarket: (state, { payload }: PayloadAction<{ townname: TownName, productId: ProductId, rangeValue: number }>) => {
+      state.markets = {
+        ...state.markets,
+        [payload.townname]: {
+          ...state.markets[payload.townname],
+          [payload.productId]: {
+            leftOvers: {
+              ...state.markets[payload.townname][payload.productId].leftOvers,
+              amount: state.markets[payload.townname][payload.productId].leftOvers.amount - payload.rangeValue
+            },
+            price: state.markets[payload.townname][payload.productId].price
+          }
+        }
+      };
     },
     selectTownName: (state, { payload }: PayloadAction<TownName>) => {
       state.selectedTownName = payload;
