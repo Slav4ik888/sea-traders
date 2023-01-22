@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
-import { UseValue } from 'shared/lib';
-import { TradeRangeType } from '../types';
+import { cn, UseValue } from 'shared/lib';
+import { TradeRangeType } from '../../types';
 import { Button, ButtonTheme } from 'shared/ui';
 import { useTowns } from 'entities/towns';
 import { useShips } from 'entities/ships';
@@ -12,10 +12,11 @@ import s from './index.module.scss';
 
 interface Props {
   hookTradeRange : UseValue<TradeRangeType>
+  className      : string
 }
 
 
-export const TradeModuleSubmit: FC<Props> = memo(({ hookTradeRange }) => {
+export const TradeModuleActionsSubmit: FC<Props> = memo(({ hookTradeRange, className }) => {
   const
     { selectedTownName, selectedMarket, updateTownMarket } = useTowns(),
     { updateShipCargo } = useShips(),
@@ -36,13 +37,12 @@ export const TradeModuleSubmit: FC<Props> = memo(({ hookTradeRange }) => {
 
 
   return (
-    <div className={s.root}>
-      <Button
-        theme   = {ButtonTheme.OUTLINE}
-        onClick = {handlerClick}
-      >
-        Submit
-      </Button>
-    </div>
+    <Button
+      theme     = {ButtonTheme.PRIMARY}
+      className = {cn(s.root, {}, [className])}
+      onClick   = {handlerClick}
+    >
+      Submit
+    </Button>
   )
 });

@@ -3,7 +3,7 @@ import { UseValue } from 'shared/lib';
 import { TradeRangeType } from './types';
 import { TradeModuleRangeBox } from './range-box';
 import { TradeModulePriceBox } from './price-box';
-import { TradeModuleSubmit as TradeModuleAction } from './submit';
+import { TradeModuleActions } from './actions';
 import s from './index.module.scss';
 
 
@@ -22,7 +22,7 @@ export const TradeModule: FC<Props> = memo(({ hookTradeRange }) => {
       <div className={s.content}>
         <TradeModulePriceBox hookTradeRange={hookTradeRange} />
         <TradeModuleRangeBox hookTradeRange={hookTradeRange} />
-        <TradeModuleAction   hookTradeRange={hookTradeRange} />
+        <TradeModuleActions  hookTradeRange={hookTradeRange} />
       </div>
     </div>
   )

@@ -1,12 +1,12 @@
 import { TradeOperationType } from 'entities/price';
 import { TownMarket } from 'entities/towns';
-import { TradeRangeType } from '../../../types';
+import { TradeRangeType } from '../../../../types';
 
 
 
 export const calcTradeOperation = (
   { type, rangeValue, productId }: TradeRangeType,
   market: TownMarket
-): number => type === TradeOperationType.PURCHASE
-    ? (-1) * rangeValue * market[productId].price[0]
-    : rangeValue * market[productId].price[1];
+): number => (type === TradeOperationType.PURCHASE
+    ? rangeValue * market[productId].price[0]
+    : rangeValue * market[productId].price[1]) * (-1);

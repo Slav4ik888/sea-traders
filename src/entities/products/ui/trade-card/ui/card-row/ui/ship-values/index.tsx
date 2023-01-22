@@ -13,8 +13,6 @@ interface Props {
 
 
 export const TradeCardRowShipValues: FC<Props> = memo(({ cargoAmount, cargoPrice, styles }) => {
-  console.log('cargoAmount: ', cargoAmount);
-  
   const { activeShip } = useShips();
 
   if (!activeShip) return null;
@@ -24,12 +22,10 @@ export const TradeCardRowShipValues: FC<Props> = memo(({ cargoAmount, cargoPrice
     <div className={styles.shipValues}>
       <Value
         value     = {cargoAmount}
-        // theme     = {!Boolean(cargoAmount) && ValueTheme.EMPTY}
         classname = {styles.value}
       />
       <Value
         value     = {cargoPrice}
-        // theme     = {!Boolean(cargoPrice) && ValueTheme.EMPTY}
         classname = {styles.value}
       />
     </div>

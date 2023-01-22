@@ -4,8 +4,11 @@ import s from './index.module.scss';
 
 
 export enum ButtonTheme {
-  BOARD   = 'board',
-  OUTLINE = 'outline'
+  BOARD     = 'board',
+  OUTLINE   = 'outline',
+  CANCEL    = 'cancel',
+  PRIMARY   = 'primary',
+  SECONDARY = 'secondary'
 }
 
 

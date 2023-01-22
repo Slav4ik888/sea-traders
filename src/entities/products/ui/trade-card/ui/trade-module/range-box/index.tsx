@@ -7,6 +7,7 @@ import { calcCost } from '../../../../../model';
 import { TradeModuleTotalBox } from './total-box';
 import { useTowns } from 'entities/towns';
 import { TradeOperationType } from 'entities/price';
+import { TradeModuleRangeBoxInput } from './input';
 import s from './index.module.scss';
 
 
@@ -21,19 +22,19 @@ export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
     { productId, shipCargo, rangeValue, total, type } = useMemo(() => hookTradeRange.value, [hookTradeRange.value]),
     { money } = usePlayer(),
     { selectedMarket } = useTowns(),
-    sellPrice     = useMemo(() => selectedMarket[productId].price[0], [selectedMarket[productId].price[0]]),
-    purchasePrice = useMemo(() => selectedMarket[productId].price[0], [selectedMarket[productId].price[1]]),
-    max = useMemo(() => String(selectedMarket[productId].leftOvers.amount || 0), [selectedMarket[productId].leftOvers.amount]),
-    min = useMemo(() => {
-      // const amount = ?.amount;
-      return shipCargo?.amount ? `-${shipCargo?.amount}` : '0'
-    }, [shipCargo, productId]);
+    mp = selectedMarket[productId],
+    sellPrice     = useMemo(() => mp.price[0], [mp.price[0]]),
+    purchasePrice = useMemo(() => mp.price[1], [mp.price[1]]),
+    max = useMemo(() => String(mp.leftOvers.amount || 0), [mp.leftOvers.amount]),
+    min = useMemo(() => String(shipCargo?.amount * (-1) || 0), [shipCargo, productId]);
   
   console.log('min: ', min, ' max: ', max);
   console.log('selectedMarket: ', selectedMarket);
 
+
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
+    console.log('value: ', value);
 
     let
       type:  TradeOperationType,
@@ -93,14 +94,10 @@ export const TradeModuleRangeBox: FC<Props> = memo(({ hookTradeRange }) => {
           total = {total}
           type  = {type}
         />
-
-        <input
-          type      = 'range'
+        <TradeModuleRangeBoxInput
           min       = {min}
           max       = {max}
-          step      = '1'
           value     = {rangeValue}
-          className = {s.input}
           onChange  = {handlerChange}
         />
         <Value

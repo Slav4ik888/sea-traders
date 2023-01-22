@@ -4,7 +4,7 @@ import { Cargo } from 'entities/ships';
 import { Product } from '../../../../../model/types';
 import { CardStyles } from '../../..';
 import { UseValue } from 'shared/lib';
-import { TradeRangeType } from '../../trade-module/types';
+import { emptyTradeRange, TradeRangeType } from '../../trade-module/types';
 import { TradeCardRowComponent } from './component';
 import s from './index.module.scss';
 
@@ -37,7 +37,7 @@ export const TradeCardRow: FC<Props> = memo(({ town, product, market, shipCargo,
     const $row = e.target.closest(`#${id}`);
     if ($row) {
       hookTradeRange.setValue({
-        ...hookTradeRange.value,
+        ...emptyTradeRange,
         productId: product.id,
         isProduced: town.produces?.includes(product.id),
         shipCargo

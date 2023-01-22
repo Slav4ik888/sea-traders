@@ -1,9 +1,13 @@
 :root {
-  --bg-color                  : #918271;
+  --primary-color             : #433b23;
+  --secondary-color           : #314344;
+  // --cancel-color              : #3e3a2d;
+
+  --bg-primary-color          : #ecdeb1;
+  --bg-secondary-color        : #c4b4a3;
+  // --bg-cancel-color           : #9b9584;
   --inverted-bg-color         : #394f5b;
 
-  --primary-color             : #1d1c3c;
-  --secondary-color           : #6f9a9b;
   --error-color-light         : red;
   --error-color-dark          : #ac0606;
 
