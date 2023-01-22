@@ -4,7 +4,7 @@ import { useTowns } from 'entities/towns';
 import { Modal } from 'shared/ui';
 import { TradeModule } from './trade-module';
 import { TradeCardContent } from './card';
-import { useValue } from 'shared/lib';
+import { useValue } from 'shared/lib/hooks';
 import { emptyTradeRange, TradeRangeType } from './trade-module/types';
 
 

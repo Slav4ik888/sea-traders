@@ -1,7 +1,6 @@
 import { FC, memo } from 'react';
-import { useTowns } from 'entities/towns';
 import { Card, Modal } from 'shared/ui';
-import { UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 

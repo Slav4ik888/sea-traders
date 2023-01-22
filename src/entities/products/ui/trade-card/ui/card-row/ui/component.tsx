@@ -4,7 +4,7 @@ import { Product } from '../../../../../model/types';
 import { TradeCardRowShipValues } from './ship-values';
 import { CardStyles } from '../../..';
 import { TradeCardRowMarketValues } from './market-values';
-import { cn } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import s from './index.module.scss';
 
 

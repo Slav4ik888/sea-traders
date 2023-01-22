@@ -1,9 +1,9 @@
 import { FC, memo, useCallback, useMemo } from 'react';
-import { useHover } from 'shared/lib';
 import { Town, TownName, useTowns } from 'entities/towns';
 import { ShipOnMap } from 'entities/ships/ui/ship-on-map';
 import { Ship } from 'entities/ships';
 import { TooltipTownInfo } from 'entities/towns/ui/tooltip-town-info-container/tooltip-town-info';
+import { useHover } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 

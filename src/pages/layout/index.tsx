@@ -1,8 +1,8 @@
-import { FC, memo, useEffect} from 'react';
+import { FC, memo } from 'react';
 import { Outlet } from 'react-router-dom';
 // Redux Stuff
-import { useAppDispatch } from 'shared/lib';
-import { useUI } from 'features/ui';
+// import { useAppDispatch } from 'shared/lib';
+// import { useUI } from 'features/ui';
 // Components
 // import { PageLoader, Navbar, Footer, MessageBar } from 'widgets';
 // Functions

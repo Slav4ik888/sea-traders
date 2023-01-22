@@ -1,7 +1,6 @@
 import { FC, useEffect } from 'react';
 import { screenResizeListener, useUI } from 'features/ui';
 import { AppRouter } from './providers/routes';
-import { useMouse } from 'shared/lib';
 import { useShips } from 'entities/ships/model/hooks';
 import { usePlayer } from 'entities/player';
 import * as LS from 'shared/lib/local-storage';
@@ -28,16 +27,16 @@ export const App: FC = () => {
     }
     else {
       const
-        startShip1 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title),
-        startShip2 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title),
-        startShip3 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title);
+        startShip = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title);
+        // startShip2 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title),
+        // startShip3 = getStartShip(entities, playerId, TOWNS[getRandomNumber(0, 59)].title);
 
-      addShips({
-        [startShip1.id]: startShip1,
-        [startShip2.id]: startShip2,
-        [startShip3.id]: startShip3,
-      })
-      // addShip(startShip);
+      // addShips({
+      //   [startShip1.id]: startShip1,
+      //   [startShip2.id]: startShip2,
+      //   [startShip3.id]: startShip3,
+      // });
+      addShip(startShip);
     }
 
 

@@ -1,6 +1,6 @@
 import { FC, ReactNode, useMemo, useState } from 'react';
 import { ThemeContext, Theme } from '../lib/context';
-import { LS } from 'shared/lib';
+import * as LS from 'shared/lib/local-storage';
 
 
 const defaultTheme = LS.getTheme() as Theme || Theme.LIGHT;

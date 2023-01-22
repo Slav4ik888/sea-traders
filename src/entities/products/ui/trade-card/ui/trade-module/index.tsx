@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib/hooks';
 import { TradeRangeType } from './types';
 import { TradeModuleRangeBox } from './range-box';
 import { TradeModulePriceBox } from './price-box';

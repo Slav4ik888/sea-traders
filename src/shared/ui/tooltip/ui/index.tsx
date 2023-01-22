@@ -1,6 +1,6 @@
 import { Position } from 'features/ui';
 import { memo, ReactNode, useEffect, useState } from 'react';
-import { cn } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import s from './index.module.scss';
 
 

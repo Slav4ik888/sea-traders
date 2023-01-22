@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { cn, Mods } from 'shared/lib';
+import { cn, Mods } from 'shared/lib/class-names';
 import { isUndefined } from 'shared/utils';
 import s from './index.module.scss';
 

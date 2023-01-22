@@ -1,7 +1,8 @@
 import { FC, memo } from 'react';
-import { cn, UseValue } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import { TradeRangeType } from '../../types';
 import { Button, ButtonTheme } from 'shared/ui';
+import { UseValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 

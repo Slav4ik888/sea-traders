@@ -1,9 +1,11 @@
-import { FC, memo, useCallback, useEffect, useMemo } from 'react';
+import { FC, memo, useEffect, useMemo } from 'react';
 import { Town, TownName } from '../../model';
-import { cn, useHover } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import { TooltipTownInfoContainer } from '../tooltip-town-info-container';
-import s from './index.module.scss';
 import { useShips } from 'entities/ships';
+import { useHover } from 'shared/lib/hooks';
+import s from './index.module.scss';
+
 
 
 const

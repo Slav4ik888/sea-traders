@@ -1,6 +1,4 @@
-import { TOWNS } from 'entities/towns';
 import { FC, memo, useCallback } from 'react';
-import { getRandomNumber } from 'shared/utils';
 import { useShips } from '../../model/hooks';
 import { ShipOnMap } from '../ship-on-map';
 

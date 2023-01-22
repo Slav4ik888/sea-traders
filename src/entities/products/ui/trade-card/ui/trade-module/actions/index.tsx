@@ -1,8 +1,9 @@
 import { FC, memo } from 'react';
-import { cn, UseValue } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import { TradeModuleActionsCancel as Cancel } from './cancel';
 import { TradeModuleActionsSubmit as Submit } from './submit';
 import { TradeRangeType } from '../types';
+import { UseValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 

@@ -5,8 +5,8 @@ import * as LS from 'shared/lib/local-storage';
 
 
 const initialState: StateSchemaPlayer = {
-  playerId : LS.getStateSchemaPlayer()?.playerId || '1',
-  money    : LS.getStateSchemaPlayer()?.money    || 30000
+  playerId : '1',
+  money    : 30000
 };
 
 
@@ -16,8 +16,8 @@ export const slice = createSlice({
   reducers: {
     addMoney: (state, { payload }: PayloadAction<number>) => {
       state.money = state.money + payload;
+      LS.setStateSchemaPlayer(state);
     }
-
   }
 })
 

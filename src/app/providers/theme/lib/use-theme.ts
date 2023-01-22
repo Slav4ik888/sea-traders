@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Theme, ThemeContext } from './context';
-import { LS } from 'shared/lib';
+import * as LS from 'shared/lib/local-storage';
+
 
 
 interface UseTheme {

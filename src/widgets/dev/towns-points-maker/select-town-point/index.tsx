@@ -1,6 +1,6 @@
 import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { Town, TownName } from 'entities/towns';
-import { useMouse } from 'shared/lib';
+import { useMouse } from 'shared/lib/hooks';
 import { getPosition, getTownCode } from '../utils';
 import { Position } from 'features/ui';
 import { Select, Text } from 'shared/ui';

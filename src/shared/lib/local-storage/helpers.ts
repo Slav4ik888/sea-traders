@@ -1,6 +1,8 @@
 import { Theme } from 'app/providers/theme/lib/context';
 import { StateSchemaPlayer } from 'entities/player';
 import { StateSchemaShips } from 'entities/ships';
+import { TownsMarkets } from 'entities/towns';
+import { TownsEntities } from 'entities/towns/model';
 import { setStorageData, getStorageData, removeStorageData } from './main';
 
 
@@ -12,3 +14,9 @@ export const getStateSchemaPlayer  = () => getStorageData('StateSchemaPlayer') a
 
 export const setStateSchemaShips  = (data: StateSchemaShips) => setStorageData('StateSchemaShips', data);
 export const getStateSchemaShips  = () => getStorageData('StateSchemaShips') as StateSchemaShips;
+
+export const setTownsMarkets = (data: TownsMarkets) => setStorageData('TownsMarkets', data);
+export const getTownsMarkets = () => getStorageData('TownsMarkets') as TownsMarkets;
+
+export const setTownsEntities = (data: TownsEntities) => setStorageData('TownsEntities', data);
+export const getTownsEntities = () => getStorageData('TownsEntities') as TownsEntities;

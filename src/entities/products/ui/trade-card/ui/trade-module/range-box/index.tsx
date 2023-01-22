@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, memo, useMemo } from 'react';
-import { UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib/hooks';
 import { TradeRangeType } from '../types';
 import { Value } from 'shared/ui';
 import { usePlayer } from 'entities/player';

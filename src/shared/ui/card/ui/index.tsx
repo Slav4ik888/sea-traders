@@ -1,6 +1,6 @@
 import { FC, memo, ReactNode } from 'react';
 import { Text } from 'shared/ui';
-import { cn } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import s from './index.module.scss';
 
 

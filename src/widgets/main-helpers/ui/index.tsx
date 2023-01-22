@@ -3,7 +3,7 @@ import { ShowAllTownsNames } from './show-all-towns-names';
 import { ShowAllDwellers } from './show-all-dwellers';
 import { ShowAllProducts } from './show-all-products';
 import { Button, ButtonTheme, Card, Modal } from 'shared/ui';
-import { useValue } from 'shared/lib';
+import { useValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 

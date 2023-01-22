@@ -4,7 +4,7 @@ import { getPosition, getTownPortCode } from '../utils';
 import { Position } from 'features/ui';
 import { Card } from 'shared/ui';
 import { Code } from 'shared/ui/code';
-import { UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib/hooks';
 import { copyToClipboard } from 'shared/utils';
 import s from './index.module.scss';
 

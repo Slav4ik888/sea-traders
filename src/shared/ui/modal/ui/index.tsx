@@ -1,5 +1,5 @@
 import { FC, ReactNode, useEffect, useRef, useState, useCallback, MutableRefObject, MouseEvent } from 'react';
-import { cn, Mods } from 'shared/lib';
+import { cn, Mods } from 'shared/lib/class-names';
 import { Portal } from 'shared/ui';
 import s from './index.module.scss';
 

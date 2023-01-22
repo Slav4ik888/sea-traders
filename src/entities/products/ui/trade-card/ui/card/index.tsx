@@ -3,7 +3,7 @@ import { Cargo } from 'entities/ships';
 import { Town } from 'entities/towns';
 import { Card } from 'shared/ui';
 import { TradeCardHeader } from '../card-header';
-import { UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib/hooks';
 import { TradeRangeType } from '../trade-module/types';
 import { TradeCardRows } from '../card-rows';
 import s from './index.module.scss';

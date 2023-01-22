@@ -1,5 +1,5 @@
 import { FC, memo, ReactNode } from 'react';
-import { cn } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import { Tooltip, TooltipTheme } from 'shared/ui';
 import s from './index.module.scss';
 

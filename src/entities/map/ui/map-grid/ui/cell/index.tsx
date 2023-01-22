@@ -1,10 +1,10 @@
 import { FC, useMemo } from 'react';
-import { cn } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import { VARIABLES } from 'app/config';
-import s from './index.module.scss';
-import { MapCell, MapType, useMap } from '../../../../model';
+import { MapCell, useMap } from '../../../../model';
 import { createMapCellId } from '../utils';
-import { getItemById } from 'shared/utils';
+import s from './index.module.scss';
+
 
 
 const { MAIN_MAP_CELL_SIZE } = VARIABLES;

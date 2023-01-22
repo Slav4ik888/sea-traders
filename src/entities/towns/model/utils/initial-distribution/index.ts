@@ -4,6 +4,7 @@ import { fillComplexProducts } from './fill-complex-products';
 import { fillMultyProducts } from './fill-multy-products';
 import { fillLonelyAndSimpleProducts } from './fill-lonely-and-products';
 import { fillDwellers } from './fill-dwellers';
+import * as LS from 'shared/lib/local-storage';
 
 
 /** 
@@ -21,5 +22,6 @@ export const initialDistribution = (): TownsEntities => {
   fillComplexProducts(entities);         // Распределяем производства Complex продуктов
   fillLonelyAndSimpleProducts(entities); // Распределяем производства Lonely & Simple продуктов
   
+  LS.setTownsEntities(entities);
   return entities
 }

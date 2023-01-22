@@ -1,6 +1,7 @@
 import { FC, memo, useEffect, useMemo, useState } from 'react';
-import { cn, useHover } from 'shared/lib';
+import { useHover } from 'shared/lib/hooks';
 import { Ship, useShips } from '../../model';
+import { cn } from 'shared/lib/class-names';
 import s from './index.module.scss';
 
 

@@ -1,11 +1,12 @@
 import { FC, memo } from 'react';
-import { cn, UseValue } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import { TradeRangeType } from '../../types';
 import { Button, ButtonTheme } from 'shared/ui';
 import { useTowns } from 'entities/towns';
 import { useShips } from 'entities/ships';
 import { usePlayer } from 'entities/player';
 import { calcTradeOperation } from './utils';
+import { UseValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 

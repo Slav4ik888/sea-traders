@@ -1,5 +1,5 @@
 import { FC, memo, useMemo } from 'react';
-import { UseValue } from 'shared/lib';
+import { UseValue } from 'shared/lib/hooks';
 import { TradeRangeType } from '../types';
 import { getProductById } from '../../../../../model';
 import { TradeCardRowComponent } from '../../card-row/ui/component';

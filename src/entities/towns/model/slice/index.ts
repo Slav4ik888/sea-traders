@@ -1,15 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GameLevel } from 'entities/game';
 import { ProductId } from 'entities/products';
-import { StateSchemaTowns, Town, TownMarket, TownName, TownsMarkets } from '../types';
+import { StateSchemaTowns, Town, TownName, TownsMarkets } from '../types';
 import { getInitialMarkets, initialDistribution } from '../utils';
+import * as LS from 'shared/lib/local-storage';
 
 
 
 const initialState: StateSchemaTowns = {
-  entities         : initialDistribution(),
+  entities         : LS.getTownsEntities() || initialDistribution(),
   selectedTownName : null,
-  markets          : getInitialMarkets(GameLevel.NORMAL)
+  markets          : LS.getTownsMarkets() || getInitialMarkets(GameLevel.NORMAL)
 };
 
 
@@ -19,6 +20,7 @@ export const slice = createSlice({
   reducers: {
     setTownsMarkets: (state, { payload }: PayloadAction<TownsMarkets>) => {
       state.markets = { ...payload };
+      LS.setTownsMarkets(state.markets);
     },
     updateTownMarket: (state, { payload }: PayloadAction<{ townname: TownName, productId: ProductId, rangeValue: number }>) => {
       state.markets = {
@@ -34,6 +36,7 @@ export const slice = createSlice({
           }
         }
       };
+      LS.setTownsMarkets(state.markets);
     },
     selectTownName: (state, { payload }: PayloadAction<TownName>) => {
       state.selectedTownName = payload;
@@ -42,7 +45,8 @@ export const slice = createSlice({
       state.entities[payload.title] = {
         ...state.entities[payload.title],
         ...payload
-      }
+      };
+      LS.setTownsEntities(state.entities);
     },
   }
 })

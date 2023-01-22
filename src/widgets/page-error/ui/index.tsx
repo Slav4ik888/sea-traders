@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { cn } from 'shared/lib';
+import { cn } from 'shared/lib/class-names';
 import s from './index.module.scss';
 
 

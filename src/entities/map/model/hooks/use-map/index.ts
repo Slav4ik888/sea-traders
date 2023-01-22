@@ -2,7 +2,7 @@ import * as s from '../../selectors';
 import { actions as a } from '../../slice';
 import { useSelector } from 'react-redux';
 import { MapErrors, MapType, MapCell } from '../../types';
-import { useAppDispatch } from 'shared/lib';
+import { useAppDispatch } from 'shared/lib/hooks';
 
 
 export const useMap = () => {
