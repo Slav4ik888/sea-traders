@@ -6,6 +6,7 @@ import { StateSchemaTowns } from 'entities/towns';
 import { StateSchemaGame } from 'entities/game';
 import { StateSchemaPlayer } from 'entities/player/model/types/state-schema';
 import { StateSchemaShips } from 'entities/ships';
+import { StateSchemaTownsRoutesMaker } from 'widgets/dev';
 
 
 export interface StateSchema {
@@ -16,6 +17,7 @@ export interface StateSchema {
   map     : StateSchemaMap
   towns   : StateSchemaTowns
   // Async reducer
+  devTownsRoutesMaker: StateSchemaTownsRoutesMaker
 };
 
 export const selectProps = (_: StateSchema, props: any) => props;
