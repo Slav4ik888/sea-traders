@@ -15,10 +15,10 @@ export const useDevTownsRoutesMaker = () => {
     selectedTown2 = useSelector(s.selectSelectedTown2),
     setSelectedTown = (townName: TownName, num: 1 | 2) => dispatch(actions.setSelectedTown({ townName, num })),
     
-    selectedMileage = useSelector(s.selectSelectedTownsRoutes),
+    selectedMileage = useSelector(s.selectSelectedMileage),
     setSelectedMileage = (value: number) => dispatch(actions.setSelectedMileage(value)),
     
-    townsRoutes = useSelector(s.selectSelectedMileage),
+    townsRoutes = useSelector(s.selectSelectedTownsRoutes),
     updateTownRoute = (data: UpdateTownsRoutes) => dispatch(actions.updateTownRoute(data));
     
     

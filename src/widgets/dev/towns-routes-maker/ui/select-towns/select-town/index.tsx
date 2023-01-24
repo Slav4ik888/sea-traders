@@ -22,13 +22,12 @@ export const SelectTown: FC<Props> = memo(({ townNumber }) => {
     else if (town2 && selected !== selectedTown2) setSelected(selectedTown2);
   }, [selectedTown1, selectedTown2]);
 
+
   const handlerChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value as TownName;
-    console.log('value: ', value);
     setSelected(value);
     setSelectedTown(value, townNumber);
   };
-
 
   
   return (

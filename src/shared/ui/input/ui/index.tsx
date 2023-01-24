@@ -1,21 +1,29 @@
 import { InputHTMLAttributes, ChangeEvent, memo, useState, useEffect, useRef } from 'react';
-import { cn, getRandom5Letters, Mods } from 'shared/lib';
-import s from './index.module.scss';
+import { cn, Mods } from 'shared/lib/class-names';
+import { getRandom5Letters } from 'shared/utils';
 import { getNum } from './utils';
+import s from './index.module.scss';
+
 
 // 1 element what we want include, 2 - excude
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
+
+interface Styles {
+  root?  : string
+  input? : string
+}
+
+
 interface Props extends HTMLInputProps {
-  className? : string
+  styles?    : Styles
   id?        : string
   value?     : string | number
-  type?      : 'number'
   label?     : string
   name?      : string
   autofocus? : boolean
   readOnly?  : boolean
-  onChange?  : (value: string, name: string) => void
+  onChange?  : (value: string, name?: string) => void
 }
 
 
@@ -24,16 +32,15 @@ export const Input = memo((props: Props) => {
     id    = getRandom5Letters(),
     type  = 'text',
     value = '',
-    name, readOnly, autofocus, label, placeholder, className, onChange, ...rest
+    name, readOnly, autofocus, label, placeholder, styles, onChange, ...rest
   } = props;
 
   const
-    ref                       = useRef<HTMLInputElement>(null),
+    ref          = useRef<HTMLInputElement>(null),
     [isFocused, setIsFocused] = useState(false),
-    handlerBlur               = () => setIsFocused(false),
-    handlerFocus              = () => setIsFocused(true);
+    handlerBlur  = () => setIsFocused(false),
+    handlerFocus = () => setIsFocused(true);
 
-  const isCaretVisible = isFocused && !readOnly;
 
   useEffect(() => {
     if (autofocus) {
@@ -42,8 +49,6 @@ export const Input = memo((props: Props) => {
     }
   }, [autofocus, readOnly]);
 
-  const [caretPposition, setCaretPosition] = useState(0);
-  const hanlderSelect = (e: any) => setCaretPosition(e?.target?.selectionStart || 0);
 
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
     let value = e.target?.value;
@@ -51,7 +56,6 @@ export const Input = memo((props: Props) => {
     if (type === 'number') value = getNum(value);
 
     onChange?.(value, e.target.name);
-    setCaretPosition(value.length);
   };
 
   const mods: Mods = {
@@ -60,33 +64,24 @@ export const Input = memo((props: Props) => {
 
 
   return (
-    <div className={cn(s.root, mods, [className])}>
+    <div className={cn(s.root, mods, [styles.root])}>
       {
-        label && <label htmlFor={id} className={s.label}>{`${label}>`}</label>
+        label && <label htmlFor={id} className={s.label}>{label}</label>
       }
-      <div className={s.caretWrapper}>
-        <input
-          id          = {id}
-          type        = {type}
-          value       = {value}
-          name        = {name}
-          placeholder = {placeholder}
-          className   = {s.input}
-          ref         = {ref}
-          readOnly    = {readOnly}
-          onBlur      = {handlerBlur}
-          onFocus     = {handlerFocus}
-          onChange    = {handlerChange}
-          onSelect    = {hanlderSelect}
-          {...rest}
-        />
-        {
-          isCaretVisible && <span
-            className = {s.caret}
-            style     = {{ left: `${caretPposition * 7.4}px` }}
-          />
-        }
-      </div>
+      <input
+        id          = {id}
+        type        = {type}
+        value       = {value}
+        name        = {name}
+        placeholder = {placeholder}
+        className   = {cn(s.input, {}, [styles.input])}
+        ref         = {ref}
+        readOnly    = {readOnly}
+        onBlur      = {handlerBlur}
+        onFocus     = {handlerFocus}
+        onChange    = {handlerChange}
+        {...rest}
+      />
     </div>
   )
 });
