@@ -5,10 +5,7 @@ import s from './index.module.scss';
 
 
 
-interface Props {
-}
-
-export const SelectTowns: FC<Props> = memo(({ }) => {
+export const SelectTowns: FC = memo(() => {
 
   return (
     <div className={s.root}>

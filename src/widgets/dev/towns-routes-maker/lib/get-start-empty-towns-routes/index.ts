@@ -10,7 +10,7 @@ export const getStartEmptyTownsRoutes = (): TownsRoutes => {
     townsRoutes[townKey1] = {};
 
     TOWNS_NAMES_VALUES_SORTED.forEach(townKey2 => {
-      townsRoutes[townKey1][townKey2] = 0
+      townsRoutes[townKey1][townKey2] = undefined
     });
   });
 

@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  border-bottom:1px solid var(--border-color);
+}
+
+.sidebar-cell {
+  width: var(--sidebar-width);
+  background-color: var(--card-header-bg-color);
+  border-right: 1px solid var(--border-color);
+  padding-left: 8px;
+  white-space: nowrap;
+}
+
+.content {
+  display: flex;
+}

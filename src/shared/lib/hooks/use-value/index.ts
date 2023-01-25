@@ -16,6 +16,7 @@ export function useValue<I>(initValue?: I, initOpen?: boolean, initIsChange?: bo
     setValue = (value: I, open?: boolean) => {
       _setValue(prev => value);
       if (typeof open !== 'undefined') _setOpen(open);
+      if (! changes) _setChange(true);
     },
     clearValue = () => _setValue((typeof initValue === 'string' ? '' : 0) as unknown as I),
 

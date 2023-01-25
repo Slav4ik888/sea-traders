@@ -1,0 +1,25 @@
+.root {
+  position: sticky;
+  top: 0;
+  display: flex;
+  padding-left: calc(var(--sidebar-width) + var(--sidebar-border-width) - 2px);
+  background-color: var(--card-header-bg-color);
+  border-right:1px solid var(--border-color);
+  border-bottom:1px solid var(--border-color);
+  width: 100%;
+  z-index: 10;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cell-width);
+  height: var(--sidebar-width);
+  border-left: 1px solid var(--border-color);
+}
+
+.label {
+  white-space: nowrap;
+  rotate: -90deg;
+}

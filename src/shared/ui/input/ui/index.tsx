@@ -2,11 +2,12 @@ import { InputHTMLAttributes, ChangeEvent, memo, useState, useEffect, useRef } f
 import { cn, Mods } from 'shared/lib/class-names';
 import { getRandom5Letters } from 'shared/utils';
 import { getNum } from './utils';
+import { useValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
 
 
 // 1 element what we want include, 2 - excude
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'onSubmit' | 'onBlur'>;
 
 
 interface Styles {
@@ -21,9 +22,13 @@ interface Props extends HTMLInputProps {
   value?     : string | number
   label?     : string
   name?      : string
+  disabled?  : boolean
   autofocus? : boolean
   readOnly?  : boolean
-  onChange?  : (value: string, name?: string) => void
+  clearZeroIfFocus? : boolean // Нужно ли удалить 0 когда focus in input
+  onChange?  : (value: string | number, name?: string) => void
+  onSubmit?  : (value: string | number, name?: string) => void
+  onBlur?    : (value: string | number, name?: string) => void
 }
 
 
@@ -32,12 +37,15 @@ export const Input = memo((props: Props) => {
     id    = getRandom5Letters(),
     type  = 'text',
     value = '',
-    name, readOnly, autofocus, label, placeholder, styles, onChange, ...rest
+    styles = {},
+    clearZeroIfFocus, name, readOnly, autofocus, label, placeholder, disabled,
+    onChange, onSubmit, onBlur, ...rest
   } = props;
 
   const
     ref          = useRef<HTMLInputElement>(null),
     [isFocused, setIsFocused] = useState(false),
+    S            = useValue(value || (type === 'text' ? '' : 0)),
     handlerBlur  = () => setIsFocused(false),
     handlerFocus = () => setIsFocused(true);
 
@@ -50,11 +58,35 @@ export const Input = memo((props: Props) => {
   }, [autofocus, readOnly]);
 
 
+  useEffect(() => {
+    if (S.changes && !isFocused) {
+      S.setChanges(false);
+
+      if (onSubmit) {
+        let value = S.value;
+        
+        if (clearZeroIfFocus) {
+          if (! S.value) {
+            value = 0;
+            S.setValue(0);
+          }
+        }
+        
+        onSubmit(value);
+      }
+    }
+
+    if (isFocused && !S.value && clearZeroIfFocus) S.setValue('')
+  }, [isFocused, S.changes]);
+  
+
+
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (disabled) return null;
     let value = e.target?.value;
 
     if (type === 'number') value = getNum(value);
-
+    S.setValue(value);
     onChange?.(value, e.target.name);
   };
 
@@ -71,7 +103,7 @@ export const Input = memo((props: Props) => {
       <input
         id          = {id}
         type        = {type}
-        value       = {value}
+        value       = {S.value}
         name        = {name}
         placeholder = {placeholder}
         className   = {cn(s.input, {}, [styles.input])}

@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, memo, useEffect, useState } from 'react';
-import { TownName, TOWNS_NAMES_KEYS_SORTED } from 'entities/towns';
+import { TownName, TOWNS_NAMES_VALUES_SORTED } from 'entities/towns';
 import { Select } from 'shared/ui';
 import { useDevTownsRoutesMaker } from '../../../model/hooks';
 import s from './index.module.scss';
@@ -33,7 +33,7 @@ export const SelectTown: FC<Props> = memo(({ townNumber }) => {
   return (
     <div className={s.root}>
       <Select
-        options       = {TOWNS_NAMES_KEYS_SORTED}
+        options       = {TOWNS_NAMES_VALUES_SORTED}
         selectedValue = {selected}
         onChange      = {handlerChange}
       />

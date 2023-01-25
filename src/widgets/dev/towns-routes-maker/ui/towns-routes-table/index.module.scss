@@ -1,0 +1,23 @@
+:root {
+  --sidebar-width: 120px;
+  --sidebar-border-width: 1px;
+  --townname-height: 24px;
+  --cell-width: 50px;
+  --cell-ml: 3px;
+  --card-header-bg-color: #e0cda5;
+  --border-color: #b5a56d; //c8ba88;
+}
+
+.root {
+  position: relative;
+  background: var(--card-bg-color);
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+
+.content {
+  width: max-content;
+  // width: calc(var(--sidebar-width) + (var(--cell-width) + var(--cell-ml)) * 60);
+  height: 100%;
+}

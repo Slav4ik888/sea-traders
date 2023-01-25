@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  align-items: center;
+  width: var(--cell-width);
+  border-right: 1px solid var(--border-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.input {
+  width: calc(var(--cell-width) - 1px);
+  background-color: inherit;
+  border: none;
+  text-align: center;
+}
+
+.this-town {
+  background-color: var(--card-header-bg-color);
+}
