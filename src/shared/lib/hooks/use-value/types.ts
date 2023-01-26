@@ -1,7 +1,12 @@
 
+export interface SetValueConfig {
+  open?     : boolean
+  isChange? : boolean
+}
+
 export interface UseValue<V> {
   value                          : V;
-  setValue(v: V, open?: boolean) : void;
+  setValue(v: V, config?: SetValueConfig) : void;
   clearValue()                   : void;
   
   open                           : boolean;

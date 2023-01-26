@@ -6,25 +6,27 @@ interface UseHoverBind {
   onMouseLeave : () => void
 }
 
-interface SetDelay {
+interface Helpers {
   setDelay: Dispatch<SetStateAction<number>>
 }
 
-type UseHover = [boolean, UseHoverBind, SetDelay]
+type UseHover = [boolean, UseHoverBind, Helpers]
 
 interface Config {
-  enterDelay?: number // Задержка перед открытием в ms
+  enterDelay?      : number     // Задержка перед открытием в ms
+  onCallbackEnter? : () => void // Function that runs when hover is activated
 }
 
 
 export const useHover = (config: Config = {}): UseHover => {
   const
-    { enterDelay = 0 } = config,
+    { enterDelay = 0, onCallbackEnter } = config,
     [delay, setDelay] = useState(enterDelay),
     [timer, setTimer] = useState(0),
     [isHover, setIsHover] = useState(false);
 
   const onMouseEnter = useCallback(() => {
+    onCallbackEnter && onCallbackEnter();
     setTimer(new Date().getTime());
     setTimeout(() => {
       setTimer(prev => {

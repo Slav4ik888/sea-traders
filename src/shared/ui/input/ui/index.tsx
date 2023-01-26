@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, ChangeEvent, memo, useState, useEffect, useRef } from 'react';
 import { cn, Mods } from 'shared/lib/class-names';
-import { getRandom5Letters } from 'shared/utils';
+import { getRandom5Letters, noUndefined } from 'shared/utils';
 import { getNum } from './utils';
 import { useValue } from 'shared/lib/hooks';
 import s from './index.module.scss';
@@ -76,9 +76,22 @@ export const Input = memo((props: Props) => {
       }
     }
 
-    if (isFocused && !S.value && clearZeroIfFocus) S.setValue('')
+    if (isFocused && !S.value && clearZeroIfFocus) {
+      S.setValue('');
+    }
   }, [isFocused, S.changes]);
   
+
+  // Если при первом рендере в useValue пришло value === undefined, нужно добавить начальное значение при изменении
+  useEffect(() => {
+    if (
+      S.value !== value &&
+      noUndefined(value) &&
+      value !== ''
+    ) {
+      S.setValue(value, { isChange: false });
+    }
+  }, [value]);
 
 
   const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {

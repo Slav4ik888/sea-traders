@@ -5,7 +5,8 @@ export {
   TownMarket,
   TownsMarkets,
   TownsEntities,
-  TownsRoutes
+  TownsRoutes,
+  TownRoutes
 } from './model/types'
 export { TOWNS, TOWNS_NAMES_KEYS_SORTED, TOWNS_NAMES_VALUES_SORTED } from './model/data'
 export { slice as townsSlice } from './model/slice'

@@ -1,33 +1,36 @@
 import { useState } from 'react';
-import { cloneObj, isObj, isUndefined } from 'shared/utils';
-import { UseValue } from './types';
+import { cloneObj, isObj, isUndefined, noUndefined } from 'shared/utils';
+import { SetValueConfig, UseValue } from './types';
 export { UseValue };
 
 /**
  * 
  */
-export function useValue<I>(initValue?: I, initOpen?: boolean, initIsChange?: boolean): UseValue<I>  {
+export function useValue<I>(initValue?: I, initOpen?: boolean, initIsChange?: boolean): UseValue<I> {
   const
     [value, _setValue] = useState(() => {
       if (isUndefined(initValue)) return null
       if (isObj(initValue)) return cloneObj(initValue)
       return initValue
-    }),
-    setValue = (value: I, open?: boolean) => {
+    });
+  
+  const setValue = (value: I, { open, isChange }: SetValueConfig = {}) => {
       _setValue(prev => value);
-      if (typeof open !== 'undefined') _setOpen(open);
-      if (! changes) _setChange(true);
+      if (noUndefined(open)) _setOpen(open);
+
+      if (noUndefined(isChange)) _setChange(isChange)
+      else if (! changes) _setChange(true);
     },
     clearValue = () => _setValue((typeof initValue === 'string' ? '' : 0) as unknown as I),
 
     [open, _setOpen] = useState(initOpen || false),
     setOpen = (c?: boolean) => {
       _setOpen(true);
-      if (typeof c !== 'undefined') setChanges(c);
+      if (noUndefined(c)) setChanges(c);
     },
     setClose = (c?: boolean) => {
       _setOpen(false);
-      if (typeof c !== 'undefined') setChanges(c);
+      if (noUndefined(c)) setChanges(c);
     },
 
     [changes, _setChange] = useState(initIsChange),

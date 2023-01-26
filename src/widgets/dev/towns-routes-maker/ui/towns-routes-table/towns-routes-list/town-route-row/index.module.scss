@@ -1,6 +1,10 @@
 .root {
   display: flex;
-  border-bottom:1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  &:hover {
+    background-color: var(--towns-row-hover-bg-color);
+  }
 }
 
 .sidebar-cell {
@@ -9,6 +13,10 @@
   border-right: 1px solid var(--border-color);
   padding-left: 8px;
   white-space: nowrap;
+
+  &:hover {
+    background-color: var(--towns-row-hover-bg-color);
+  }
 }
 
 .content {

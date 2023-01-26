@@ -3,6 +3,10 @@
   align-items: center;
   width: var(--cell-width);
   border-right: 1px solid var(--border-color);
+
+  &:hover {
+    background-color: var(--towns-row-hover-bg-color);
+  }
 }
 
 input::-webkit-outer-spin-button,

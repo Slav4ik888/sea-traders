@@ -5,7 +5,7 @@ import { getStartEmptyTownsRoutes } from '../../lib/get-start-empty-towns-routes
 import { TownName } from 'entities/towns';
 
 
-
+console.log('LS.getDevTownsRoutes(): ', LS.getDevTownsRoutes());
 const initialState: StateSchemaTownsRoutesMaker = {
   townsRoutes     : LS.getDevTownsRoutes() || getStartEmptyTownsRoutes(),
   selectedTown1   : LS.getDevTownsRoutesSelected()?.selectedTown1   || undefined,
@@ -27,7 +27,8 @@ export const slice = createSlice({
       LS.setDevTownsRoutesSelected({ selectedTown1: state.selectedTown1, selectedTown2: state.selectedTown2, selectedMileage: state.selectedMileage });
     },
     updateTownRoute: (state, { payload }: PayloadAction<UpdateTownsRoutes>) => {
-      state[payload.selectedTown1][payload.selectedTown2] = payload.selectedMileage;
+      state.townsRoutes[payload.selectedTown1][payload.selectedTown2] = payload.selectedMileage;
+      state.townsRoutes[payload.selectedTown2][payload.selectedTown1] = payload.selectedMileage;
       LS.setDevTownsRoutes(state.townsRoutes);
     },
     

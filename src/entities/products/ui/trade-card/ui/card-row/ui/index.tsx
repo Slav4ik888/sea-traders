@@ -36,12 +36,15 @@ export const TradeCardRow: FC<Props> = memo(({ town, product, market, shipCargo,
     // @ts-ignore
     const $row = e.target.closest(`#${id}`);
     if ($row) {
-      hookTradeRange.setValue({
-        ...emptyTradeRange,
-        productId: product.id,
-        isProduced: town.produces?.includes(product.id),
-        shipCargo
-      }, true);
+      hookTradeRange.setValue(
+        {
+          ...emptyTradeRange,
+          productId: product.id,
+          isProduced: town.produces?.includes(product.id),
+          shipCargo
+        },
+        { open: true }
+      );
     }
   };
   

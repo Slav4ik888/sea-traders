@@ -12,8 +12,8 @@ interface Styles {
 
 
 interface Props {
-  townnameRow : TownName
-  styles?     : Styles
+  townnameRow  : TownName
+  styles?      : Styles
 }
 
 
